@@ -62,8 +62,8 @@
 
 @media(max-width:640px){.home-masthead{z-index:50}}
 
-/* Real barrel displacement: the scanlines and complete image share the same curve. */
-.tube-curved:not(.crt-off) .screen-content,.tube-curved:not(.crt-off) .crt-glass{filter:url(#tube-curvature)}
+/* Warp only decorative glass: SVG displacement changes pixels, not pointer hit testing. */
+.tube-curved:not(.crt-off) .crt-glass{filter:url(#tube-curvature)}
 .screen-content{transform:none}
 .television-shell .galaxy-brand .game-title,.television-shell .game-title-en{transform:skew(-7deg)}
 .television-shell .galaxy-bottom{transform:none}
