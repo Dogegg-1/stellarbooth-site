@@ -1,0 +1,18 @@
+/* A single angled exhibition section. Contents remain readable and clickable. */
+#works{position:relative;isolation:isolate;border:0;padding:76px 0 85px;margin-top:56px;margin-bottom:65px}
+#works:before{content:"";position:absolute;inset:0 -28px;background:#241c31;border:1px solid #59466c;transform:skewY(-2deg);z-index:-2;pointer-events:none}
+#works:after{content:"";position:absolute;left:-28px;right:-28px;top:-10px;height:7px;background:#cce782;transform:skewY(-2deg);transform-origin:center;z-index:-1;pointer-events:none}
+#works .community-heading{transform:rotate(-1.4deg);transform-origin:left center;margin-bottom:43px}
+#works .community-heading h2{font-size:clamp(28px,3.3vw,43px);font-weight:900}
+#works .community-heading p{color:#bfb2ce}
+#works .community-kicker{color:#ceb5ed}
+#works .community-heading>a{align-self:center;background:#18131f;border:1px solid #79628e;padding:11px 15px;box-shadow:3px 3px 0 #120f19}
+#works .community-grid{gap:36px 24px;padding-bottom:25px}
+#works .featured-work{background:#141019;border-color:#665477;box-shadow:5px 7px 0 #100d17;transform:translateY(var(--stagger,0px)) rotate(var(--tilt,-1deg))}
+#works .featured-work:nth-child(4n+1){--stagger:18px;--tilt:-1.6deg}
+#works .featured-work:nth-child(4n+2){--stagger:6px;--tilt:1deg}
+#works .featured-work:nth-child(4n+3){--stagger:-6px;--tilt:-1deg}
+#works .featured-work:nth-child(4n){--stagger:-18px;--tilt:1.5deg}
+#works .featured-work:hover,#works .featured-work:focus-visible{transform:translateY(calc(var(--stagger,0px) - 8px)) rotate(0);border-color:#cce782;box-shadow:6px 10px 0 #0e0b13;outline:2px solid #cce782;outline-offset:2px}
+@media(max-width:760px){#works{margin-top:32px;margin-bottom:40px;padding:48px 0 52px}#works:before{inset:0 -15px;transform:skewY(-1.6deg)}#works:after{left:-15px;right:-15px;height:5px;transform:skewY(-1.6deg)}#works .community-heading{transform:none;margin-bottom:32px}#works .community-heading>a{align-self:flex-start}#works .community-grid{gap:27px 15px}#works .featured-work:nth-child(odd){--stagger:7px;--tilt:-1deg}#works .featured-work:nth-child(even){--stagger:-7px;--tilt:1deg}}
+@media(prefers-reduced-motion:reduce){#works .featured-work{transition:none}#works .featured-work:hover,#works .featured-work:focus-visible{transform:translateY(var(--stagger,0px)) rotate(var(--tilt,-1deg))}}

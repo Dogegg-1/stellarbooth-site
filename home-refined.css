@@ -1,0 +1,51 @@
+/* Homepage composition, layered after shared navigation and theme styles. */
+body[data-site-page=home]{--paper:#0d0e14;--ink:#f0eee9;--lime:#d4eaa2;background:#0d0e14;color:var(--ink)}
+body[data-site-page=home]>.global-site-nav{background:#0d0e14ed;border-bottom:1px solid #ffffff0d;padding-left:5vw;padding-right:5vw;backdrop-filter:blur(18px)}
+body[data-site-page=home]>.global-site-nav:before{content:"STELLARBOOTH";position:absolute;left:5vw;color:#eeece8;font-size:12px;letter-spacing:3px;font-weight:650}
+body[data-site-page=home]>.global-site-nav a[aria-current=page]{background:#ffffff0a;color:#d4eaa2;box-shadow:none}
+.galaxy-hero{height:calc(100svh - 70px);min-height:720px;max-height:1000px;background:#0d0e14}
+.galaxy-hero:before{background:radial-gradient(ellipse at 73% 46%,#7d66a31a,transparent 53%)}
+.galaxy-hero:after{box-shadow:none;background:none;border-bottom:1px solid #ffffff0d}
+#projectGalaxy,.galaxy-stars{left:37%;top:2%;width:66%;height:83%;right:auto;bottom:auto}
+.galaxy-brand{top:50%;left:7%;right:auto;width:40%;text-align:left;transform:translateY(-55%);pointer-events:auto}
+.galaxy-signature{display:flex;align-items:center;gap:12px;margin-bottom:40px;color:#ebe7e1;font-size:21px;letter-spacing:3px}
+.galaxy-signature .galaxy-logo{width:42px;height:40px;margin:0;object-fit:contain}
+.galaxy-signature small{display:block;font-family:Georgia,serif;letter-spacing:2px;font-size:10px;color:#a39cba;line-height:1.3}
+.galaxy-brand .galaxy-kicker{margin:0 0 18px;font-size:11px;letter-spacing:3px;color:#b9c995}
+.galaxy-brand h1{font-family:"Microsoft YaHei",system-ui,sans-serif;font-size:clamp(40px,4.3vw,72px);font-weight:550;line-height:1.3;letter-spacing:-2px;color:#f0eee9;margin:0 0 24px}
+.galaxy-brand h1 em{font-family:Georgia,"Songti SC","SimSun",serif;font-weight:400;font-style:normal;color:#d4eaa2;letter-spacing:3px}
+.galaxy-brand .galaxy-intro{font-size:14px;line-height:2;letter-spacing:.5px;color:#aaa8b6;margin:0 0 29px}
+.galaxy-actions{display:flex;align-items:center;gap:26px}
+.galaxy-actions .button{display:inline-flex;align-items:center;gap:30px;padding:15px 22px;border-radius:7px;font-size:13px;font-weight:600;background:#d4eaa2;color:#20251b;text-decoration:none}
+.galaxy-about{font-size:12px;color:#d0cbd9;text-decoration:none;padding:14px 0;display:flex;gap:16px}
+.galaxy-about:hover{color:#d4eaa2}
+.galaxy-footnote{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1px;color:#838391;margin-top:29px}
+.galaxy-footnote .live-dot{width:5px;height:5px;margin:0;box-shadow:0 0 10px #d4eaa250}
+.celestial-chart{inset:0;border:0;border-radius:0}
+.celestial-chart:before{left:43%;right:4%;top:16%;bottom:26%;border:1px solid #c3b0ed13;transform:rotate(-26deg)}
+.celestial-chart:after{left:48%;right:9%;top:8%;bottom:20%;border:1px solid #c3b0ed0c;transform:rotate(29deg)}
+.chart-north{left:auto;right:7%;top:48px;color:#8b829f;font-size:9px;letter-spacing:3px}
+.chart-side{right:3%;top:40%;color:#706b80;font-size:8px;letter-spacing:3px}
+.chart-index{left:auto;right:12%;bottom:23%;font-family:inherit;font-size:11px;letter-spacing:2px;color:#8e879f}
+.project-star:before{inset:17px;background:#f5eefc;box-shadow:0 0 7px #fff8,0 0 18px #c8adff99,0 0 32px #b797f449}
+.project-star:nth-child(3n):before{background:#e5edc7;box-shadow:0 0 8px #e5edc7bb,0 0 24px #d4eaa266}
+.project-star span{font-family:inherit;font-size:11px;color:#c5bed5;background:#11111bcc;border:1px solid #c2addb1c;padding:5px 10px;border-radius:5px;top:39px;text-shadow:none;letter-spacing:0}
+.project-star:after{border-style:solid;inset:4px}
+.project-star:nth-child(8n+1):after{border-color:#c6b1e830}
+.galaxy-bottom{left:7%;right:7%;bottom:30px;border-top:1px solid #ffffff12;padding-top:22px;align-items:center;gap:24px}
+.galaxy-caption{font-size:10px;color:#797887;letter-spacing:.2px}
+.galaxy-caption strong{font-size:12px;color:#d3ccdF;margin-bottom:4px;letter-spacing:.5px}
+.galaxy-caption br{display:none}
+.galaxy-caption>span:last-child{display:block;font-size:9px;margin-top:3px;color:#797887}
+.galaxy-controls{gap:9px;flex-wrap:nowrap}
+.galaxy-controls select,.galaxy-controls button{border:1px solid #ffffff16;background:#181820;border-radius:6px;padding:12px;color:#c5bfd0;font-size:11px;min-height:42px}
+.galaxy-controls button{cursor:pointer}.galaxy-controls button:hover{border-color:#d4eaa270}
+.galaxy-controls a{color:#b7bd9b;white-space:nowrap;text-decoration:none}
+.galaxy-card{right:7%;bottom:150px;width:330px;border-radius:12px;background:#191822f5;border:1px solid #c6b1e840;padding:26px;backdrop-filter:blur(20px);box-shadow:0 20px 90px #0009}
+.galaxy-card .close-star{min-width:32px;min-height:32px}.galaxy-card h2{font-size:24px}
+.galaxy-fallback .galaxy-stars{left:43%;top:20%;bottom:25%;width:50%;height:auto;grid-template-columns:repeat(4,1fr);padding:0 20px}
+.hero.wrap{padding-top:100px;padding-bottom:100px;gap:90px}.hero-photo{border-radius:18px;transform:rotate(-3deg);padding:7px;background:#1c1c26}.hero-photo img{border-radius:12px;filter:saturate(.75) brightness(.9);aspect-ratio:1.12}.hero-photo figcaption{padding:16px 10px 10px;font-size:11px}.sticker{border-radius:9px;background:#20232b;border-color:#d4eaa23b}.photo-frame{border-radius:12px;filter:saturate(.8)}
+.intro-title{font-family:"Microsoft YaHei",system-ui,sans-serif;font-weight:500;letter-spacing:-1px}.section h2{font-family:"Microsoft YaHei",system-ui,sans-serif;font-weight:500;line-height:1.5;letter-spacing:-1px}.section-heading .intro{color:#aaa7b5}.gather-card p{font-size:13px}.destination{border-radius:14px}.tool-preview{border-radius:12px}.closing{border-radius:18px}.section-heading .eyebrow{color:#bacb97}.ribbon{border-color:#ffffff0c}.galaxy-hero a:focus-visible,.galaxy-hero select:focus-visible,.galaxy-hero button:focus-visible{outline:2px solid #d4eaa2;outline-offset:5px}
+@media(min-width:1600px){.galaxy-brand{left:10%}.galaxy-bottom{left:10%;right:8%}.galaxy-brand h1{font-size:76px}}
+@media(max-width:1000px){body[data-site-page=home]>.global-site-nav:before{display:none}.galaxy-brand{left:5%;width:46%}.galaxy-brand h1{font-size:48px}.galaxy-bottom{left:5%;right:5%}.galaxy-controls a{display:none}.galaxy-signature{margin-bottom:30px}.galaxy-caption strong{font-size:11px}.hero.wrap{gap:40px}.galaxy-actions{gap:18px}.galaxy-actions .button{gap:18px}}
+@media(max-width:640px){.galaxy-hero{height:auto;min-height:1050px;max-height:none}.galaxy-brand{position:relative;top:auto;left:auto;width:auto;margin:0;padding:34px 26px 0;transform:none}.galaxy-signature{font-size:19px;margin-bottom:27px}.galaxy-signature .galaxy-logo{width:34px;height:32px}.galaxy-brand .galaxy-kicker{font-size:10px;margin-bottom:14px}.galaxy-brand h1{font-size:44px;line-height:1.28;letter-spacing:-1px;margin-bottom:17px}.galaxy-brand h1 br:nth-of-type(2){display:initial}.galaxy-brand .galaxy-intro{font-size:12px;margin-bottom:22px}.galaxy-actions{gap:24px}.galaxy-actions .button{font-size:12px;min-height:48px;padding:13px 19px}.galaxy-footnote{margin-top:19px;font-size:9px}#projectGalaxy,.galaxy-stars{left:0;top:445px;width:100%;height:390px}.celestial-chart:before{left:6%;right:6%;top:480px;bottom:auto;height:270px}.celestial-chart:after{left:15%;right:15%;top:455px;bottom:auto;height:310px}.chart-north{top:445px;right:26px;font-size:7px}.chart-side{display:none}.chart-index{bottom:auto;top:824px;left:0;right:0;text-align:center;font-size:10px}.galaxy-bottom{bottom:25px;left:26px;right:26px;flex-direction:column;align-items:stretch;padding-top:18px;gap:15px}.galaxy-caption{font-size:9px}.galaxy-caption strong{font-size:11px}.galaxy-controls{justify-content:flex-start;gap:10px}.galaxy-controls select{max-width:210px;flex:1}.galaxy-controls button{font-size:10px}.galaxy-controls a{display:none}.galaxy-card{left:20px;right:20px;width:auto;bottom:200px;max-height:440px;padding:20px}.project-star:nth-child(8n+1) span{opacity:1;font-size:9px;max-width:120px}.galaxy-fallback .galaxy-stars{left:3%;top:480px;width:94%;height:300px;bottom:auto}.hero.wrap{padding:60px 26px;gap:20px}.hero-photo img{aspect-ratio:1.4}.section h2{font-size:29px}.galaxy-hero+.hero{min-height:0}.galaxy-caption>span:last-child{font-size:8px}}

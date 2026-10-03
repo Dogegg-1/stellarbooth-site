@@ -1,0 +1,49 @@
+/* Left-hand game menu, right-hand particle galaxy, sharing one dark canvas. */
+.galaxy-hero{background:#0a0a12}
+.galaxy-hero:before{z-index:-1;background:radial-gradient(ellipse at 74% 42%,#7456ae25,transparent 46%),radial-gradient(ellipse at 88% 66%,#456c9220,transparent 36%),radial-gradient(ellipse at 49% 54%,#cadb7708,transparent 28%)}
+#projectGalaxy,.galaxy-stars{inset:0 0 70px auto;width:65%;height:calc(100% - 70px)}
+.galaxy-brand{inset:48% auto auto 5%;width:32%;max-width:none;transform:translateY(-50%);text-align:left;z-index:4}
+.galaxy-brand .game-title{font-size:clamp(78px,7.8vw,125px)}
+.galaxy-brand .game-title-en{font-size:clamp(26px,2.8vw,42px);margin-left:20px}
+.galaxy-brand .title-overline{letter-spacing:2px;line-height:1.8}
+.galaxy-actions{flex-wrap:wrap;gap:14px}.galaxy-actions a{padding:12px 19px}
+.galaxy-stars{overflow:clip}
+.galaxy-bottom{left:5%;right:5%;bottom:25px;align-items:center}
+.galaxy-controls button{white-space:nowrap}
+.galaxy-fallback .galaxy-stars{inset:90px 0 120px auto;width:62%;height:auto;grid-template-columns:repeat(5,1fr)}
+/* Lower-page accents stay dark, with warmer green and plum rather than flat slabs. */
+#works:before{background:linear-gradient(125deg,#272033,#1c1727 64%,#20232a)}
+#events .event-empty,#events .event-item{background:linear-gradient(115deg,#181721,#111219);border-left:3px solid #b9a0db}
+#about{column-gap:7%;padding-block:85px}
+#about .hero-title{line-height:1.35;margin-bottom:24px}
+#services .service-row{padding-inline:16px;border-left:2px solid transparent}
+#services .service-row:nth-child(even){background:#c4b0e805}
+#services .service-row:hover,#services .service-row:focus-within{border-left-color:#cce782;background:#cce78209}
+#space .space-copy h2{color:#dcebb3}
+#space .moments{gap:26px;margin-top:42px}
+#space .moments figure:nth-child(2){margin-top:32px}
+#contact{background:radial-gradient(ellipse at 95% 70%,#82639c12,transparent 60%)}
+.digital-corner{background:linear-gradient(110deg,#1b1725,#131819);border-color:#a791c33b}
+@media(min-width:641px) and (max-width:900px){.galaxy-brand{left:4%;width:35%}.galaxy-brand .game-title{font-size:78px}.galaxy-brand .game-title-en{font-size:27px}.galaxy-actions{gap:12px}.galaxy-actions a{font-size:12px;padding:10px 13px}.title-overline{font-size:8px}}
+@media(max-width:640px){
+ .galaxy-hero{min-height:760px}
+ #projectGalaxy,.galaxy-stars{inset:65px 0 auto;width:100%;height:43%}
+ .galaxy-hero:before{background:radial-gradient(ellipse at 65% 30%,#7456ae27,transparent 46%),radial-gradient(ellipse at 90% 45%,#456c9217,transparent 32%)}
+ .galaxy-brand{inset:auto 6% 126px;transform:none;width:auto;max-width:none}
+ .galaxy-brand .game-title{font-size:74px}.galaxy-brand .game-title-en{font-size:25px}
+ .galaxy-brand .title-overline{font-size:8px;margin-bottom:8px}
+ .galaxy-bottom{left:6%;right:6%;bottom:17px;align-items:stretch;gap:6px}
+ .galaxy-caption{display:flex;align-items:center;gap:12px}.galaxy-caption #galaxyHint{font-size:9px}
+ .galaxy-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.galaxy-controls select{max-width:none;width:100%;min-width:0}.galaxy-controls a{display:none}
+ .galaxy-fallback .galaxy-stars{inset:95px 0 auto;width:100%;height:210px;grid-template-columns:repeat(6,1fr)}
+ #about{padding-block:52px}#services .service-row{padding-inline:8px}#space .moments{gap:18px;margin-top:25px}#space .moments figure:nth-child(2){margin-top:0}
+}
+/* Softer ink palette: one quiet title, with colour reserved for the controls. */
+.galaxy-brand .game-title{color:#ddd9e2;-webkit-text-stroke-color:#ddd9e2;text-shadow:3px 3px 0 #0b0b12,6px 6px 0 #0b0b12,8px 8px 0 #716482}
+.galaxy-brand .game-title span:nth-child(3){color:#c8c4d5;-webkit-text-stroke-color:#c8c4d5}
+.galaxy-brand .game-title-en{background:#292535;color:#c9bfd8;border-color:#121019;box-shadow:3px 3px 0 #6b607a}
+.galaxy-brand .title-overline{color:#9d92af}
+.galaxy-brand .galaxy-actions .quiet-link{background:#b8c88f;color:#171d13;box-shadow:3px 3px 0 #59614b}
+.galaxy-brand .galaxy-actions .galaxy-about{background:#292532;color:#d0c6dc;border-color:#6c607b!important;box-shadow:3px 3px 0 #15121d}
+.project-star:before{box-shadow:0 0 6px #fff6,0 0 15px #b8a4ce88,0 0 24px #b09ed933}
+.project-star:nth-child(3n):before{background:#d4ddba;box-shadow:0 0 6px #e3ecc288,0 0 15px #bdcb8c55}

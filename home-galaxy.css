@@ -1,0 +1,31 @@
+/* Keep the original shared functional navigation and the interactive galaxy. */
+body[data-site-page=home]>.global-site-nav{display:grid;grid-template-columns:repeat(4,136px);justify-content:end;align-items:center;gap:8px;padding:9px 32px;background:#0b0b12f5;border-bottom:1px solid #c5b4e226}
+body[data-site-page=home]>.global-site-nav>a,body[data-site-page=home]>.global-site-nav>span{display:flex;flex-direction:row;justify-content:center;align-items:center;gap:6px;width:100%;min-width:0;height:44px;min-height:44px;padding:0 8px;border-radius:5px;font-size:13px;letter-spacing:0;color:#aaa7b7}
+body[data-site-page=home]>.global-site-nav a[aria-current=page]{background:#d3e88c;color:#202619}
+body[data-site-page=home]>.global-site-nav a:hover{background:#c6b1e819;color:#e5daf5}
+body[data-site-page=home]>.global-site-nav a[aria-current=page]:hover{background:#d3e88c;color:#202619}
+.galaxy-brand h1{font-family:var(--serif);font-weight:400;letter-spacing:0;font-size:clamp(40px,4.3vw,65px)}
+.galaxy-signature{line-height:1.7}.galaxy-footnote .live-dot{display:inline-block;border-radius:50%;background:#d4eaa2}.galaxy-controls select{font-family:inherit}.galaxy-card .eyebrow{letter-spacing:1.5px}.galaxy-card .close-star{line-height:1}.galaxy-card img{object-fit:cover}
+.section h2{font-family:var(--serif);font-weight:400;line-height:1.6;letter-spacing:1px}
+.partner-grid{grid-template-columns:repeat(3,1fr);gap:28px 22px}.partner-name{color:#24212c;font-family:var(--serif);font-size:29px;letter-spacing:5px}.partner-open .partner-mark{flex-direction:column;gap:3px;background:transparent;border:1px dashed #c6b1e84d;color:#c9bfd5;font-size:12px;transition:border-color .2s,background .2s}.partner-ellipsis{font-family:Georgia,serif;font-size:35px;letter-spacing:9px;line-height:1.1;color:#d3e0ae}.partner-open-caption{display:block;text-align:center;margin-top:16px;font-size:11px;letter-spacing:1px;color:#bccb9f}.partner-open:hover .partner-mark{background:#c6b1e80a;border-color:#cbdba080}
+@media(max-width:1000px){body[data-site-page=home]>.global-site-nav:before{display:none}}
+@media(max-width:640px){body[data-site-page=home]>.global-site-nav{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:stretch;padding:6px;gap:3px}body[data-site-page=home]>.global-site-nav>a,body[data-site-page=home]>.global-site-nav>span{font-size:11px;height:46px;min-height:46px;padding:4px;flex-direction:column;gap:3px}.galaxy-brand h1{font-size:44px}.galaxy-actions{gap:22px}.galaxy-actions .quiet-link{font-size:11px;gap:14px}.galaxy-about{font-size:11px}.partner-grid{grid-template-columns:repeat(2,1fr);gap:25px 18px}.partner-name{font-size:22px;letter-spacing:2px}.partner-open .partner-mark{font-size:10px;padding:10px}.partner-open-caption{font-size:9px;letter-spacing:0;margin-top:11px}.partner-ellipsis{font-size:29px}}
+
+/* Fewer ornaments; typography and real photographs carry the lower page. */
+body[data-site-page=home]>.global-site-nav:before{content:none}
+.galaxy-hero:before{background:none}.galaxy-brand{transform:translateY(-50%)}
+.galaxy-signature{margin-bottom:36px}.galaxy-brand .galaxy-intro{font-size:13px;letter-spacing:0}
+.galaxy-bottom{border-top:0;padding-top:0}.galaxy-caption strong{font-size:12px}.galaxy-caption #galaxyHint{font-size:11px;color:#a6a0ae}
+.galaxy-controls select,.galaxy-controls button{background:transparent;border-color:#ffffff25}
+.project-star span{background:#111116bb;border:0;padding:3px 5px}.project-star:nth-child(8n+1):after{border-color:transparent}
+.brand-hero{padding-top:90px;padding-bottom:85px}.hero-copy .hero-title{font-size:42px;line-height:1.55}.hero-description{max-width:390px;font-size:14px;line-height:2.1}
+.hero-scene{margin:0}.hero-scene:before{content:none}.hero-scene>img{border-radius:2px;height:365px;filter:saturate(.85) brightness(.93)}
+.hero-scene figcaption{font-size:11px;color:#9f99a7;letter-spacing:0}
+.section{padding-block:75px}.section-heading{margin-bottom:35px}.section h2{font-size:33px;letter-spacing:0}
+.services-section,.partners-section{background:transparent;border-block:0}.services-section>.shell,.partners-section>.shell{border-top:1px solid var(--line)}
+.service-row{padding-block:29px;align-items:center}.service-title h3{font-size:22px}.service-copy p{font-size:13px;line-height:1.95}.service-number{color:#89858e}
+.space-copy .quiet-link{margin-top:22px}.space-copy>p:not(.overline){font-size:14px}.space-photo img{filter:saturate(.85)}.moments img{filter:saturate(.85) brightness(.95)}
+.partner-mark{border-radius:1px}.partner-open .partner-mark{border-style:solid;border-color:#ffffff25;font-size:13px}.partner-name{letter-spacing:2px}
+.contact-layout{padding-top:15px;border-top:0}.visit-details address{font-size:15px}.visit-details>p{font-size:12px}
+.quiet-link{border-bottom:0;gap:14px}.footer-main{margin-bottom:25px}.site-footer{padding-top:35px}
+@media(max-width:640px){.galaxy-brand{transform:none}.galaxy-signature{margin-bottom:28px}.galaxy-brand .galaxy-intro{font-size:12px}.brand-hero{padding-top:50px;padding-bottom:50px}.hero-copy .hero-title{font-size:32px}.hero-description{font-size:13px}.hero-scene{margin-top:28px}.hero-scene>img{height:270px;border-radius:2px}.section{padding-block:50px}.section h2{font-size:28px}.section-heading{margin-bottom:26px}.service-row{align-items:start;padding-block:23px}.service-title h3{font-size:20px}.service-copy p{font-size:12px}.space-copy>p:not(.overline){font-size:13px}.partner-open .partner-mark{font-size:11px}}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="description" content="星游集，位于杭州良渚的游戏与内容创作者共创据点。以活动、空间、游戏实验工坊与行业连接，陪伴灵感长成作品。">
+  <title>星游集 StellarBooth · 独立游戏社区</title>
+  <link rel="stylesheet" href="./site-nav.css?v=2">
+
+  <link rel="stylesheet" href="./galaxy.css?v=retro5">
+  <link rel="stylesheet" href="./home-refined.css?v=1">
+  <link rel="stylesheet" href="./home-editorial.css?v=2">
+  <link rel="stylesheet" href="./home-galaxy.css?v=2">
+  <script src="./assets/vendor/three/three.min.js" defer></script>
+  <script src="./data/resources.js" defer></script>
+  <script src="./data/media.js?v=20260921-8" defer></script>
+  <script src="./particle-wake.js?v=2" defer></script><script src="./galaxy.js?v=power10" defer></script>
+  <script src="./home-contact.js?v=2" defer></script>
+<link rel="stylesheet" href="./community.css?v=1"><link rel="stylesheet" href="./site-motion.css?v=2">
+<script src="./entry-route.js"></script><script src="./data/events.js?v=1" defer></script><script src="./community.js?v=3" defer></script><link rel="stylesheet" href="./home-comic.css?v=4"><link rel="stylesheet" href="./home-game-ui.css?v=2"><link rel="stylesheet" href="./works-stage.css?v=1"><script src="./works-stage.js?v=1" defer></script><link rel="stylesheet" href="./home-scroll.css?v=1"><script src="./home-scroll.js?v=1" defer></script><link rel="stylesheet" href="./home-orbit.css?v=2"><link rel="stylesheet" href="./work-preview.css?v=1"><link rel="stylesheet" href="./home-crt.css?v=5"><script src="./home-crt.js?v=3" defer></script><link rel="stylesheet" href="./home-project.css?v=1"><script src="./data/link-reviews.js?v=1" defer></script><script src="./home-project.js?v=2" defer></script><link rel="stylesheet" href="./interface-polish.css?v=1"><link rel="stylesheet" href="./collection.css?v=1"><script src="./collection-store.js?v=1" defer></script><script src="./collection-ui.js?v=1" defer></script></head>
+<body data-site-page="home">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <script src="./site-nav.js?v=6"></script>
+<a class="home-masthead" href="./index.html" aria-label="星游集 StellarBooth 主页"><img src="./assets/home/stellarbooth-rabbit.png" alt="" width="604" height="560"><span>星游集 <small>StellarBooth</small></span></a>
+  <main id="main">
+    <div class="television-shell"><section class="galaxy-hero tv-off" data-power="off" aria-label="StellarBooth 项目银河"><div class="screen-content" inert>
+      <canvas id="projectGalaxy" aria-hidden="true"></canvas>
+      <div class="galaxy-brand">
+        <div class="title-overline">INDEPENDENT GAMES · HANGZHOU</div><h1 class="game-title" aria-label="星游集"><span aria-hidden="true">星</span><span aria-hidden="true">游</span><span aria-hidden="true">集</span></h1><div class="game-title-en">StellarBooth</div>
+        <p class="galaxy-intro">独立游戏 · 开发者 · 玩家</p>
+        <div class="galaxy-actions"><a class="quiet-link" href="#works">逛逛作品 <span aria-hidden="true">↗</span></a><a class="galaxy-about" href="#events">看看活动 <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="galaxy-stars" role="group" aria-label="选择一个登记项目"></div>
+      <aside id="galaxyCard" class="galaxy-card" aria-label="所选项目" hidden><button type="button" class="close-star" aria-label="关闭项目预览">×</button><h2></h2><div class="star-team"></div><img hidden alt=""><p class="star-stage"></p><p class="star-description"></p><a href="./map.html">查看完整项目档案 ↗</a></aside>
+      <div class="galaxy-bottom"><div class="galaxy-caption"><strong id="galaxyCount">项目银河</strong><span id="galaxyHint">点击星星，查看作品</span></div><div class="galaxy-controls"><select id="galaxyPicker" aria-label="按名称选择项目"><option value="">探索一个项目</option></select><button id="galaxyMotion" class="screen-tool" type="button" aria-label="暂停漫游" aria-pressed="true" title="暂停漫游"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="icon-pause"><path d="M8 5v14M16 5v14"/></g><path class="icon-play" d="m8 5 11 7-11 7Z"/></svg><span class="motion-label">暂停漫游</span></button><button id="crtToggle" class="screen-tool" type="button" aria-pressed="true" aria-label="CRT 滤镜" title="关闭 CRT 滤镜"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21h8M8 8h8M8 11h8M8 14h5"/></svg><span>CRT</span></button><a href="#about">向下逛 ↓</a></div></div>
+      </div><div class="crt-glass" aria-hidden="true"></div><div class="tv-power-flash" aria-hidden="true"></div><div class="tv-power-gate"><button id="tvPower" type="button" aria-label="打开电视" title="打开电视"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v13M8 7a12 12 0 1 0 16 0"/></svg></button></div><noscript><p>请启用 JavaScript 开启项目银河，或向下浏览作品。</p></noscript>
+    </section>
+    <span class="tv-speaker" aria-hidden="true"></span></div>
+    <section class="shell community-section" id="works"><div class="community-heading"><div><span class="community-kicker">WORLDS IN THE MAKING</span><h2>大家在做什么游戏？</h2><p>独立开发、小队创作。点开看看，也许就有你想玩的。</p></div><a href="map.html?view=gallery">浏览全部作品 ↗</a></div><div id="featuredWorks" class="community-grid"></div></section>
+    <section class="shell community-section" id="events"><div class="community-heading"><div><span class="community-kicker">MEET · PLAY · CREATE</span><h2>最近有什么局？</h2><p>主题分享、作品试玩与创作交流，确认后的活动将在这里更新。</p></div><a href="#contact">活动咨询 ↗</a></div><div id="eventList" class="event-list"></div><section id="pastEventsSection" hidden><h3>往期活动</h3><div id="pastEvents" class="event-list"></div></section><div class="participate-strip" id="participation"><div><h3>在做游戏？把作品放上来。</h3><p>提交新项目，或更新已有团队档案。由运营核对后手动整理。</p></div><div class="community-actions"><a class="community-button" href="intake.html">提交作品 / 资料纠错 ↗</a></div></div></section>
+
+    <div class="scroll-ribbon" aria-hidden="true"><div class="scroll-ribbon-track">PLAY / CREATE / MEET <span>✳</span> STELLARBOOTH <span>✳</span> PLAY / CREATE / MEET <span>✳</span> STELLARBOOTH <span>✳</span></div></div>
+    <header class="brand-hero shell" id="about">
+      <div class="hero-copy">
+
+        <h2 class="hero-title">一起做游戏，<br>也一起过日常。</h2>
+        <p class="hero-description">星游集在良渚，为独立开发者和小团队提供共创空间。平时一起做项目，周末聊游戏、试作品，也为刚起步的创作者组织开发工坊。</p>
+        <a class="quiet-link" href="#services">我们在做什么 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-scene">
+        <img src="./assets/home/community.webp" alt="星游集活动现场，创作者围坐交流" width="1400" height="933" fetchpriority="high">
+        <figcaption>星游集活动现场</figcaption>
+      </figure>
+    </header>
+    <section class="services-section" id="services" aria-labelledby="services-title"><div class="shell section">
+      <div class="section-heading"><h2 id="services-title">我们在做什么</h2></div>
+      <div class="service-list">
+        <article class="service-row"><span class="service-number">01 /</span><div class="service-title"><h3>创作者活动</h3></div><div class="service-copy"><p>主题分享、游戏下午茶、Demo 展示。带着作品或问题来，和同行交换经验。</p></div><a href="#events" aria-label="查看近期活动">活动交流 <span aria-hidden="true">↗</span></a></article>
+        <article class="service-row"><span class="service-number">02 /</span><div class="service-title"><h3>自由共创空间</h3></div><div class="service-copy"><p>面向个人开发者与小团队，提供灵活工位，以及试玩、分享和小型发布的场地。</p></div><a href="#space" aria-label="了解自由共创空间">走进空间 <span aria-hidden="true">↗</span></a></article>
+        <article class="service-row"><span class="service-number">03 /</span><div class="service-title"><h3>游戏实验工坊</h3></div><div class="service-copy"><p>从选题到可玩的原型，在导师指导下完成小体量项目，通过试玩反馈持续修改。</p></div><a href="#contact" aria-label="咨询游戏实验工坊">工坊咨询 <span aria-hidden="true">↗</span></a></article>
+        <article class="service-row"><span class="service-number">04 /</span><div class="service-title"><h3>找发行，找伙伴</h3></div><div class="service-copy"><p>围绕作品展示、辅助发行与高校合作，为项目寻找合适的资源和合作伙伴。</p></div><a href="#contact" aria-label="洽谈项目与行业合作">聊聊合作 <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </div></section>
+
+    <section class="space-section shell section" id="space" aria-labelledby="space-title">
+      <div class="space-layout"><figure class="space-photo"><img src="./assets/home/space.webp" alt="星游集共创空间的沙发与交流区" width="900" height="600" loading="lazy"><figcaption>杭州良渚数字文化社区 · 星游集</figcaption></figure><div class="space-copy"><h2 id="space-title">线下据点：良渚</h2><p>可以安静开发，也可以约人试玩。工作之外，有沙发、游戏机和设计书籍。来之前，和我们约个时间。</p><a class="quiet-link" href="#contact">预约来访 <span aria-hidden="true">↗</span></a></div></div>
+      <div class="moments"><figure><img src="./assets/home/conversation.webp" alt="创作者在星游集现场分享制作经验" width="900" height="600" loading="lazy"><figcaption>现场交流</figcaption></figure><figure><img src="./assets/home/demo.webp" alt="开发者展示游戏作品，与现场伙伴交流" width="900" height="600" loading="lazy"><figcaption>作品试玩</figcaption></figure></div>
+    </section>
+    <section class="partners-section" id="partners" aria-labelledby="partners-title"><div class="shell section">
+      <div class="section-heading"><h2 id="partners-title">合作伙伴</h2></div>
+      <div class="partner-grid">
+        <figure class="partner"><div class="partner-mark"><img src="./assets/home/partner-mahayu.png" alt="马哈鱼" width="356" height="126" loading="lazy"></div><figcaption>马哈鱼</figcaption></figure>
+        <figure class="partner"><div class="partner-mark"><img src="./assets/home/partner-erabit.png" alt="ERABIT" width="800" height="800" loading="lazy"></div><figcaption>ERABIT</figcaption></figure>
+        <figure class="partner"><div class="partner-mark"><img src="./assets/home/partner-xunyou.png" alt="寻游" width="1366" height="470" loading="lazy"></div><figcaption>寻游</figcaption></figure>
+        <figure class="partner partner-community"><div class="partner-mark"><img src="./assets/home/partner-liangzhu.jpg" alt="国家对外文化贸易基地（杭州）、中国（良渚）数字文化社区" width="6044" height="1280" loading="lazy"></div><figcaption>中国（良渚）数字文化社区</figcaption></figure>
+        <figure class="partner"><div class="partner-mark partner-name"><span>赛博利亚</span></div><figcaption>赛博利亚</figcaption></figure>
+        <a class="partner partner-open" href="#contact"><div class="partner-mark"><span>更多伙伴，陆续加入</span></div><span class="partner-open-caption">合作联系 ↗</span></a>
+      </div>
+    </div></section>
+    <section class="contact-section shell section" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading"><h2 id="contact-title">来，碰个头。</h2></div>
+      <div class="contact-layout"><div class="visit-details"><address>杭州良渚数字文化社区<br><strong>4 幢 3 层 · 星游集</strong></address><p>活动、来访与合作，请联系微信。</p><button class="quiet-link copy-address" type="button">复制来访地址 <span aria-hidden="true">↗</span></button><span class="copy-status" role="status" aria-live="polite"></span></div>
+      <div class="contact-channels">
+        <a class="contact-channel" href="./assets/home/contact-wechat.png" target="_blank" rel="noopener"><img src="./assets/home/contact-wechat.png" alt="微信咨询二维码，点击查看大图" width="424" height="424" loading="lazy"><h3>微信咨询</h3></a>
+        <a class="contact-channel" href="./assets/home/contact-official.jpg" target="_blank" rel="noopener"><img src="./assets/home/contact-official.jpg" alt="星游集公众号二维码，点击查看大图" width="258" height="258" loading="lazy"><h3>微信公众号</h3></a>
+        <a class="contact-channel" href="./assets/home/contact-xiaohongshu.png" target="_blank" rel="noopener"><img src="./assets/home/contact-xiaohongshu.png" alt="宣讲稿提供的小红书渠道二维码，点击查看大图" width="302" height="302" loading="lazy"><h3>小红书</h3></a>
+        <a class="contact-channel" href="./assets/home/contact-workshop.png" target="_blank" rel="noopener"><img src="./assets/home/contact-workshop.png" alt="游戏实验工坊报名二维码，点击查看大图" width="400" height="400" loading="lazy"><h3>工坊报名</h3></a>
+      </div></div>
+    </section>
+    <aside class="digital-corner shell" aria-label="线上探索"><p>线上探索</p><div><a href="./map.html">游戏星图 <span aria-hidden="true">↗</span></a><span class="coming-soon">游戏工具库 <small>筹备中</small></span></div></aside>
+  </main>
+  <footer class="site-footer shell"><div class="footer-main"><a class="footer-brand" href="./index.html"><img src="./assets/home/stellarbooth-rabbit.png" alt="" width="604" height="560"><span>星游集<small>StellarBooth</small></span></a><a href="#main" class="back-top">回到页首 ↑</a></div><div class="footer-bottom"><span>杭州星涂游文化科技有限公司</span><span>杭州 · 良渚</span><small>作品资料由团队登记提供</small></div></footer>
+</body>
+</html>

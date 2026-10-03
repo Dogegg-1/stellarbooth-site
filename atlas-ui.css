@@ -1,0 +1,60 @@
+body[data-site-page=map]{background:#0c0c12;color:#ded8e7}
+body[data-site-page=map] .app-shell{padding:16px 22px;gap:12px}
+body[data-site-page=map] .topbar{grid-template-columns:minmax(220px,1fr) minmax(260px,520px);gap:25px}
+body[data-site-page=map] h1{font-size:22px}.brand-block p{display:none}
+body[data-site-page=map] .search-box{background:#19161f;border-color:#675b7344;border-radius:12px}
+body[data-site-page=map] .explore-bar{background:none;border:0;padding:0;justify-content:space-between}
+.atlas-data-summary{position:relative;font-size:11px;color:#a59aae}.atlas-data-summary summary{cursor:pointer;padding:12px}.atlas-data-summary[open]{padding:12px;border:1px solid #6d5d7544;border-radius:10px;background:#19161f}.atlas-data-summary .stats-grid{margin:10px 0}
+body[data-site-page=map] .workspace,body[data-site-page=map] .workspace.gallery-mode{grid-template-columns:minmax(0,1fr)}
+body[data-site-page=map] .workspace .map-panel{height:calc(100dvh - 230px);min-height:490px;border:1px solid #5c526c66;border-radius:20px;background:#121018}
+body[data-site-page=map] .workspace.gallery-mode .map-panel{height:auto;min-height:490px;padding-right:82px}
+body[data-site-page=map] .map-toolbar{padding:12px 18px;background:#17141ded;border-color:#5f526a44;gap:12px}
+body[data-site-page=map] #openSidebar{display:none}
+.atlas-dock{position:absolute;right:14px;top:82px;z-index:30;display:flex;flex-direction:column;gap:5px;padding:7px;background:#211b29ed;border:1px solid #78688455;border-radius:17px;box-shadow:0 8px 30px #0005}
+.atlas-dock button{display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:0;border-radius:10px;color:#c3b6d1;padding:10px;cursor:pointer;font-size:10px;min-width:48px}.atlas-dock svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.atlas-dock button:hover,.atlas-dock button:focus-visible{background:#b8a0d522;color:#d6e4b6;outline:1px solid #c1b1cf66}
+body[data-site-page=map] .workspace .filters-panel,body[data-site-page=map] .workspace.gallery-mode .filters-panel{display:flex;position:fixed;inset:85px 18px 18px auto;z-index:115;width:min(345px,calc(100vw - 30px));height:auto;visibility:hidden;transform:translateX(110%);transition:transform .25s,visibility .25s;background:#19161f;border:1px solid #7b678955;border-radius:17px;box-shadow:-15px 0 60px #0007}
+body[data-site-page=map] .workspace.sidebar-open .filters-panel{visibility:visible;transform:none}
+body[data-site-page=map] .sidebar-heading,body[data-site-page=map] #closeSidebar,body[data-site-page=map] .apply-sidebar{display:flex}
+#filterContent .primary-filters{display:grid;grid-template-columns:1fr;gap:12px;margin:15px 0}#filterContent .need-shortcuts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+body[data-site-page=map] .workspace .detail-panel,body[data-site-page=map] .workspace.gallery-mode .detail-panel{inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(780px,calc(100vw - 28px));height:auto;max-height:calc(100dvh - 110px);z-index:140;background:#17151f;border-color:#786588;border-radius:18px;animation:none;box-shadow:0 25px 100px #000b}
+body[data-site-page=map] .detail-toolbar{background:#17151f}body[data-site-page=map] #drawerBackdrop{z-index:130;background:#03030ab3;backdrop-filter:blur(4px)}body[data-site-page=map] #sidebarBackdrop{z-index:110;background:#05050b88}
+.atlas-settings{inset:0;margin:auto;width:min(420px,calc(100vw - 32px));border:1px solid #796789;border-radius:18px;background:#1c1724;color:#ded8e7;padding:24px}.atlas-settings::backdrop{background:#05050caa;backdrop-filter:blur(4px)}.atlas-settings header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.atlas-settings header button{border:0;background:none;color:#c7bad5;font-size:25px}.atlas-settings-tools{display:grid;gap:13px}.atlas-settings-tools button,.atlas-settings-tools select{border:1px solid #77608755;border-radius:9px;background:#292132;color:#ded6e9;padding:12px;cursor:pointer}.atlas-settings-tools label{display:flex;align-items:center;justify-content:space-between;gap:12px}
+@media(max-width:640px){body[data-site-page=map] .app-shell{padding:12px 10px}body[data-site-page=map] .topbar{grid-template-columns:1fr;gap:10px}body[data-site-page=map] h1{font-size:18px}body[data-site-page=map] .workspace .map-panel{height:calc(100dvh - 260px);min-height:480px}.atlas-dock{right:8px;top:80px;padding:4px}.atlas-dock button{padding:8px;min-width:40px}.atlas-dock svg{width:19px;height:19px}body[data-site-page=map] .workspace.gallery-mode .map-panel{padding-right:60px}.atlas-data-summary .stats-grid{flex-wrap:wrap}.atlas-data-summary[open]{max-width:180px}.atlas-settings-tools #focusBrowse{display:block!important}}
+@media(prefers-reduced-motion:reduce){body[data-site-page=map] .workspace .filters-panel{transition:none}}
+body[data-site-page=map] .sidebar-tabs button[aria-pressed=true],body[data-site-page=map] .filter-btn.active{background:#41344e;border-color:#9580a4;color:#eee3f5}
+body[data-site-page=map] .filters-panel select{background:#211b29;color:#d4c9df;border-color:#76628355}
+body[data-site-page=map] .filters-panel .apply-sidebar{justify-content:center;background:#b8c79b;color:#1b2117;border:0;padding:13px;font-size:12px}
+body[data-site-page=map] #filterContent .primary-filters label{display:grid;gap:7px;font-size:11px;color:#a99ab7}
+body[data-site-page=map] #filterContent .primary-filters select{width:100%}
+body[data-site-page=map] .workspace .detail-panel{animation:none!important}
+/* Search above a viewport-sized map; all secondary controls sit in side sheets. */
+body[data-site-page=map] .app-shell{height:calc(100dvh - var(--site-nav-height,70px));min-height:0;display:flex;flex-direction:column;padding:10px 14px 14px;gap:10px;overflow:hidden}
+body[data-site-page=map] .app-shell>.topbar{display:block;flex:0 0 auto;padding:0;margin:0;background:none;min-height:0}
+body[data-site-page=map] .search-panel{width:100%}
+body[data-site-page=map] .search-box{min-height:48px}
+body[data-site-page=map] .app-shell>.explore-bar{display:none}
+body[data-site-page=map] .workspace,body[data-site-page=map] .workspace.gallery-mode{flex:1;min-height:0;height:auto;margin:0;display:block}
+body[data-site-page=map] .workspace .map-panel,body[data-site-page=map] .workspace.gallery-mode .map-panel{height:100%;min-height:0;display:block;padding:0;overflow:hidden}
+body[data-site-page=map] .map-stage{height:100%;min-height:0}
+body[data-site-page=map] .workspace.gallery-mode .project-gallery{height:100%;overflow-y:auto;padding:20px 95px 30px 20px;overscroll-behavior:contain}
+body[data-site-page=map] .atlas-dock{top:18px;right:14px;max-height:calc(100% - 36px);overflow:auto}
+body[data-site-page=map] .map-overlay-title{display:none!important}
+body[data-site-page=map] .atlas-settings{inset:85px 18px 18px auto;margin:0;width:min(370px,calc(100vw - 30px));max-height:none;padding:20px;overflow-y:auto}
+.atlas-settings-tools .brand-block h1{font-size:16px;margin:8px 0}.atlas-settings-tools .eyebrow{font-size:10px}
+.atlas-settings-tools .view-switch{display:flex;width:100%}.atlas-settings-tools .view-switch button{flex:1;font-size:12px;padding:10px 6px}
+body[data-site-page=map] .atlas-settings .map-toolbar{display:flex;flex-direction:column;align-items:stretch;padding:14px 0;margin:0;background:none;border:0}
+.atlas-settings .map-actions{display:flex;justify-content:space-between}.atlas-settings #locationSummary{display:block;line-height:1.7;margin-top:6px}
+.atlas-settings .region-nav{flex-wrap:wrap;background:none;border:0;padding:0}.atlas-settings .atlas-data-summary[open]{max-width:none}.atlas-settings .stats-grid{display:grid;grid-template-columns:1fr 1fr}.atlas-settings #activeFilters{margin:0}.atlas-settings .map-participation{font-size:12px}
+body[data-site-page=map] #backToTools{display:none!important}
+@media(max-width:640px){body[data-site-page=map] .app-shell{padding:8px;gap:8px}body[data-site-page=map] .atlas-dock{right:8px;top:12px;padding:4px}body[data-site-page=map] .workspace.gallery-mode .project-gallery{padding:12px 72px 20px 12px}body[data-site-page=map] .atlas-settings{inset:70px 10px 10px auto;width:calc(100vw - 20px);max-height:none}}
+body[data-site-page=map] .app-shell>.topbar{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);align-items:center;gap:24px}
+body[data-site-page=map] .topbar .brand-block{display:flex;align-items:center;gap:12px;min-width:0}.topbar .brand-block img{object-fit:contain;flex-shrink:0}
+body[data-site-page=map] .topbar h1{margin:0;font-size:21px;letter-spacing:.04em}
+body[data-site-page=map] .atlas-settings{box-sizing:border-box;scrollbar-gutter:stable;overflow-x:hidden}
+body[data-site-page=map] .atlas-settings-tools{min-width:0;grid-template-columns:minmax(0,1fr)}
+body[data-site-page=map] .atlas-settings-tools :is(button,select){box-sizing:border-box;min-height:44px;max-width:100%;font:inherit;font-size:13px;line-height:1.4;padding:10px 12px;background:#29232f;border:1px solid #78658866;color:#e0dce6;border-radius:10px;white-space:normal;overflow-wrap:anywhere}
+body[data-site-page=map] .atlas-settings-tools .view-switch{box-sizing:border-box;min-width:0;gap:4px;padding:4px}.atlas-settings-tools .view-switch button{min-width:0}
+body[data-site-page=map] .atlas-settings-tools button[aria-pressed=true]{background:#bcc99f;color:#20251a}
+body[data-site-page=map] .atlas-settings-tools .map-actions{width:100%;min-width:0}.atlas-settings-tools .map-actions .zoom-btn{width:44px;flex:0 0 44px}
+@media(max-width:640px){body[data-site-page=map] .app-shell>.topbar{grid-template-columns:minmax(0,1fr) minmax(130px,1fr);gap:10px}body[data-site-page=map] .topbar h1{font-size:13px;letter-spacing:0}.topbar .brand-block img{width:29px;height:32px}body[data-site-page=map] .topbar .brand-block{gap:5px}body[data-site-page=map] .search-box{padding:8px;gap:5px}body[data-site-page=map] .search-box input{font-size:12px}}
+body[data-site-page=map] #atlasSettings :is(#resetFilters,#resetMap,#mapType){background:#29232f!important;color:#e0dce6!important;border:1px solid #78658866!important;box-shadow:none!important}

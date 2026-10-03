@@ -1,0 +1,109 @@
+/* The bezel is outside the scene, so projected project hit targets retain their coordinates. */
+.television-shell{position:relative;margin:22px 25px 30px;padding:15px 15px 37px;border:1px solid #57545e;border-radius:35px;background:linear-gradient(145deg,#36333d,#19181f 38%,#28252e);box-shadow:inset 0 2px 1px #ffffff1c,inset 0 -3px 4px #0009,0 15px 45px #0004}
+.television-shell:after{content:"STELLARBOOTH  /  DISPLAY 01";position:absolute;bottom:12px;left:28px;color:#aaa3ae;font:9px/1 monospace;letter-spacing:2px}
+.television-shell:before{content:"";position:absolute;right:29px;bottom:13px;width:6px;height:6px;border-radius:50%;background:#bfd197;box-shadow:0 0 8px #bfd19766}
+.television-shell .galaxy-hero{height:calc(100svh - 170px);min-height:600px;max-height:950px;border-radius:26px / 22px;border:1px solid #08070c;box-shadow:0 0 0 3px #111016,inset 0 0 40px #0009}
+.crt-glass{position:absolute;inset:0;border-radius:inherit;z-index:5;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,#0000001c 3px 4px),radial-gradient(ellipse at 50% 45%,transparent 47%,#02020855 100%),linear-gradient(130deg,#e7deff05,transparent 28%,transparent 80%,#b9c99c04);box-shadow:inset 0 0 30px 8px #0007,inset 0 1px 1px #e9e0ff20}
+.galaxy-hero.crt-off .crt-glass{display:none}
+.television-shell .galaxy-brand .game-title{align-items:baseline;transform:skew(-7deg);letter-spacing:-5px;color:#e2ddcc;-webkit-text-stroke:1px #e2ddcc;text-shadow:3px 3px 0 #201a29,6px 6px 0 #514356}
+.television-shell .game-title span:nth-child(n){transform:none;color:inherit;-webkit-text-stroke-color:inherit}
+.television-shell .game-title-en{transform:skew(-7deg);margin:12px 0 6px;background:none;border:0;box-shadow:none;padding:0;color:#c8c0d2;font-size:clamp(25px,3vw,42px);text-shadow:0 0 12px #c6b3d512}
+.television-shell .galaxy-brand{top:48%}
+.television-shell .galaxy-bottom{left:4%;right:4%;bottom:22px}
+.television-shell .galaxy-controls{gap:9px;align-items:center}
+.television-shell .galaxy-controls .screen-tool{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:44px;height:42px;padding:9px;border:1px solid #9686a144;border-radius:10px;background:#19151e99;color:#c8c0d2;cursor:pointer}
+.screen-tool svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.screen-tool .motion-label{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#galaxyMotion[aria-pressed=true] .icon-play,#galaxyMotion[aria-pressed=false] .icon-pause{display:none}
+.television-shell .screen-tool:hover,.television-shell .screen-tool:focus-visible{border-color:#c2ce9f;background:#27222e;outline:2px solid #c2ce9f55;outline-offset:2px}
+.television-shell #crtToggle[aria-pressed=true]{color:#c0cda1}
+.television-shell .galaxy-controls select{height:42px;border-radius:10px;background:#16131b99;border-color:#9686a144}
+.television-shell .galaxy-controls>a{font-size:0;display:grid;place-items:center;width:38px;height:42px;padding:0;text-decoration:none;border:1px solid #9686a144;border-radius:10px}
+.television-shell .galaxy-controls>a:after{content:"↓";font-size:20px;color:#bdb2cc}
+@media(max-width:900px) and (min-width:641px){.television-shell{margin:18px 14px;padding:11px 11px 32px}.television-shell .galaxy-brand .game-title{font-size:70px}.television-shell .galaxy-brand{left:4%}.television-shell .galaxy-controls select{max-width:155px}}
+@media(max-width:640px){.television-shell{margin:80px 10px 20px;padding:8px 8px 30px;border-radius:24px}.television-shell .galaxy-hero{height:720px;min-height:720px;border-radius:18px}.television-shell:after{font-size:7px;letter-spacing:1px;left:20px;bottom:11px}.television-shell:before{bottom:12px;right:20px;width:5px;height:5px}.television-shell #projectGalaxy,.television-shell .galaxy-stars{top:8px;height:43%}.television-shell .galaxy-brand{inset:auto 7% 142px;width:auto}.television-shell .galaxy-brand .game-title{font-size:clamp(53px,17vw,70px);letter-spacing:-4px}.television-shell .game-title-en{font-size:26px;margin-top:10px}.television-shell .galaxy-actions{gap:12px;flex-wrap:wrap}.television-shell .galaxy-actions a{font-size:11px;padding:10px 12px}.television-shell .galaxy-bottom{left:7%;right:7%;bottom:22px}.television-shell .galaxy-controls{grid-template-columns:minmax(0,1fr) 42px 64px;gap:7px}.television-shell .galaxy-controls select{font-size:10px;padding:8px;max-width:none}.television-shell .galaxy-controls>a{display:none}.crt-glass{background:repeating-linear-gradient(0deg,transparent 0 3px,#00000012 3px 4px),radial-gradient(ellipse at center,transparent 55%,#02020844);box-shadow:inset 0 0 20px #0005}.television-shell .galaxy-caption{flex-wrap:wrap;gap:8px}}
+/* Warm moulded housing and a recessed, gently convex tube screen. */
+.television-shell{padding:25px 27px 60px;border:2px solid #77726a;border-radius:43px;background:linear-gradient(135deg,#777166 0%,#4a4742 15%,#363431 50%,#514c45 100%);box-shadow:inset 0 3px 2px #e4d8b544,inset 3px 0 4px #c3b9a02b,inset -4px -6px 5px #100f11aa,0 18px 45px #0008}
+.television-shell:after{bottom:24px;left:34px;color:#c0b9a7;font-size:10px;letter-spacing:2px;text-shadow:0 1px #181719}
+.television-shell:before{right:39px;bottom:26px;box-shadow:0 0 0 4px #262721,0 0 0 5px #8e887255,0 0 10px #bfd19766}
+.television-shell .galaxy-hero{height:calc(100svh - 212px);min-height:575px;border-radius:7% / 5%;border:2px solid #151317;box-shadow:0 0 0 5px #242224,0 0 0 7px #88806c40,0 -5px 8px 5px #181719b3,0 5px 5px 6px #a4997a18,inset 0 0 40px #0009}
+.crt-glass{border-radius:inherit;background:repeating-linear-gradient(0deg,transparent 0 3px,#00000018 3px 4px),radial-gradient(ellipse at 50% 48%,transparent 53%,#00000066 100%);box-shadow:inset 0 0 35px 9px #0008,inset 0 2px 3px #e8e4f02b,inset 0 -3px 6px #d8d4ea10}
+.crt-glass:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse 85% 32% at 48% -13%,#eee6dc24,transparent 85%),radial-gradient(ellipse 12% 65% at -7% 50%,#d9d2ed22,transparent 95%),radial-gradient(ellipse 12% 65% at 107% 50%,#b3bcca18,transparent 95%);box-shadow:inset 10px 0 18px -17px #eee1d999,inset -10px 0 18px -17px #eee1d955}
+.tv-speaker{position:absolute;bottom:20px;left:50%;width:160px;height:19px;transform:translateX(-50%);border-radius:3px;background:repeating-linear-gradient(90deg,#171718 0 2px,#77706466 2px 4px);box-shadow:inset 0 2px 3px #0009,0 1px #d0c3a133;pointer-events:none}
+@media(max-width:900px) and (min-width:641px){.television-shell{padding:21px 21px 55px}.television-shell:after{font-size:8px;left:27px}.tv-speaker{width:110px}}
+@media(max-width:640px){.television-shell{padding:14px 12px 45px;border-radius:30px}.television-shell .galaxy-hero{height:720px;min-height:720px;border-radius:8% / 3%}.television-shell:after{font-size:7px;letter-spacing:.6px;left:19px;bottom:18px;max-width:160px}.television-shell:before{right:24px;bottom:19px}.tv-speaker{left:auto;right:49px;bottom:16px;transform:none;width:47px;height:12px}.television-shell .galaxy-brand .game-title{font-size:clamp(49px,16vw,66px)}.television-shell .galaxy-controls{grid-template-columns:minmax(0,1fr) 40px 60px;gap:5px}.television-shell .galaxy-controls .screen-tool{min-width:40px;padding:8px}.crt-glass{box-shadow:inset 0 0 23px 5px #0006,inset 0 2px 2px #e8e4f023}}
+/* Dark graphite television; softer lower-page exhibition panel. */
+.television-shell{border-color:#49454d;background:linear-gradient(135deg,#48454c,#29272f 22%,#201e25 65%,#323038);box-shadow:inset 0 3px 2px #cac4d126,inset 3px 0 4px #aaa4b31c,inset -4px -6px 5px #0b0a0daa,0 18px 45px #0008}
+.television-shell .galaxy-hero{box-shadow:0 0 0 5px #17161c,0 0 0 7px #625b6a44,0 -5px 8px 5px #0b0a0db3,0 5px 5px 6px #b3a5bf10}
+.television-shell:after{color:#9b94a2}.tv-speaker{background:repeating-linear-gradient(90deg,#101014 0 2px,#68606f55 2px 4px)}
+.screen-content{position:absolute;inset:0;transform:perspective(1600px) rotateX(1.1deg) scale(.985);transform-origin:center;isolation:isolate}
+.television-shell .galaxy-brand .game-title{transform:perspective(650px) rotateY(8deg) skew(-7deg);transform-origin:left center}
+.television-shell .game-title-en{transform:perspective(650px) rotateY(8deg) skew(-7deg);transform-origin:left center}
+.television-shell .galaxy-bottom{transform:perspective(900px) rotateX(-5deg);transform-origin:center bottom}
+.crt-glass:after{content:"";position:absolute;inset:1px;border-radius:50% / 4%;box-shadow:inset 0 2px 4px #d6cbe016,inset 0 -3px 8px #0008;pointer-events:none}
+.tv-off .screen-content{visibility:hidden}.tv-off:before{opacity:0}.tv-off .crt-glass{opacity:.7}
+.tv-power-gate{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 40%,#1a1721,#07080d 72%);border-radius:inherit}
+.tv-power-gate[hidden]{display:none}
+#tvPower{display:flex;flex-direction:column;align-items:center;gap:15px;padding:30px;border:0;background:none;color:#cac2d1;font:inherit;cursor:pointer;border-radius:18px;transition:color .2s,background .2s}
+#tvPower svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:8px}
+#tvPower strong{font-size:18px;font-weight:650;letter-spacing:3px}#tvPower span{font-size:11px;color:#918998}#tvPower:hover,#tvPower:focus-visible{color:#d5ddc4;background:#c6b4d309;outline:1px solid #b7a7c348;outline-offset:3px}
+.tv-power-gate>small{position:absolute;bottom:35px;color:#69636f;letter-spacing:3px;font:9px monospace}
+.tv-starting .tv-power-gate{visibility:hidden}.tv-starting .screen-content{animation:tube-start .88s cubic-bezier(.2,.7,.2,1) both}
+@keyframes tube-start{0%{transform:scale(.04,.002);filter:brightness(3);opacity:.1}18%{transform:scale(.94,.004);filter:brightness(2);opacity:1}42%{transform:scale(.985,.04);filter:brightness(1.7)}76%{transform:perspective(1600px) rotateX(1.1deg) scale(.985,1.005);filter:brightness(1.1)}100%{transform:perspective(1600px) rotateX(1.1deg) scale(.985);filter:brightness(1);opacity:1}}
+#works:before{background:linear-gradient(135deg,#1d1b24,#13131b 65%,#19191f);border:1px solid #66607055;box-shadow:inset 0 1px #bbb0c411,0 8px 25px #0002}
+#works:after{height:2px;top:-4px;background:linear-gradient(90deg,#8d809b66,#b4bf9644,transparent)}
+#works .featured-work{background:#14131b;border-color:#514b5a;box-shadow:4px 6px 0 #090910}
+#works .community-kicker{color:#aaa0b7}#works .community-heading p{color:#a29aa9}
+@media(max-width:640px){.screen-content{transform:perspective(1600px) rotateX(.5deg) scale(.985)}.television-shell .galaxy-brand .game-title,.television-shell .game-title-en{transform:skew(-5deg)}#tvPower strong{font-size:17px}#tvPower span{font-size:10px}#works:after{height:2px}}
+@media(prefers-reduced-motion:reduce){.tv-starting .screen-content{animation:none}#tvPower{transition:none}}
+
+.television-shell:has(.tv-off):before{background:#8f7971;box-shadow:0 0 0 4px #18161b,0 0 0 5px #685c6b55}
+
+
+@media(max-width:640px){.home-masthead{z-index:50}}
+
+/* Real barrel displacement: the scanlines and complete image share the same curve. */
+.tube-curved:not(.crt-off) .screen-content,.tube-curved:not(.crt-off) .crt-glass{filter:url(#tube-curvature)}
+.screen-content{transform:none}
+.television-shell .galaxy-brand .game-title,.television-shell .game-title-en{transform:skew(-7deg)}
+.television-shell .galaxy-bottom{transform:none}
+#tvPower{width:90px;height:90px;padding:22px;gap:0;border-radius:50%}
+#tvPower svg{width:38px;height:38px;margin:0;filter:drop-shadow(0 0 7px #c2afcf30)}
+.tv-power-flash{position:absolute;inset:0;z-index:8;pointer-events:none;opacity:0;background:#fff;transform:scale(0);box-shadow:0 0 16px #fff,0 0 45px #dcd7ff;border-radius:50%}
+.tv-starting .tv-power-flash{animation:tube-white-beam 1.25s linear both}
+.tv-starting .screen-content{animation:tube-picture 1.25s ease-out both}
+@keyframes tube-white-beam{0%{opacity:0;transform:scale(.004,.008)}8%{opacity:1;transform:scale(.009,.012)}24%{opacity:1;transform:scale(.9,.004)}43%{opacity:1;transform:scale(.96,.006);border-radius:50%}58%{opacity:.85;transform:scale(.98,.14);border-radius:25%}76%{opacity:.13;transform:scale(.99,.96);border-radius:6%}100%{opacity:0;transform:scale(1);border-radius:6%}}
+@keyframes tube-picture{0%,40%{opacity:0;clip-path:inset(50% 2%)}55%{opacity:.45;clip-path:inset(43% 1%)}82%{opacity:1;clip-path:inset(0)}100%{opacity:1;clip-path:inset(0)}}
+@media(max-width:640px){.screen-content{transform:none}.television-shell .galaxy-brand .game-title,.television-shell .game-title-en{transform:skew(-5deg)}}
+@media(prefers-reduced-motion:reduce){.tv-starting .tv-power-flash,.tv-starting .screen-content{animation:none}.tv-power-flash{display:none}}
+/* Stable television proportions, independent of desktop viewport height. */
+.television-shell{box-sizing:border-box;width:calc(100% - 48px);max-width:1600px;margin:22px auto 30px;container-type:inline-size;padding:clamp(14px,1.8vw,27px) clamp(14px,1.8vw,27px) 54px}
+.television-shell .galaxy-hero{box-sizing:border-box;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16 / 9}
+@media(min-width:641px){
+ .television-shell .galaxy-brand{inset:46% auto auto 5%;width:35%;transform:translateY(-50%)}
+ .television-shell .galaxy-brand .game-title{font-size:clamp(46px,8cqw,120px);letter-spacing:-.055em;line-height:1.08}
+ .television-shell .game-title-en{font-size:clamp(19px,2.8cqw,42px);margin:12px 0 6px;letter-spacing:.04em}
+ .television-shell .galaxy-actions{gap:10px;margin-top:22px}
+ .television-shell .galaxy-actions a{padding:10px 14px;font-size:clamp(11px,1cqw,14px)}
+ .television-shell .galaxy-bottom{left:5%;right:5%;bottom:4%;gap:12px}
+ .television-shell #projectGalaxy,.television-shell .galaxy-stars{inset:0 0 12% auto;width:65%;height:88%}
+ .television-shell .galaxy-card{max-height:70%;max-width:calc(100% - 36px)}
+}
+@media(min-width:641px) and (max-width:900px){
+ .television-shell{width:calc(100% - 28px);border-radius:30px;padding-bottom:44px}
+ .television-shell .galaxy-caption{display:none}
+ .television-shell .galaxy-bottom{justify-content:flex-end}
+ .television-shell .galaxy-brand .title-overline{font-size:8px;letter-spacing:1px}
+ .television-shell .galaxy-actions{margin-top:14px}
+ .television-shell .galaxy-controls select{max-width:145px}
+ .television-shell:after{bottom:18px;font-size:8px}.television-shell:before{bottom:19px}.television-shell .tv-speaker{bottom:15px;height:14px}
+}
+@media(max-width:640px){
+ .television-shell{width:calc(100% - 20px);margin:80px auto 20px;padding:12px 10px 40px;max-width:500px}
+ .television-shell .galaxy-hero{aspect-ratio:auto;height:680px;min-height:0;max-height:none}
+ .television-shell .galaxy-brand{inset:auto 7% 145px;width:auto}
+ .television-shell .galaxy-brand .game-title{font-size:clamp(45px,16cqw,68px)}
+ .television-shell .galaxy-controls{display:grid;grid-template-columns:minmax(0,1fr) 42px 66px;width:100%}
+ .television-shell .galaxy-controls select{width:100%;min-width:0}
+ .television-shell .galaxy-card{max-height:50%}
+}

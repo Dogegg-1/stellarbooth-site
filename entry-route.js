@@ -1,0 +1,1 @@
+(()=>{const q=new URLSearchParams(location.search);if(q.has('project')||['map','gallery'].includes(q.get('view')))location.replace(new URL('./map.html'+location.search+location.hash,location.href).href);})();

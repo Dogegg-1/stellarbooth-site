@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const rows=window.STAR_MAP_RESOURCES||[],params=new URLSearchParams(location.search);if(!params.has('project')&&!params.has('view')&&!rows.some(r=>r.locationStatus==='district'))document.querySelector('#galleryView').click();});

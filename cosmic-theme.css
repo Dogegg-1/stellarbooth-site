@@ -1,0 +1,26 @@
+/* Shared visual language; deliberately sparse, static star points. */
+:root{--bg:#090a0f;--panel:rgba(19,20,29,.9);--panel-strong:#171822;--line:#c5b4e225;--text:#eeeef2;--muted:#a2a1ae;--cyan:#d3e88c;--violet:#c6b1e8;--green:#d3e88c;--mint:#d3e88c;--warm:#d7c3ef;--gold:#d3e88c}
+body[data-site-page]{background-color:#090a0f;background-image:radial-gradient(ellipse at 75% 5%,#b092dd0b,transparent 50%);color:#eeeef2}
+body[data-site-page]>.global-site-nav{background:#0a0b10ed;border-bottom:1px solid #c5b4e21c}
+body[data-site-page]>.global-site-nav a{color:#aaa7b7;border-radius:5px;transition:background .2s,color .2s}
+body[data-site-page]>.global-site-nav a:hover{background:#c5b4e210;color:#e5daf5}
+body[data-site-page]>.global-site-nav a[aria-current=page]{background:#d3e88c;color:#202619}
+body[data-site-page]>.global-site-nav a:focus-visible{outline-color:#d3e88c}
+body[data-site-page=map] .topbar,body[data-site-page=map] .sidebar,body[data-site-page=map] .detail-panel{background-color:#12131de8}
+body[data-site-page=map] .view-switch button.active,body[data-site-page=map] .view-switch [aria-pressed=true]{background:#d3e88c;color:#202619}
+body[data-site-page=aquarium] .brand-mark{color:#d3e88c}
+body[data-site-page=aquarium] .world-intro h1{color:#e6def0;font-family:Georgia,"Songti SC","SimSun",serif;letter-spacing:.06em}
+body[data-site-page=aquarium] .quick-dock,body[data-site-page=aquarium] dialog{background-color:#14141feb;border-color:#c5b4e22b}
+body[data-site-page=map] #liveMap.simple-map{background-color:#0b0c13;background-image:radial-gradient(ellipse at 50% 45%,#8c6bac12,transparent 72%),radial-gradient(#c6b1e84d .7px,transparent 1px);background-size:100% 100%,191px 173px}
+body[data-site-page=map] .simple-map .atlas-boundary{filter:drop-shadow(0 0 4px #bc9cde25)}
+body[data-site-page=map] .frame-outline{stroke:#bca5d6;opacity:.4}
+body[data-site-page=map] .frame-accents{stroke:#d3e88c;filter:drop-shadow(0 0 4px #d3e88c33)}
+body[data-site-page=map] .frame-ticks{stroke:#bca5d6;opacity:.5}
+body[data-site-page=map] .map-stage:has(.simple-map) .map-overlay-title{background:#15131fea;border-color:#c6b1e82d;border-left-color:#d3e88c;box-shadow:none}
+body[data-site-page=map] .map-stage:has(.simple-map) .map-overlay-title>span{color:#c6b1e8}
+body[data-site-page=map] .simple-map .atlas-beacon{background:radial-gradient(circle at 35% 25%,#484153,#20212c 75%);border-color:#d3e88c;box-shadow:0 0 0 5px #d3e88c09,0 0 18px #d3e88c1f}
+body[data-site-page=map] .simple-map .atlas-beacon:before{border-color:#c6b1e8}
+body[data-site-page=map] .simple-map .atlas-beacon span{background:#161420e8;color:#d9ccea;border-color:#c6b1e838}
+body[data-site-page=map] .simple-map .atlas-beacon.active,body[data-site-page=map] .simple-map .atlas-beacon:hover{background:#d3e88c;color:#202619}
+
+.rabbit-brand{width:42px;height:39px;object-fit:contain}

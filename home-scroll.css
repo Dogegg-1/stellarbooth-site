@@ -1,0 +1,19 @@
+/* Native scroll-driven details; no wheel interception or extra render loop. */
+.scroll-ribbon{view-timeline:--ribbon block;overflow:clip;margin:40px 0 72px;padding:16px 0;transform:skewY(-2.4deg);background:#cce782;color:#11130e;border-block:2px solid #11130e;box-shadow:0 9px 0 #30223f}
+.scroll-ribbon-track{display:flex;gap:30px;align-items:center;white-space:nowrap;width:max-content;font:900 clamp(30px,4.5vw,64px)/1.1 Arial,sans-serif;letter-spacing:-2px;transform:translateX(-8%)}
+.scroll-ribbon-track span{color:#604278;font-size:.8em}
+#services .service-row{position:relative;transition:background .25s,border-color .25s}
+#services .service-row:hover,#services .service-row:focus-within{background:#cce78209;border-color:#cce78266}
+#services .service-number{transition:color .25s,transform .25s}
+#services .service-row:hover .service-number{color:#cce782;transform:rotate(-9deg) scale(1.12)}
+#about .hero-scene,#space .space-photo,#space .moments figure{view-timeline:--photo block;overflow:clip}
+@supports(animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  .scroll-ribbon-track{animation:ribbon-travel auto linear both;animation-timeline:--ribbon;animation-range:entry 0% exit 100%}
+  #about .hero-scene img,#space .space-photo img,#space .moments img{animation:photo-drift auto linear both;animation-timeline:--photo;animation-range:entry 0% exit 100%}
+ }
+}
+@keyframes ribbon-travel{from{transform:translateX(0)}to{transform:translateX(-22%)}}
+@keyframes photo-drift{from{transform:scale(1.07) translateY(1%)}to{transform:scale(1.02) translateY(-1%)}}
+@media(max-width:640px){.scroll-ribbon{margin:24px 0 45px;padding:12px 0}.scroll-ribbon-track{gap:20px;letter-spacing:-1px}}
+@media(prefers-reduced-motion:reduce){.scroll-ribbon-track{transform:translateX(-8%)}#services .service-number{transition:none}#services .service-row:hover .service-number{transform:none}}

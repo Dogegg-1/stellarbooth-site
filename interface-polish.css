@@ -1,0 +1,18 @@
+/* Shared surface details. Scene artwork and positioning stay page-owned. */
+:root{--ui-surface:#19161f;--ui-line:#78658866;--ui-text:#e0dce6;--ui-accent:#c1cfa7}
+body[data-site-page] :is(.home-project-dialog,.atlas-settings,#customDialog,#wardrobeDialog,#drawDialog){background:var(--ui-surface);color:var(--ui-text);border:1px solid var(--ui-line);border-radius:18px;box-shadow:0 24px 90px #0009;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#71627e #19161f}
+body[data-site-page] dialog::backdrop{background:#05050bab;backdrop-filter:blur(5px)}
+body[data-site-page] :is(.home-project-header,.designer-header){background:#19161ff5;border-bottom:1px solid var(--ui-line)}
+body[data-site-page] :is(.home-project-header button,.atlas-settings header button,#closeSidebar,#closePanel,#closeDesigner,#closeWardrobe,#closeDraw){display:inline-grid;place-items:center;width:42px;height:42px;min-width:42px;padding:0;border:1px solid var(--ui-line);border-radius:11px;background:#29232f;color:var(--ui-text);font-size:24px;line-height:1;cursor:pointer}
+body[data-site-page] :is(.home-project-header button,.atlas-settings header button,#closeSidebar,#closePanel,#closeDesigner,#closeWardrobe,#closeDraw):hover{background:#3b3045;border-color:#a28ab5}
+body[data-site-page] :is(.atlas-dock,.quiet-dock){background:#211b29ed;border:1px solid var(--ui-line);box-shadow:0 12px 40px #0005,inset 0 1px #ffffff07}
+body[data-site-page] :is(.atlas-dock,.quiet-dock) button{transition:background .18s,color .18s,box-shadow .18s}
+body[data-site-page] .atlas-dock button[aria-expanded=true]{background:#51405f;color:#efe7f5}
+body[data-site-page] :is(.home-project-dialog,.atlas-settings,.filters-panel,.detail-panel,.quiet-dock,.atlas-dock,dialog) :is(button,a,input,select):focus-visible{outline:2px solid var(--ui-accent);outline-offset:3px}
+body[data-site-page] dialog[open]{animation:surface-appear .2s ease-out}
+@keyframes surface-appear{from{opacity:0;filter:brightness(.85)}to{opacity:1;filter:none}}
+body[data-site-page=map] .detail-panel .close-detail{min-height:42px;border-radius:10px;background:#29232f;border:1px solid var(--ui-line);color:var(--ui-text)}
+body[data-site-page=map] .view-switch button[aria-pressed=true]{background:#bfcda2;color:#20251a;border-color:#bfcda2}
+body[data-site-page=map] .need-shortcuts button{border-radius:9px}
+@media(max-width:640px){body[data-site-page] :is(.home-project-dialog,.atlas-settings){max-height:calc(100dvh - 32px)}body[data-site-page] :is(.home-project-links,.home-project-dialog footer) a{min-height:44px;display:inline-flex;align-items:center}body[data-site-page] .atlas-dock button{min-width:44px;min-height:52px}body[data-site-page=aquarium] .quiet-dock button{min-width:44px;min-height:48px}}
+@media(prefers-reduced-motion:reduce){body[data-site-page] dialog[open]{animation:none}}

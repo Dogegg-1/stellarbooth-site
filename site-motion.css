@@ -1,0 +1,32 @@
+/* Loaded last on every page: one navigation geometry, including during transitions. */
+:root{--site-nav-height:70px}
+html{scroll-padding-top:calc(var(--site-nav-height) + 16px)}
+body[data-site-page]{padding-top:var(--site-nav-height)}
+body[data-site-page]>.global-site-nav{position:fixed;inset:0 auto auto 0;width:100vw;z-index:100;display:grid;grid-template-columns:repeat(4,136px);justify-content:end;align-items:center;gap:8px;height:var(--site-nav-height);min-height:var(--site-nav-height);padding:9px 32px;margin:0;box-sizing:border-box;background:#0b0b12f5;border-bottom:1px solid #c5b4e226;view-transition-name:site-navigation}
+body[data-site-page]>.global-site-nav>a,body[data-site-page]>.global-site-nav>span{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;min-width:0;width:100%;height:44px;min-height:44px;padding:0 8px;box-sizing:border-box;border-radius:5px;font-size:13px;white-space:nowrap;letter-spacing:0;transition:background .25s,color .25s,box-shadow .25s}
+body[data-site-page]>.global-site-nav a:hover{background:#c6b1e819;box-shadow:inset 0 -2px #c6b1e866}
+body[data-site-page]>.global-site-nav a[aria-current=page]{background:#d3e88c;color:#202619;box-shadow:0 0 22px #d3e88c0d}
+body[data-site-page]>.global-site-nav small{font-size:9px;padding:2px 4px;line-height:1.2}
+body[data-site-page=aquarium]>.topbar{top:calc(var(--site-nav-height) + 4px)}
+body[data-site-page=aquarium] .world-intro{top:calc(var(--site-nav-height) + 79px)}
+.galaxy-hero{height:calc(100svh - var(--site-nav-height))}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:site-out .22s ease both}
+::view-transition-new(root){animation:site-in .42s cubic-bezier(.2,.7,.2,1) both}
+::view-transition-group(site-navigation){animation-duration:.42s}
+::view-transition-old(site-navigation),::view-transition-new(site-navigation){animation:none;mix-blend-mode:normal}
+::view-transition-old(site-navigation){opacity:0}
+::view-transition-group(nav-home),::view-transition-group(nav-map),::view-transition-group(nav-aquarium){animation-duration:.42s}
+@keyframes site-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@keyframes site-out{to{opacity:0;transform:translateY(-5px)}}
+@keyframes panel-unfold{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:none}}
+body[data-site-page] dialog[open],body[data-site-page=map] #detailPanel:not([hidden]),body[data-site-page=map] .district-members:not([hidden]){animation:panel-unfold .28s cubic-bezier(.2,.7,.2,1)}
+body[data-site-page=map] .resource-list-item,body[data-site-page=map] .resource-link-card{transition:background .22s,border-color .22s,box-shadow .22s}
+body[data-site-page=map] .resource-list-item:hover,body[data-site-page=map] .resource-link-card:hover{box-shadow:inset 3px 0 #c6b1e8;background-color:#292237}
+body[data-site-page=aquarium] button{transition:background .2s,border-color .2s,box-shadow .2s,transform .2s}
+body[data-site-page=aquarium] button:hover:not(:disabled){box-shadow:0 3px 15px #c6b1e811}
+@supports not (view-transition-name:site-navigation){body[data-site-page]>main,body[data-site-page]>.app-shell{animation:site-in .35s ease both}}
+@media(max-width:640px){:root{--site-nav-height:60px}body[data-site-page]>.global-site-nav{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:stretch;padding:6px;gap:3px}body[data-site-page]>.global-site-nav>a,body[data-site-page]>.global-site-nav>span{font-size:11px;height:46px;min-height:46px;padding:4px;flex-direction:column;gap:3px}body[data-site-page]>.global-site-nav small{font-size:8px;padding:0 3px}body[data-site-page=aquarium] .world-intro{top:137px}}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}body[data-site-page] *,body[data-site-page] *:before,body[data-site-page] *:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media(max-width:640px){body[data-site-page]>.global-site-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}

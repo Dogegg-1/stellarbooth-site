@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>星游集 · 杭州游戏资源地图</title>
+    <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./layout.css?v=20260921-nav6" />
+  <link rel="stylesheet" href="./site-nav.css?v=2"><link rel="stylesheet" href="./cosmic-theme.css?v=2"><link rel="stylesheet" href="./site-motion.css?v=2"><link rel="stylesheet" href="./community.css?v=1"><link rel="stylesheet" href="./atlas-ui.css?v=3"><link rel="stylesheet" href="./interface-polish.css?v=1"><link rel="stylesheet" href="./collection.css?v=1"></head>
+  <body data-site-page="map"><script src="./site-nav.js?v=6"></script>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="eyebrow">XINGYOUJI / GAME ATLAS </div>
+          <h1>星游集 · 杭州游戏资源地图</h1>
+          <p>探索杭州游戏创作与协作网络</p>
+        </div>
+        <div class="search-panel">
+          <label class="search-box" for="searchInput">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" aria-label="搜索团队、作品或资源" placeholder="搜索团队、作品、区域或协作需求" autocomplete="off" />
+          </label>
+          <div class="stats-grid" id="statsGrid"></div>
+        </div>
+      </header>
+
+      <div class="community-actions map-participation" style="margin:12px 0"><a href="./intake.html">提交作品 / 资料纠错 ↗</a><a href="./index.html#events">近期活动 ↗</a></div><p class="data-notice" id="dataNotice">仅展示已授权公开资料 · 位置为区域参考，非办公地址</p>
+      <div class="explore-bar">
+        <div class="view-switch" aria-label="浏览视图"><button id="mapView" type="button" aria-pressed="true">◉ 资源地图</button><button id="galleryView" type="button" aria-pressed="false">▦ 作品展柜</button></div>
+        <div class="primary-filters">
+          <label for="stageFilter">项目阶段<select id="stageFilter" class="source-select" aria-label="按项目阶段筛选"><option value="all">全部阶段</option></select></label>
+          <label for="needFilter">协作需求<select id="needFilter" class="source-select" aria-label="按协作需求筛选"><option value="all">全部需求</option></select></label>
+        </div>
+        <div class="need-shortcuts" id="needShortcuts" aria-label="快速筛选协作需求"></div>
+      </div>
+      <div id="activeFilters" class="active-filters" aria-label="当前筛选条件" hidden></div>
+      <main class="workspace">
+        <aside class="filters-panel" id="filtersPanel" aria-label="资源筛选">
+          <div class="sidebar-heading"><span>探索资源</span><button id="closeSidebar" type="button" aria-label="关闭筛选与清单">×</button></div>
+          <div class="sidebar-tabs"><button id="listTab" type="button" aria-pressed="true">资源清单</button><button id="filtersTab" type="button" aria-pressed="false">更多筛选 <span id="filterCount"></span></button></div>
+          <div id="filterContent" class="filter-content" hidden>
+          <section>
+            <div class="section-title">类型</div>
+            <div class="filter-list" id="typeFilters"></div>
+          </section>
+          <section>
+            <div class="section-title">区域</div>
+            <div class="filter-list compact" id="districtFilters"></div>
+          </section>
+          <section>
+            <div class="section-title">标签</div>
+            <div class="chip-list" id="tagFilters"></div>
+          </section>
+          <section>
+            <div class="section-title">来源</div>
+            <select id="sourceFilter" class="source-select" aria-label="按来源筛选">
+              <option value="all">全部来源</option>
+            </select>
+          </section>
+          <section>
+            <div class="section-title">资料范围</div>
+            <select id="visibilityFilter" class="source-select" aria-label="资料范围"><option value="registered">公开登记资料</option></select>
+          </section>
+          </div>
+          <section class="resource-list-section" id="listContent">
+            <div class="section-title-row">
+              <div class="section-title">资源清单</div>
+              <span id="listCount">0</span>
+            </div>
+            <div class="resource-list" id="resourceList" aria-label="筛选后的资源清单"></div>
+          </section>
+          <button id="applySidebar" class="apply-sidebar" type="button">查看结果</button>
+        </aside>
+
+        <section class="map-panel" id="browsePanel" aria-label="杭州游戏资源浏览">
+          <div class="map-toolbar">
+            <button id="openSidebar" class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="filtersPanel">筛选 / 清单</button>
+            <div>
+              <strong id="resultCount">0</strong>
+              <span>条资源</span>
+              <small id="locationSummary" aria-live="polite"></small>
+            </div>
+            <div class="map-actions">
+              <button class="zoom-btn" id="zoomOut" type="button" aria-label="缩小">−</button>
+              <span id="zoomValue">100%</span>
+              <button class="zoom-btn" id="zoomIn" type="button" aria-label="放大">+</button>
+              <button id="focusBrowse" type="button" aria-pressed="false">专注浏览</button>
+              <label class="map-type-control">底图<select id="mapType" aria-label="地图类型"><option value="simple">简化轮廓</option><option value="street">街道 · 日间</option><option value="night">街道 · 夜航</option></select></label>
+              <button id="resetFilters" type="button">重置筛选</button>
+              <button id="fitResults" type="button">查看结果</button>
+              <button id="resetMap" type="button">复位地图</button>
+            </div>
+          </div>
+          <div id="gallery" class="project-gallery" aria-label="作品展柜" hidden></div>
+          <div class="map-stage" id="mapStage">
+            <svg class="atlas-frame" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="atlasDistrictFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#30263e"/><stop offset=".5" stop-color="#1c1a29"/><stop offset="1" stop-color="#101119"/></linearGradient>
+                <linearGradient id="atlasActiveFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#504661"/><stop offset="1" stop-color="#262733"/></linearGradient>
+              </defs>
+              <path class="frame-outline" d="M12 38 L38 12 H220 L231 21 H769 L780 12 H962 L988 38 V180 L980 190 V410 L988 420 V562 L962 588 H780 L769 579 H231 L220 588 H38 L12 562 V420 L20 410 V190 L12 180 Z"/>
+              <path class="frame-accents" d="M12 72 V38 L38 12 H92 M908 12 H962 L988 38 V72 M988 528 V562 L962 588 H908 M92 588 H38 L12 562 V528 M350 12 H430 M570 12 H650 M350 588 H430 M570 588 H650"/>
+              <path class="frame-ticks" d="M460 15 H540 M460 585 H540"/>
+            </svg>
+            <div id="liveMap" aria-label="杭州街道地图"></div>
+            <div class="map-overlay-title"><span>HANGZHOU / CREATOR ATLAS</span><strong>游戏创作，发生在这里</strong><small>区域聚合 · 非团队办公地址</small></div>
+            <div class="map-health"><span id="mapStatus" role="status">正在加载街道底图…</span><button id="retryMap" type="button">重试底图</button></div>
+            <div id="mapViewport" hidden><div id="connectionLayer"></div><div id="starsLayer"></div></div>
+            <div class="tooltip" id="tooltip" hidden></div>
+            <p class="map-notice" id="mapNotice"></p>
+          </div>
+          <div class="legend" id="legend"></div>
+          <nav id="regionNav" class="region-nav" aria-label="地图区域快捷定位"></nav>
+          <div id="districtMembers" class="district-members" aria-label="区域团队清单" hidden></div>
+        </section>
+
+        <aside class="detail-panel" id="detailPanel" aria-live="polite" tabindex="-1">
+          <div class="empty-state">
+            <div class="empty-orbit"></div>
+            <h2>选择一个星点</h2>
+            <p>点击地图上的发光资源点，查看类型、状态、标签、合作方向与来源。</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <button id="backToTools" class="back-to-tools" type="button" hidden aria-label="返回搜索和视图切换">↑ 搜索 / 切换视图</button>
+    <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="收起筛选与清单" hidden></button>
+    <button class="drawer-backdrop" id="drawerBackdrop" type="button" aria-label="关闭团队详情" hidden></button>
+    <script src="./data/resources.js"></script>
+    <script src="./data/demo.js"></script>
+    <script src="./assets/vendor/leaflet/leaflet.js"></script>
+    <script src="./data/districts.js"></script>
+    <script src="./data/boundaries.js"></script>
+    <script src="./map-engine.js?v=wheel5"></script>
+    <script src="./data/media.js?v=20260921-8"></script>
+    <script src="./data/link-reviews.js?v=1"></script>
+    <script src="./collection-store.js?v=1"></script><script src="./collection-ui.js?v=1"></script><script src="./app.js?v=20260928-wheel"></script>
+  <script src="./atlas-ui.js?v=3"></script><script src="./public-mode.js"></script></body>
+</html>
