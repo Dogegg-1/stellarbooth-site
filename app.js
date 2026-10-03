@@ -462,7 +462,7 @@ function renderResourceList() {
 
   el.resourceList.innerHTML = state.filtered.map((item) => {
     const meta = typeMeta[item.type] ?? typeMeta.other;
-    const status = item.dataKind === 'demo' ? '虚构示例' : item.isPublic ? '允许公开' : '仅内部预览';
+    const status = item.dataKind === 'demo' ? '虚构示例' : '登记资料';
     return `
       <button class="resource-list-item ${item.id === state.selectedId ? "active" : ""}" type="button" data-resource-id="${escapeAttr(item.id)}">
         <span class="resource-list-head">
@@ -557,7 +557,7 @@ function renderDetail() {
       ${coverMarkup(item,true)?'<div class="detail-cover">'+coverMarkup(item,true)+'<small class="cover-source">封面加载中 · 来源：Steam 商店</small></div>':''}
       <p class="detail-desc">${escapeHtml(item.description || '暂无简介')}</p>
       <div class="detail-tags">${item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
-      <span class="public-badge ${item.isPublic ? '' : 'private'}">${item.dataKind === 'demo' ? '虚构示例 · 非真实资源' : item.isPublic ? '允许公开 · 登记资料' : '仅内部预览 · 尚不可直接公开'}</span>
+      <span class="public-badge ${item.isPublic ? '' : 'private'}">${item.dataKind === 'demo' ? '虚构示例 · 非真实资源' : '团队登记资料'}</span>
       ${resourceLinkCards(item)}<div class="detail-update"><span>信息以团队登记为准，发现变化欢迎补充。</span><a href="./intake.html?project=${encodeURIComponent(item.id)}">更新这份档案 / 纠错 ↗</a></div>
       <div class="detail-location-action">${projectPoint(item)?'<button id="detailLocate" type="button">在地图查看 '+escapeHtml(item.district)+' ↗</button><small>区域示意，非团队精确办公地址</small>':'<p>'+escapeHtml(item.locationStatus==='outside'?'团队位于杭州以外，本地图不落点。':'位置待确认，暂不在地图落点。')+'</p>'}</div>
       <div class="meta-grid">
