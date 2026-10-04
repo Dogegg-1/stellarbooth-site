@@ -28,5 +28,11 @@ body[data-site-page=aquarium] button:hover:not(:disabled){box-shadow:0 3px 15px 
 @supports not (view-transition-name:site-navigation){body[data-site-page]>main,body[data-site-page]>.app-shell{animation:site-in .35s ease both}}
 @media(max-width:640px){:root{--site-nav-height:60px}body[data-site-page]>.global-site-nav{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:stretch;padding:6px;gap:3px}body[data-site-page]>.global-site-nav>a,body[data-site-page]>.global-site-nav>span{font-size:11px;height:46px;min-height:46px;padding:4px;flex-direction:column;gap:3px}body[data-site-page]>.global-site-nav small{font-size:8px;padding:0 3px}body[data-site-page=aquarium] .world-intro{top:137px}}
 @media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}body[data-site-page] *,body[data-site-page] *:before,body[data-site-page] *:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* Shared navigation keeps the same slots on the station and content pages. */
+body[data-site-page]>.global-site-nav>.site-brand{position:absolute;left:28px;top:0;height:var(--site-nav-height);width:auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:0;border:0;background:none;box-shadow:none;color:#e3ddce;font-size:17px;font-weight:650}
+.site-brand img{width:33px;height:33px;object-fit:contain}.site-brand span{display:block}.site-brand small{display:block!important;border:0!important;padding:0!important;font:8px monospace!important;letter-spacing:1.5px;color:#b8a9ca!important;margin-top:4px}
+@media(max-width:850px){body[data-site-page]>.global-site-nav{grid-template-columns:repeat(4,minmax(0,1fr));padding-left:12px;padding-right:12px}body[data-site-page]>.global-site-nav>.site-brand{display:none}}
+/* Keep navigation responsive while page content cross-fades. */
+::view-transition{pointer-events:none}::view-transition-new(root){animation-duration:.28s}::view-transition-old(root){animation-duration:.16s}::view-transition-group(nav-tools),::view-transition-group(nav-about){animation-duration:.28s}
 
 @media(max-width:640px){body[data-site-page]>.global-site-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}

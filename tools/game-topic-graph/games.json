@@ -1,0 +1,3503 @@
+[
+  {
+    "id": "p-0",
+    "title": "Minecraft",
+    "year": 2011,
+    "type": "Sandbox",
+    "tags": [
+      "沙盒建造",
+      "生存",
+      "开放世界",
+      "UGC",
+      "多人合作",
+      "低叙事"
+    ],
+    "note": "体素世界与玩家创造"
+  },
+  {
+    "id": "p-1",
+    "title": "Tetris",
+    "year": 1984,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "抽象",
+      "休闲",
+      "低叙事",
+      "移动端"
+    ],
+    "note": "极简规则长青"
+  },
+  {
+    "id": "p-2",
+    "title": "Grand Theft Auto V",
+    "year": 2013,
+    "type": "Action Adventure",
+    "tags": [
+      "开放世界",
+      "犯罪",
+      "现代都市",
+      "多人在线",
+      "讽刺剧情"
+    ],
+    "note": "都市犯罪沙盒"
+  },
+  {
+    "id": "p-3",
+    "title": "Fortnite",
+    "year": 2017,
+    "type": "Battle Royale",
+    "tags": [
+      "射击",
+      "大逃杀",
+      "UGC",
+      "跨界联动",
+      "多人在线",
+      "赛季叙事"
+    ],
+    "note": "平台化内容生态"
+  },
+  {
+    "id": "p-4",
+    "title": "Roblox",
+    "year": 2006,
+    "type": "UGC Platform",
+    "tags": [
+      "UGC",
+      "社交",
+      "多人在线",
+      "青少年",
+      "平台化",
+      "低叙事"
+    ],
+    "note": "创作者经济"
+  },
+  {
+    "id": "p-5",
+    "title": "League of Legends",
+    "year": 2009,
+    "type": "MOBA",
+    "tags": [
+      "MOBA",
+      "竞技",
+      "英雄收集",
+      "奇幻",
+      "电竞",
+      "多人在线"
+    ],
+    "note": "长期运营竞技"
+  },
+  {
+    "id": "p-6",
+    "title": "Dota 2",
+    "year": 2013,
+    "type": "MOBA",
+    "tags": [
+      "MOBA",
+      "竞技",
+      "奇幻",
+      "电竞",
+      "多人在线",
+      "高复杂度"
+    ],
+    "note": "硬核竞技"
+  },
+  {
+    "id": "p-7",
+    "title": "Counter-Strike 2",
+    "year": 2023,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "战术竞技",
+      "现代军事",
+      "电竞",
+      "多人在线",
+      "低叙事"
+    ],
+    "note": "团队对抗"
+  },
+  {
+    "id": "p-8",
+    "title": "Valorant",
+    "year": 2020,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "战术竞技",
+      "英雄技能",
+      "近未来",
+      "电竞",
+      "多人在线"
+    ],
+    "note": "英雄战术射击"
+  },
+  {
+    "id": "p-9",
+    "title": "PUBG Battlegrounds",
+    "year": 2017,
+    "type": "Battle Royale",
+    "tags": [
+      "射击",
+      "大逃杀",
+      "军事",
+      "生存",
+      "多人在线",
+      "低叙事"
+    ],
+    "note": "写实大逃杀"
+  },
+  {
+    "id": "p-10",
+    "title": "Apex Legends",
+    "year": 2019,
+    "type": "Battle Royale",
+    "tags": [
+      "射击",
+      "大逃杀",
+      "英雄技能",
+      "科幻",
+      "多人在线",
+      "赛季叙事"
+    ],
+    "note": "快节奏小队"
+  },
+  {
+    "id": "p-11",
+    "title": "Call of Duty Warzone",
+    "year": 2020,
+    "type": "Battle Royale",
+    "tags": [
+      "射击",
+      "大逃杀",
+      "现代军事",
+      "多人在线",
+      "服务型游戏"
+    ],
+    "note": "军事品牌化"
+  },
+  {
+    "id": "p-12",
+    "title": "Call of Duty Modern Warfare III",
+    "year": 2023,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "现代军事",
+      "线性战役",
+      "多人在线",
+      "服务型游戏"
+    ],
+    "note": "军事年货"
+  },
+  {
+    "id": "p-13",
+    "title": "Battlefield 6",
+    "year": 2025,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "现代军事",
+      "大战场",
+      "多人在线",
+      "破坏环境"
+    ],
+    "note": "大规模战争"
+  },
+  {
+    "id": "p-14",
+    "title": "Helldivers 2",
+    "year": 2024,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "合作PvE",
+      "科幻",
+      "讽刺剧情",
+      "服务型游戏"
+    ],
+    "note": "社区驱动战役"
+  },
+  {
+    "id": "p-15",
+    "title": "Destiny 2",
+    "year": 2017,
+    "type": "Shooter RPG",
+    "tags": [
+      "射击",
+      "刷宝",
+      "科幻",
+      "多人合作",
+      "服务型游戏",
+      "宏大叙事"
+    ],
+    "note": "在线刷宝"
+  },
+  {
+    "id": "p-16",
+    "title": "Warframe",
+    "year": 2013,
+    "type": "Action RPG",
+    "tags": [
+      "动作",
+      "刷宝",
+      "科幻",
+      "忍者",
+      "多人合作",
+      "服务型游戏"
+    ],
+    "note": "高速动作刷宝"
+  },
+  {
+    "id": "p-17",
+    "title": "Overwatch 2",
+    "year": 2022,
+    "type": "Hero Shooter",
+    "tags": [
+      "射击",
+      "英雄技能",
+      "近未来",
+      "电竞",
+      "多人在线",
+      "角色叙事"
+    ],
+    "note": "英雄团队战"
+  },
+  {
+    "id": "p-18",
+    "title": "Rainbow Six Siege",
+    "year": 2015,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "战术竞技",
+      "现代军事",
+      "破坏环境",
+      "多人在线"
+    ],
+    "note": "室内攻防"
+  },
+  {
+    "id": "p-19",
+    "title": "Baldur's Gate 3",
+    "year": 2023,
+    "type": "CRPG",
+    "tags": [
+      "RPG",
+      "回合制",
+      "奇幻",
+      "队伍羁绊",
+      "多分支叙事",
+      "高自由度"
+    ],
+    "note": "桌游式叙事"
+  },
+  {
+    "id": "p-20",
+    "title": "Elden Ring",
+    "year": 2022,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "开放世界",
+      "黑暗奇幻",
+      "魂like",
+      "碎片叙事",
+      "高难度"
+    ],
+    "note": "开放世界魂系"
+  },
+  {
+    "id": "p-21",
+    "title": "Dark Souls III",
+    "year": 2016,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "黑暗奇幻",
+      "魂like",
+      "高难度",
+      "碎片叙事"
+    ],
+    "note": "关卡迷宫"
+  },
+  {
+    "id": "p-22",
+    "title": "Bloodborne",
+    "year": 2015,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "哥特恐怖",
+      "洛夫克拉夫特",
+      "魂like",
+      "高难度"
+    ],
+    "note": "维多利亚恐怖"
+  },
+  {
+    "id": "p-23",
+    "title": "Sekiro Shadows Die Twice",
+    "year": 2019,
+    "type": "Action Adventure",
+    "tags": [
+      "动作",
+      "武士",
+      "日本历史",
+      "高难度",
+      "线性叙事"
+    ],
+    "note": "架势战斗"
+  },
+  {
+    "id": "p-24",
+    "title": "The Witcher 3",
+    "year": 2015,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "开放世界",
+      "黑暗奇幻",
+      "道德选择",
+      "怪物狩猎",
+      "成人叙事"
+    ],
+    "note": "任务叙事标杆"
+  },
+  {
+    "id": "p-25",
+    "title": "Cyberpunk 2077",
+    "year": 2020,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "开放世界",
+      "赛博朋克",
+      "身份认同",
+      "成人叙事",
+      "沉浸模拟"
+    ],
+    "note": "未来都市"
+  },
+  {
+    "id": "p-26",
+    "title": "Starfield",
+    "year": 2023,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "太空探索",
+      "科幻",
+      "开放世界",
+      "派系叙事"
+    ],
+    "note": "群星冒险"
+  },
+  {
+    "id": "p-27",
+    "title": "The Elder Scrolls V Skyrim",
+    "year": 2011,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "开放世界",
+      "奇幻",
+      "模组",
+      "高自由度",
+      "探索"
+    ],
+    "note": "长期模组生态"
+  },
+  {
+    "id": "p-28",
+    "title": "Fallout 4",
+    "year": 2015,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "废土",
+      "开放世界",
+      "基地建造",
+      "黑色幽默",
+      "探索"
+    ],
+    "note": "核后废土"
+  },
+  {
+    "id": "p-29",
+    "title": "Mass Effect Legendary Edition",
+    "year": 2021,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "科幻",
+      "队伍羁绊",
+      "道德选择",
+      "太空歌剧",
+      "恋爱"
+    ],
+    "note": "史诗三部曲"
+  },
+  {
+    "id": "p-30",
+    "title": "Dragon Age Inquisition",
+    "year": 2014,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "奇幻",
+      "政治阴谋",
+      "队伍羁绊",
+      "恋爱",
+      "开放区域"
+    ],
+    "note": "同伴叙事"
+  },
+  {
+    "id": "p-31",
+    "title": "Persona 5 Royal",
+    "year": 2019,
+    "type": "JRPG",
+    "tags": [
+      "JRPG",
+      "校园",
+      "都市奇幻",
+      "回合制",
+      "社交模拟",
+      "青春"
+    ],
+    "note": "怪盗青春"
+  },
+  {
+    "id": "p-32",
+    "title": "Final Fantasy XIV",
+    "year": 2013,
+    "type": "MMORPG",
+    "tags": [
+      "MMORPG",
+      "奇幻",
+      "长线剧情",
+      "多人合作",
+      "服务型游戏",
+      "团队副本"
+    ],
+    "note": "剧情型网游"
+  },
+  {
+    "id": "p-33",
+    "title": "Final Fantasy VII Rebirth",
+    "year": 2024,
+    "type": "JRPG",
+    "tags": [
+      "JRPG",
+      "科幻奇幻",
+      "队伍羁绊",
+      "开放区域",
+      "重制经典"
+    ],
+    "note": "经典再叙事"
+  },
+  {
+    "id": "p-34",
+    "title": "Genshin Impact",
+    "year": 2020,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "开放世界",
+      "二次元",
+      "抽卡",
+      "奇幻",
+      "服务型游戏"
+    ],
+    "note": "角色驱动探索"
+  },
+  {
+    "id": "p-35",
+    "title": "Honkai Star Rail",
+    "year": 2023,
+    "type": "JRPG",
+    "tags": [
+      "JRPG",
+      "回合制",
+      "二次元",
+      "太空歌剧",
+      "抽卡",
+      "服务型游戏"
+    ],
+    "note": "银河列车"
+  },
+  {
+    "id": "p-36",
+    "title": "Zenless Zone Zero",
+    "year": 2024,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "二次元",
+      "都市奇幻",
+      "抽卡",
+      "服务型游戏",
+      "潮流文化"
+    ],
+    "note": "街区动作"
+  },
+  {
+    "id": "p-37",
+    "title": "Wuthering Waves",
+    "year": 2024,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "开放世界",
+      "二次元",
+      "末世",
+      "抽卡",
+      "高机动"
+    ],
+    "note": "声骸收集"
+  },
+  {
+    "id": "p-38",
+    "title": "Monster Hunter Wilds",
+    "year": 2025,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "怪物狩猎",
+      "生态模拟",
+      "多人合作",
+      "开放区域"
+    ],
+    "note": "狩猎生态"
+  },
+  {
+    "id": "p-39",
+    "title": "Monster Hunter World",
+    "year": 2018,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "怪物狩猎",
+      "生态模拟",
+      "多人合作",
+      "装备制作"
+    ],
+    "note": "全球化狩猎"
+  },
+  {
+    "id": "p-40",
+    "title": "Pokémon Scarlet and Violet",
+    "year": 2022,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "收集养成",
+      "开放世界",
+      "可爱",
+      "多人交换",
+      "低龄友好"
+    ],
+    "note": "开放宝可梦"
+  },
+  {
+    "id": "p-41",
+    "title": "Palworld",
+    "year": 2024,
+    "type": "Survival Craft",
+    "tags": [
+      "生存",
+      "收集养成",
+      "基地建造",
+      "开放世界",
+      "多人合作",
+      "黑色幽默"
+    ],
+    "note": "伙伴工业化"
+  },
+  {
+    "id": "p-42",
+    "title": "ARK Survival Evolved",
+    "year": 2017,
+    "type": "Survival Craft",
+    "tags": [
+      "生存",
+      "恐龙",
+      "基地建造",
+      "开放世界",
+      "多人在线",
+      "驯养"
+    ],
+    "note": "史前生存"
+  },
+  {
+    "id": "p-43",
+    "title": "Rust",
+    "year": 2018,
+    "type": "Survival",
+    "tags": [
+      "生存",
+      "基地建造",
+      "多人在线",
+      "掠夺",
+      "开放世界",
+      "低叙事"
+    ],
+    "note": "社交压力"
+  },
+  {
+    "id": "p-44",
+    "title": "Valheim",
+    "year": 2021,
+    "type": "Survival Craft",
+    "tags": [
+      "生存",
+      "基地建造",
+      "北欧神话",
+      "多人合作",
+      "开放世界",
+      "低多边形"
+    ],
+    "note": "合作远征"
+  },
+  {
+    "id": "p-45",
+    "title": "Enshrouded",
+    "year": 2024,
+    "type": "Survival Craft",
+    "tags": [
+      "生存",
+      "基地建造",
+      "奇幻",
+      "多人合作",
+      "开放世界",
+      "探索"
+    ],
+    "note": "雾中建造"
+  },
+  {
+    "id": "p-46",
+    "title": "Sons of the Forest",
+    "year": 2024,
+    "type": "Survival Horror",
+    "tags": [
+      "生存",
+      "恐怖",
+      "荒岛",
+      "基地建造",
+      "多人合作",
+      "AI伙伴"
+    ],
+    "note": "森林威胁"
+  },
+  {
+    "id": "p-47",
+    "title": "Subnautica",
+    "year": 2018,
+    "type": "Survival",
+    "tags": [
+      "生存",
+      "海洋",
+      "科幻",
+      "探索",
+      "基地建造",
+      "孤独感"
+    ],
+    "note": "深海未知"
+  },
+  {
+    "id": "p-48",
+    "title": "No Man's Sky",
+    "year": 2016,
+    "type": "Space Sandbox",
+    "tags": [
+      "太空探索",
+      "开放世界",
+      "生存",
+      "基地建造",
+      "多人在线",
+      "服务型游戏"
+    ],
+    "note": "程序化宇宙"
+  },
+  {
+    "id": "p-49",
+    "title": "Terraria",
+    "year": 2011,
+    "type": "Sandbox",
+    "tags": [
+      "沙盒建造",
+      "生存",
+      "2D",
+      "探索",
+      "多人合作",
+      "低叙事"
+    ],
+    "note": "横版沙盒"
+  },
+  {
+    "id": "p-50",
+    "title": "Stardew Valley",
+    "year": 2016,
+    "type": "Life Sim",
+    "tags": [
+      "农场经营",
+      "生活模拟",
+      "像素",
+      "社交",
+      "治愈",
+      "小镇"
+    ],
+    "note": "农场人生"
+  },
+  {
+    "id": "p-51",
+    "title": "Animal Crossing New Horizons",
+    "year": 2020,
+    "type": "Life Sim",
+    "tags": [
+      "生活模拟",
+      "岛屿建设",
+      "社交",
+      "治愈",
+      "收集",
+      "低压力"
+    ],
+    "note": "岛屿日常"
+  },
+  {
+    "id": "p-52",
+    "title": "The Sims 4",
+    "year": 2014,
+    "type": "Life Sim",
+    "tags": [
+      "生活模拟",
+      "人生",
+      "建造",
+      "UGC",
+      "社交叙事",
+      "服务型游戏"
+    ],
+    "note": "人生沙盒"
+  },
+  {
+    "id": "p-53",
+    "title": "Cities Skylines II",
+    "year": 2023,
+    "type": "Simulation",
+    "tags": [
+      "城市建造",
+      "模拟经营",
+      "交通",
+      "沙盒",
+      "现代都市",
+      "系统设计"
+    ],
+    "note": "城市规划"
+  },
+  {
+    "id": "p-54",
+    "title": "Planet Zoo",
+    "year": 2019,
+    "type": "Simulation",
+    "tags": [
+      "模拟经营",
+      "动物园",
+      "建造",
+      "生态",
+      "教育",
+      "家庭友好"
+    ],
+    "note": "园区经营"
+  },
+  {
+    "id": "p-55",
+    "title": "Two Point Hospital",
+    "year": 2018,
+    "type": "Management",
+    "tags": [
+      "模拟经营",
+      "医疗",
+      "黑色幽默",
+      "建造",
+      "休闲",
+      "现代职场"
+    ],
+    "note": "荒诞医院"
+  },
+  {
+    "id": "p-56",
+    "title": "Factorio",
+    "year": 2020,
+    "type": "Automation",
+    "tags": [
+      "自动化",
+      "基地建造",
+      "科幻",
+      "资源管理",
+      "高复杂度",
+      "低叙事"
+    ],
+    "note": "工厂优化"
+  },
+  {
+    "id": "p-57",
+    "title": "Satisfactory",
+    "year": 2024,
+    "type": "Automation",
+    "tags": [
+      "自动化",
+      "基地建造",
+      "科幻",
+      "开放世界",
+      "合作PvE",
+      "探索"
+    ],
+    "note": "第一人称工厂"
+  },
+  {
+    "id": "p-58",
+    "title": "Dyson Sphere Program",
+    "year": 2021,
+    "type": "Automation",
+    "tags": [
+      "自动化",
+      "太空探索",
+      "科幻",
+      "资源管理",
+      "宏大工程",
+      "低叙事"
+    ],
+    "note": "星际工厂"
+  },
+  {
+    "id": "p-59",
+    "title": "RimWorld",
+    "year": 2018,
+    "type": "Colony Sim",
+    "tags": [
+      "殖民地模拟",
+      "生存",
+      "科幻",
+      "涌现叙事",
+      "基地建造",
+      "黑色幽默"
+    ],
+    "note": "故事生成器"
+  },
+  {
+    "id": "p-60",
+    "title": "Dwarf Fortress",
+    "year": 2022,
+    "type": "Colony Sim",
+    "tags": [
+      "殖民地模拟",
+      "奇幻",
+      "高复杂度",
+      "涌现叙事",
+      "基地建造",
+      "模拟"
+    ],
+    "note": "深度模拟"
+  },
+  {
+    "id": "p-61",
+    "title": "Crusader Kings III",
+    "year": 2020,
+    "type": "Grand Strategy",
+    "tags": [
+      "大战略",
+      "中世纪",
+      "家族叙事",
+      "政治阴谋",
+      "涌现叙事",
+      "高复杂度"
+    ],
+    "note": "王朝剧"
+  },
+  {
+    "id": "p-62",
+    "title": "Europa Universalis IV",
+    "year": 2013,
+    "type": "Grand Strategy",
+    "tags": [
+      "大战略",
+      "历史",
+      "国家经营",
+      "高复杂度",
+      "低叙事",
+      "地图推演"
+    ],
+    "note": "历史沙盘"
+  },
+  {
+    "id": "p-63",
+    "title": "Civilization VI",
+    "year": 2016,
+    "type": "4X Strategy",
+    "tags": [
+      "4X",
+      "历史",
+      "回合制",
+      "国家经营",
+      "科技树",
+      "多人在线"
+    ],
+    "note": "文明发展"
+  },
+  {
+    "id": "p-64",
+    "title": "Total War Warhammer III",
+    "year": 2022,
+    "type": "Strategy",
+    "tags": [
+      "大战略",
+      "奇幻",
+      "即时战术",
+      "战争",
+      "派系叙事",
+      "高复杂度"
+    ],
+    "note": "奇幻会战"
+  },
+  {
+    "id": "p-65",
+    "title": "XCOM 2",
+    "year": 2016,
+    "type": "Tactics",
+    "tags": [
+      "战术",
+      "回合制",
+      "科幻",
+      "队伍养成",
+      "基地管理",
+      "高压力"
+    ],
+    "note": "抗争地球"
+  },
+  {
+    "id": "p-66",
+    "title": "Fire Emblem Engage",
+    "year": 2023,
+    "type": "Tactics RPG",
+    "tags": [
+      "战棋",
+      "RPG",
+      "奇幻",
+      "队伍羁绊",
+      "回合制",
+      "角色收集"
+    ],
+    "note": "角色战棋"
+  },
+  {
+    "id": "p-67",
+    "title": "Into the Breach",
+    "year": 2018,
+    "type": "Tactics",
+    "tags": [
+      "战术",
+      "回合制",
+      "机甲",
+      "时间循环",
+      "益智",
+      "低叙事"
+    ],
+    "note": "小棋盘解谜"
+  },
+  {
+    "id": "p-68",
+    "title": "Slay the Spire",
+    "year": 2019,
+    "type": "Deckbuilder",
+    "tags": [
+      "卡牌构筑",
+      "Roguelike",
+      "奇幻",
+      "回合制",
+      "高重复",
+      "低叙事"
+    ],
+    "note": "爬塔卡牌"
+  },
+  {
+    "id": "p-69",
+    "title": "Balatro",
+    "year": 2024,
+    "type": "Deckbuilder",
+    "tags": [
+      "卡牌构筑",
+      "Roguelike",
+      "扑克",
+      "高重复",
+      "低叙事",
+      "休闲"
+    ],
+    "note": "数字组合"
+  },
+  {
+    "id": "p-70",
+    "title": "Hades",
+    "year": 2020,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "动作",
+      "希腊神话",
+      "家族叙事",
+      "高重复",
+      "恋爱"
+    ],
+    "note": "叙事肉鸽"
+  },
+  {
+    "id": "p-71",
+    "title": "Hades II",
+    "year": 2024,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "动作",
+      "希腊神话",
+      "魔法",
+      "高重复",
+      "家族叙事"
+    ],
+    "note": "女巫肉鸽"
+  },
+  {
+    "id": "p-72",
+    "title": "Dead Cells",
+    "year": 2018,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "动作",
+      "像素",
+      "高重复",
+      "银河城",
+      "低叙事"
+    ],
+    "note": "动作循环"
+  },
+  {
+    "id": "p-73",
+    "title": "The Binding of Isaac Rebirth",
+    "year": 2014,
+    "type": "Roguelike",
+    "tags": [
+      "Roguelike",
+      "弹幕",
+      "黑色幽默",
+      "宗教隐喻",
+      "高重复",
+      "低叙事"
+    ],
+    "note": "地下室隐喻"
+  },
+  {
+    "id": "p-74",
+    "title": "Vampire Survivors",
+    "year": 2022,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "幸存者like",
+      "自动攻击",
+      "像素",
+      "高重复",
+      "低叙事"
+    ],
+    "note": "轻量刷局"
+  },
+  {
+    "id": "p-75",
+    "title": "Deep Rock Galactic Survivor",
+    "year": 2024,
+    "type": "Roguelite",
+    "tags": [
+      "幸存者like",
+      "科幻",
+      "矮人",
+      "自动攻击",
+      "高重复",
+      "挖矿"
+    ],
+    "note": "幸存者变体"
+  },
+  {
+    "id": "p-76",
+    "title": "Risk of Rain 2",
+    "year": 2020,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "射击",
+      "科幻",
+      "多人合作",
+      "高重复",
+      "刷宝"
+    ],
+    "note": "三维肉鸽"
+  },
+  {
+    "id": "p-77",
+    "title": "Spelunky 2",
+    "year": 2020,
+    "type": "Platformer",
+    "tags": [
+      "平台跳跃",
+      "Roguelike",
+      "探险",
+      "高难度",
+      "涌现叙事",
+      "低叙事"
+    ],
+    "note": "洞穴事故"
+  },
+  {
+    "id": "p-78",
+    "title": "Celeste",
+    "year": 2018,
+    "type": "Platformer",
+    "tags": [
+      "平台跳跃",
+      "心理健康",
+      "高难度",
+      "像素",
+      "线性叙事",
+      "成长"
+    ],
+    "note": "攀登隐喻"
+  },
+  {
+    "id": "p-79",
+    "title": "Hollow Knight",
+    "year": 2017,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "动作",
+      "昆虫王国",
+      "黑暗奇幻",
+      "探索",
+      "碎片叙事"
+    ],
+    "note": "地下王国"
+  },
+  {
+    "id": "p-80",
+    "title": "Ori and the Will of the Wisps",
+    "year": 2020,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "奇幻",
+      "治愈",
+      "平台跳跃",
+      "线性叙事",
+      "自然"
+    ],
+    "note": "精灵冒险"
+  },
+  {
+    "id": "p-81",
+    "title": "Metroid Dread",
+    "year": 2021,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "科幻",
+      "孤独感",
+      "探索",
+      "追逐",
+      "动作"
+    ],
+    "note": "外星基地"
+  },
+  {
+    "id": "p-82",
+    "title": "Prince of Persia The Lost Crown",
+    "year": 2024,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "波斯神话",
+      "动作",
+      "时间能力",
+      "平台跳跃",
+      "线性叙事"
+    ],
+    "note": "神话宫殿"
+  },
+  {
+    "id": "p-83",
+    "title": "Super Mario Bros Wonder",
+    "year": 2023,
+    "type": "Platformer",
+    "tags": [
+      "平台跳跃",
+      "可爱",
+      "家庭友好",
+      "多人合作",
+      "奇幻",
+      "低叙事"
+    ],
+    "note": "惊奇关卡"
+  },
+  {
+    "id": "p-84",
+    "title": "Astro Bot",
+    "year": 2024,
+    "type": "Platformer",
+    "tags": [
+      "平台跳跃",
+      "可爱",
+      "科幻",
+      "家庭友好",
+      "收集",
+      "低压力"
+    ],
+    "note": "手柄玩具箱"
+  },
+  {
+    "id": "p-85",
+    "title": "The Legend of Zelda Breath of the Wild",
+    "year": 2017,
+    "type": "Adventure",
+    "tags": [
+      "开放世界",
+      "奇幻",
+      "物理交互",
+      "探索",
+      "低叙事",
+      "解谜"
+    ],
+    "note": "开放探索"
+  },
+  {
+    "id": "p-86",
+    "title": "The Legend of Zelda Tears of the Kingdom",
+    "year": 2023,
+    "type": "Adventure",
+    "tags": [
+      "开放世界",
+      "奇幻",
+      "物理建造",
+      "探索",
+      "天空",
+      "解谜"
+    ],
+    "note": "组装创造"
+  },
+  {
+    "id": "p-87",
+    "title": "Horizon Forbidden West",
+    "year": 2022,
+    "type": "Action Adventure",
+    "tags": [
+      "开放世界",
+      "科幻",
+      "末世",
+      "机器生态",
+      "动作",
+      "线性叙事"
+    ],
+    "note": "机械自然"
+  },
+  {
+    "id": "p-88",
+    "title": "Ghost of Tsushima",
+    "year": 2020,
+    "type": "Action Adventure",
+    "tags": [
+      "开放世界",
+      "武士",
+      "日本历史",
+      "动作",
+      "复仇",
+      "线性叙事"
+    ],
+    "note": "武士电影感"
+  },
+  {
+    "id": "p-89",
+    "title": "Red Dead Redemption 2",
+    "year": 2018,
+    "type": "Action Adventure",
+    "tags": [
+      "开放世界",
+      "西部",
+      "犯罪",
+      "沉浸模拟",
+      "成人叙事",
+      "探索"
+    ],
+    "note": "西部挽歌"
+  },
+  {
+    "id": "p-90",
+    "title": "Assassin's Creed Mirage",
+    "year": 2023,
+    "type": "Action Adventure",
+    "tags": [
+      "潜行",
+      "历史",
+      "开放区域",
+      "刺客",
+      "中东",
+      "线性叙事"
+    ],
+    "note": "回归潜行"
+  },
+  {
+    "id": "p-91",
+    "title": "Hitman World of Assassination",
+    "year": 2021,
+    "type": "Stealth",
+    "tags": [
+      "潜行",
+      "沙盒关卡",
+      "现代都市",
+      "黑色幽默",
+      "重复挑战",
+      "低叙事"
+    ],
+    "note": "刺杀谜题"
+  },
+  {
+    "id": "p-92",
+    "title": "Metal Gear Solid V",
+    "year": 2015,
+    "type": "Stealth",
+    "tags": [
+      "潜行",
+      "开放世界",
+      "现代军事",
+      "基地管理",
+      "政治阴谋",
+      "涌现叙事"
+    ],
+    "note": "战术沙盒"
+  },
+  {
+    "id": "p-93",
+    "title": "Dishonored 2",
+    "year": 2016,
+    "type": "Immersive Sim",
+    "tags": [
+      "沉浸模拟",
+      "潜行",
+      "蒸汽朋克",
+      "复仇",
+      "多路线",
+      "超能力"
+    ],
+    "note": "关卡选择"
+  },
+  {
+    "id": "p-94",
+    "title": "Deus Ex Mankind Divided",
+    "year": 2016,
+    "type": "Immersive Sim",
+    "tags": [
+      "沉浸模拟",
+      "赛博朋克",
+      "潜行",
+      "政治阴谋",
+      "多路线",
+      "身份认同"
+    ],
+    "note": "增强人议题"
+  },
+  {
+    "id": "p-95",
+    "title": "Prey",
+    "year": 2017,
+    "type": "Immersive Sim",
+    "tags": [
+      "沉浸模拟",
+      "科幻",
+      "空间站",
+      "恐怖",
+      "多路线",
+      "身份认同"
+    ],
+    "note": "太空站危机"
+  },
+  {
+    "id": "p-96",
+    "title": "Portal 2",
+    "year": 2011,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "科幻",
+      "黑色幽默",
+      "合作PvE",
+      "物理",
+      "线性叙事"
+    ],
+    "note": "传送门谜题"
+  },
+  {
+    "id": "p-97",
+    "title": "The Witness",
+    "year": 2016,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "岛屿",
+      "抽象",
+      "探索",
+      "低叙事",
+      "哲学"
+    ],
+    "note": "符号解谜"
+  },
+  {
+    "id": "p-98",
+    "title": "Baba Is You",
+    "year": 2019,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "规则改写",
+      "抽象",
+      "高难度",
+      "低叙事",
+      "像素"
+    ],
+    "note": "语法玩法"
+  },
+  {
+    "id": "p-99",
+    "title": "Return of the Obra Dinn",
+    "year": 2018,
+    "type": "Detective",
+    "tags": [
+      "侦探",
+      "推理",
+      "海事",
+      "超自然",
+      "黑白美术",
+      "碎片叙事"
+    ],
+    "note": "死亡推理"
+  },
+  {
+    "id": "p-100",
+    "title": "Disco Elysium",
+    "year": 2019,
+    "type": "Narrative RPG",
+    "tags": [
+      "侦探",
+      "RPG",
+      "政治",
+      "失忆",
+      "成人叙事",
+      "多分支叙事"
+    ],
+    "note": "内心对话"
+  },
+  {
+    "id": "p-101",
+    "title": "The Case of the Golden Idol",
+    "year": 2022,
+    "type": "Detective",
+    "tags": [
+      "侦探",
+      "推理",
+      "历史",
+      "超自然",
+      "益智",
+      "黑色幽默"
+    ],
+    "note": "场景推理"
+  },
+  {
+    "id": "p-102",
+    "title": "Outer Wilds",
+    "year": 2019,
+    "type": "Adventure",
+    "tags": [
+      "太空探索",
+      "时间循环",
+      "考古",
+      "探索",
+      "哲学",
+      "低战斗"
+    ],
+    "note": "知识驱动"
+  },
+  {
+    "id": "p-103",
+    "title": "Her Story",
+    "year": 2015,
+    "type": "FMV",
+    "tags": [
+      "侦探",
+      "FMV",
+      "非线性叙事",
+      "犯罪",
+      "搜索",
+      "低操作"
+    ],
+    "note": "视频检索"
+  },
+  {
+    "id": "p-104",
+    "title": "Immortality",
+    "year": 2022,
+    "type": "FMV",
+    "tags": [
+      "FMV",
+      "电影工业",
+      "神秘",
+      "非线性叙事",
+      "成人叙事",
+      "搜索"
+    ],
+    "note": "影像拼图"
+  },
+  {
+    "id": "p-105",
+    "title": "Life is Strange",
+    "year": 2015,
+    "type": "Narrative Adventure",
+    "tags": [
+      "叙事冒险",
+      "青春",
+      "时间能力",
+      "多分支叙事",
+      "校园",
+      "情感"
+    ],
+    "note": "选择叙事"
+  },
+  {
+    "id": "p-106",
+    "title": "Detroit Become Human",
+    "year": 2018,
+    "type": "Narrative Adventure",
+    "tags": [
+      "叙事冒险",
+      "机器人",
+      "身份认同",
+      "多分支叙事",
+      "近未来",
+      "政治"
+    ],
+    "note": "分支电影"
+  },
+  {
+    "id": "p-107",
+    "title": "The Walking Dead",
+    "year": 2012,
+    "type": "Narrative Adventure",
+    "tags": [
+      "叙事冒险",
+      "丧尸",
+      "亲情",
+      "多分支叙事",
+      "末世",
+      "情感"
+    ],
+    "note": "章节选择"
+  },
+  {
+    "id": "p-108",
+    "title": "What Remains of Edith Finch",
+    "year": 2017,
+    "type": "Walking Sim",
+    "tags": [
+      "步行模拟",
+      "家族叙事",
+      "魔幻现实",
+      "短篇集",
+      "情感",
+      "低战斗"
+    ],
+    "note": "家族记忆"
+  },
+  {
+    "id": "p-109",
+    "title": "Firewatch",
+    "year": 2016,
+    "type": "Walking Sim",
+    "tags": [
+      "步行模拟",
+      "荒野",
+      "孤独感",
+      "成人叙事",
+      "悬疑",
+      "低战斗"
+    ],
+    "note": "对讲机关系"
+  },
+  {
+    "id": "p-110",
+    "title": "Gone Home",
+    "year": 2013,
+    "type": "Walking Sim",
+    "tags": [
+      "步行模拟",
+      "家庭",
+      "青春",
+      "探索",
+      "低战斗",
+      "现实题材"
+    ],
+    "note": "空间叙事"
+  },
+  {
+    "id": "p-111",
+    "title": "Stray",
+    "year": 2022,
+    "type": "Adventure",
+    "tags": [
+      "猫",
+      "赛博朋克",
+      "探索",
+      "可爱",
+      "机器人",
+      "线性叙事"
+    ],
+    "note": "猫视角城市"
+  },
+  {
+    "id": "p-112",
+    "title": "Spiritfarer",
+    "year": 2020,
+    "type": "Management",
+    "tags": [
+      "经营",
+      "死亡",
+      "治愈",
+      "船",
+      "情感",
+      "手绘"
+    ],
+    "note": "告别主题"
+  },
+  {
+    "id": "p-113",
+    "title": "Dave the Diver",
+    "year": 2023,
+    "type": "Hybrid Sim",
+    "tags": [
+      "经营",
+      "潜水",
+      "海洋",
+      "烹饪",
+      "像素",
+      "轻喜剧"
+    ],
+    "note": "白天夜晚循环"
+  },
+  {
+    "id": "p-114",
+    "title": "Dredge",
+    "year": 2023,
+    "type": "Fishing Horror",
+    "tags": [
+      "钓鱼",
+      "海洋",
+      "洛夫克拉夫特",
+      "经营",
+      "恐怖",
+      "探索"
+    ],
+    "note": "克苏鲁渔业"
+  },
+  {
+    "id": "p-115",
+    "title": "Cult of the Lamb",
+    "year": 2022,
+    "type": "Hybrid",
+    "tags": [
+      "Roguelike",
+      "经营",
+      "邪教",
+      "可爱恐怖",
+      "基地建造",
+      "黑色幽默"
+    ],
+    "note": "教团运营"
+  },
+  {
+    "id": "p-116",
+    "title": "Inscryption",
+    "year": 2021,
+    "type": "Deckbuilder Horror",
+    "tags": [
+      "卡牌构筑",
+      "恐怖",
+      "元叙事",
+      "逃脱房",
+      "黑色幽默",
+      "多阶段"
+    ],
+    "note": "规则反转"
+  },
+  {
+    "id": "p-117",
+    "title": "Papers Please",
+    "year": 2013,
+    "type": "Simulation",
+    "tags": [
+      "边检",
+      "政治",
+      "道德选择",
+      "现实题材",
+      "高压力",
+      "低美术"
+    ],
+    "note": "制度压力"
+  },
+  {
+    "id": "p-118",
+    "title": "This War of Mine",
+    "year": 2014,
+    "type": "Survival",
+    "tags": [
+      "生存",
+      "战争平民",
+      "道德选择",
+      "基地管理",
+      "现实题材",
+      "高压力"
+    ],
+    "note": "平民战争"
+  },
+  {
+    "id": "p-119",
+    "title": "Frostpunk",
+    "year": 2018,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "末世",
+      "道德选择",
+      "生存",
+      "政治",
+      "高压力"
+    ],
+    "note": "寒冬伦理"
+  },
+  {
+    "id": "p-120",
+    "title": "Frostpunk 2",
+    "year": 2024,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "末世",
+      "政治",
+      "派系叙事",
+      "生存",
+      "高压力"
+    ],
+    "note": "社会抉择"
+  },
+  {
+    "id": "p-121",
+    "title": "Against the Storm",
+    "year": 2023,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "Roguelike",
+      "奇幻",
+      "资源管理",
+      "高重复",
+      "生存"
+    ],
+    "note": "肉鸽城建"
+  },
+  {
+    "id": "p-122",
+    "title": "Manor Lords",
+    "year": 2024,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "中世纪",
+      "战争",
+      "模拟经营",
+      "现实题材",
+      "低叙事"
+    ],
+    "note": "庄园经济"
+  },
+  {
+    "id": "p-123",
+    "title": "Anno 1800",
+    "year": 2019,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "工业革命",
+      "贸易",
+      "资源管理",
+      "历史",
+      "高复杂度"
+    ],
+    "note": "生产链经营"
+  },
+  {
+    "id": "p-124",
+    "title": "Football Manager 2024",
+    "year": 2023,
+    "type": "Management",
+    "tags": [
+      "体育",
+      "模拟经营",
+      "数据分析",
+      "足球",
+      "长期运营",
+      "低叙事"
+    ],
+    "note": "经理模拟"
+  },
+  {
+    "id": "p-125",
+    "title": "EA Sports FC 25",
+    "year": 2024,
+    "type": "Sports",
+    "tags": [
+      "体育",
+      "足球",
+      "多人在线",
+      "卡牌收集",
+      "服务型游戏",
+      "竞技"
+    ],
+    "note": "足球服务"
+  },
+  {
+    "id": "p-126",
+    "title": "NBA 2K25",
+    "year": 2024,
+    "type": "Sports",
+    "tags": [
+      "体育",
+      "篮球",
+      "职业生涯",
+      "多人在线",
+      "服务型游戏",
+      "竞技"
+    ],
+    "note": "篮球年货"
+  },
+  {
+    "id": "p-127",
+    "title": "Forza Horizon 5",
+    "year": 2021,
+    "type": "Racing",
+    "tags": [
+      "竞速",
+      "开放世界",
+      "汽车文化",
+      "收集",
+      "多人在线",
+      "低叙事"
+    ],
+    "note": "节庆赛车"
+  },
+  {
+    "id": "p-128",
+    "title": "Gran Turismo 7",
+    "year": 2022,
+    "type": "Racing",
+    "tags": [
+      "竞速",
+      "汽车文化",
+      "模拟",
+      "收集",
+      "多人在线",
+      "低叙事"
+    ],
+    "note": "驾驶收藏"
+  },
+  {
+    "id": "p-129",
+    "title": "Rocket League",
+    "year": 2015,
+    "type": "Sports Action",
+    "tags": [
+      "体育",
+      "汽车",
+      "竞技",
+      "多人在线",
+      "低叙事",
+      "服务型游戏"
+    ],
+    "note": "车球对抗"
+  },
+  {
+    "id": "p-130",
+    "title": "Street Fighter 6",
+    "year": 2023,
+    "type": "Fighting",
+    "tags": [
+      "格斗",
+      "竞技",
+      "街头文化",
+      "多人在线",
+      "电竞",
+      "角色叙事"
+    ],
+    "note": "现代格斗"
+  },
+  {
+    "id": "p-131",
+    "title": "Tekken 8",
+    "year": 2024,
+    "type": "Fighting",
+    "tags": [
+      "格斗",
+      "家族恩怨",
+      "竞技",
+      "多人在线",
+      "电竞",
+      "动作"
+    ],
+    "note": "3D格斗"
+  },
+  {
+    "id": "p-132",
+    "title": "Mortal Kombat 1",
+    "year": 2023,
+    "type": "Fighting",
+    "tags": [
+      "格斗",
+      "血腥",
+      "奇幻",
+      "多元宇宙",
+      "竞技",
+      "线性叙事"
+    ],
+    "note": "重启宇宙"
+  },
+  {
+    "id": "p-133",
+    "title": "Madden NFL 25",
+    "year": 2024,
+    "type": "Sports",
+    "tags": [
+      "体育",
+      "橄榄球",
+      "多人在线",
+      "职业生涯",
+      "服务型游戏",
+      "竞技"
+    ],
+    "note": "美式体育"
+  },
+  {
+    "id": "p-134",
+    "title": "Just Dance 2025",
+    "year": 2024,
+    "type": "Rhythm",
+    "tags": [
+      "音乐节奏",
+      "舞蹈",
+      "家庭友好",
+      "派对",
+      "服务型游戏",
+      "低叙事"
+    ],
+    "note": "体感跳舞"
+  },
+  {
+    "id": "p-135",
+    "title": "Beat Saber",
+    "year": 2019,
+    "type": "Rhythm VR",
+    "tags": [
+      "音乐节奏",
+      "VR",
+      "科幻",
+      "健身",
+      "低叙事",
+      "技能挑战"
+    ],
+    "note": "VR节奏"
+  },
+  {
+    "id": "p-136",
+    "title": "Gorilla Tag",
+    "year": 2021,
+    "type": "VR Social",
+    "tags": [
+      "VR",
+      "社交",
+      "运动",
+      "多人在线",
+      "低叙事",
+      "低美术"
+    ],
+    "note": "身体移动"
+  },
+  {
+    "id": "p-137",
+    "title": "Half-Life Alyx",
+    "year": 2020,
+    "type": "VR Shooter",
+    "tags": [
+      "VR",
+      "射击",
+      "科幻",
+      "恐怖",
+      "沉浸模拟",
+      "线性叙事"
+    ],
+    "note": "VR沉浸"
+  },
+  {
+    "id": "p-138",
+    "title": "Among Us",
+    "year": 2018,
+    "type": "Social Deduction",
+    "tags": [
+      "社交推理",
+      "太空",
+      "多人在线",
+      "低叙事",
+      "派对",
+      "欺骗"
+    ],
+    "note": "低成本传播"
+  },
+  {
+    "id": "p-139",
+    "title": "Goose Goose Duck",
+    "year": 2021,
+    "type": "Social Deduction",
+    "tags": [
+      "社交推理",
+      "多人在线",
+      "角色技能",
+      "派对",
+      "低叙事",
+      "可爱"
+    ],
+    "note": "变体推理"
+  },
+  {
+    "id": "p-140",
+    "title": "Fall Guys",
+    "year": 2020,
+    "type": "Party",
+    "tags": [
+      "派对",
+      "多人在线",
+      "平台跳跃",
+      "可爱",
+      "大逃杀",
+      "低叙事"
+    ],
+    "note": "闯关综艺"
+  },
+  {
+    "id": "p-141",
+    "title": "Party Animals",
+    "year": 2023,
+    "type": "Party",
+    "tags": [
+      "派对",
+      "物理",
+      "多人在线",
+      "可爱",
+      "低叙事",
+      "竞技"
+    ],
+    "note": "布偶对抗"
+  },
+  {
+    "id": "p-142",
+    "title": "Chained Together",
+    "year": 2024,
+    "type": "Co-op Platformer",
+    "tags": [
+      "多人合作",
+      "平台跳跃",
+      "物理",
+      "高难度",
+      "直播友好",
+      "低叙事"
+    ],
+    "note": "协作受苦"
+  },
+  {
+    "id": "p-143",
+    "title": "It Takes Two",
+    "year": 2021,
+    "type": "Co-op Adventure",
+    "tags": [
+      "多人合作",
+      "平台跳跃",
+      "婚姻",
+      "奇幻",
+      "解谜",
+      "线性叙事"
+    ],
+    "note": "双人机制"
+  },
+  {
+    "id": "p-144",
+    "title": "Overcooked 2",
+    "year": 2018,
+    "type": "Co-op",
+    "tags": [
+      "多人合作",
+      "烹饪",
+      "派对",
+      "高压力",
+      "可爱",
+      "低叙事"
+    ],
+    "note": "协作混乱"
+  },
+  {
+    "id": "p-145",
+    "title": "Moving Out 2",
+    "year": 2023,
+    "type": "Co-op",
+    "tags": [
+      "多人合作",
+      "物理",
+      "搬家",
+      "派对",
+      "可爱",
+      "低叙事"
+    ],
+    "note": "搬家闯关"
+  },
+  {
+    "id": "p-146",
+    "title": "Phasmophobia",
+    "year": 2020,
+    "type": "Horror Co-op",
+    "tags": [
+      "恐怖",
+      "多人合作",
+      "鬼怪",
+      "调查",
+      "语音互动",
+      "直播友好"
+    ],
+    "note": "合作捉鬼"
+  },
+  {
+    "id": "p-147",
+    "title": "Lethal Company",
+    "year": 2023,
+    "type": "Horror Co-op",
+    "tags": [
+      "恐怖",
+      "多人合作",
+      "太空",
+      "公司讽刺",
+      "直播友好",
+      "高压力"
+    ],
+    "note": "拾荒合作"
+  },
+  {
+    "id": "p-148",
+    "title": "Content Warning",
+    "year": 2024,
+    "type": "Horror Co-op",
+    "tags": [
+      "恐怖",
+      "多人合作",
+      "短视频",
+      "直播友好",
+      "怪物",
+      "黑色幽默"
+    ],
+    "note": "拍摄恐怖"
+  },
+  {
+    "id": "p-149",
+    "title": "Dead by Daylight",
+    "year": 2016,
+    "type": "Asymmetric Horror",
+    "tags": [
+      "恐怖",
+      "非对称竞技",
+      "多人在线",
+      "IP联动",
+      "服务型游戏",
+      "追逐"
+    ],
+    "note": "杀手逃生"
+  },
+  {
+    "id": "p-150",
+    "title": "Resident Evil 4 Remake",
+    "year": 2023,
+    "type": "Survival Horror",
+    "tags": [
+      "恐怖",
+      "生存",
+      "丧尸",
+      "动作",
+      "线性叙事",
+      "资源管理"
+    ],
+    "note": "经典重制"
+  },
+  {
+    "id": "p-151",
+    "title": "Alan Wake 2",
+    "year": 2023,
+    "type": "Survival Horror",
+    "tags": [
+      "恐怖",
+      "超自然",
+      "作家",
+      "侦探",
+      "元叙事",
+      "成人叙事"
+    ],
+    "note": "叙事恐怖"
+  },
+  {
+    "id": "p-152",
+    "title": "Silent Hill 2 Remake",
+    "year": 2024,
+    "type": "Survival Horror",
+    "tags": [
+      "恐怖",
+      "心理健康",
+      "小镇",
+      "罪疚",
+      "线性叙事",
+      "成人叙事"
+    ],
+    "note": "心理恐怖"
+  },
+  {
+    "id": "p-153",
+    "title": "Amnesia The Bunker",
+    "year": 2023,
+    "type": "Survival Horror",
+    "tags": [
+      "恐怖",
+      "一战",
+      "沉浸模拟",
+      "生存",
+      "高压力",
+      "随机系统"
+    ],
+    "note": "地堡逃生"
+  },
+  {
+    "id": "p-154",
+    "title": "Outlast Trials",
+    "year": 2024,
+    "type": "Horror Co-op",
+    "tags": [
+      "恐怖",
+      "多人合作",
+      "实验",
+      "冷战",
+      "高压力",
+      "服务型游戏"
+    ],
+    "note": "合作惊吓"
+  },
+  {
+    "id": "p-155",
+    "title": "Little Nightmares II",
+    "year": 2021,
+    "type": "Horror Platformer",
+    "tags": [
+      "恐怖",
+      "平台跳跃",
+      "童年噩梦",
+      "解谜",
+      "线性叙事",
+      "暗黑童话"
+    ],
+    "note": "微型恐惧"
+  },
+  {
+    "id": "p-156",
+    "title": "Inside",
+    "year": 2016,
+    "type": "Puzzle Platformer",
+    "tags": [
+      "平台跳跃",
+      "反乌托邦",
+      "解谜",
+      "低叙事",
+      "暗黑",
+      "线性叙事"
+    ],
+    "note": "无声寓言"
+  },
+  {
+    "id": "p-157",
+    "title": "Limbo",
+    "year": 2010,
+    "type": "Puzzle Platformer",
+    "tags": [
+      "平台跳跃",
+      "黑白美术",
+      "解谜",
+      "暗黑",
+      "低叙事",
+      "高死亡"
+    ],
+    "note": "剪影冒险"
+  },
+  {
+    "id": "p-158",
+    "title": "Cuphead",
+    "year": 2017,
+    "type": "Action Platformer",
+    "tags": [
+      "动作",
+      "平台跳跃",
+      "复古动画",
+      "高难度",
+      "合作PvE",
+      "低叙事"
+    ],
+    "note": "手绘Boss战"
+  },
+  {
+    "id": "p-159",
+    "title": "Sea of Thieves",
+    "year": 2018,
+    "type": "Adventure",
+    "tags": [
+      "海盗",
+      "多人在线",
+      "开放世界",
+      "合作PvE",
+      "涌现叙事",
+      "服务型游戏"
+    ],
+    "note": "海上社交"
+  },
+  {
+    "id": "p-160",
+    "title": "Skull and Bones",
+    "year": 2024,
+    "type": "Action Adventure",
+    "tags": [
+      "海盗",
+      "多人在线",
+      "开放世界",
+      "海战",
+      "服务型游戏",
+      "低叙事"
+    ],
+    "note": "船只战斗"
+  },
+  {
+    "id": "p-161",
+    "title": "EVE Online",
+    "year": 2003,
+    "type": "MMO",
+    "tags": [
+      "太空探索",
+      "经济模拟",
+      "多人在线",
+      "政治",
+      "涌现叙事",
+      "高复杂度"
+    ],
+    "note": "玩家政治"
+  },
+  {
+    "id": "p-162",
+    "title": "World of Warcraft",
+    "year": 2004,
+    "type": "MMORPG",
+    "tags": [
+      "MMORPG",
+      "奇幻",
+      "团队副本",
+      "多人在线",
+      "服务型游戏",
+      "长线剧情"
+    ],
+    "note": "经典网游"
+  },
+  {
+    "id": "p-163",
+    "title": "Guild Wars 2",
+    "year": 2012,
+    "type": "MMORPG",
+    "tags": [
+      "MMORPG",
+      "奇幻",
+      "探索",
+      "多人在线",
+      "服务型游戏",
+      "动态事件"
+    ],
+    "note": "开放网游"
+  },
+  {
+    "id": "p-164",
+    "title": "The Finals",
+    "year": 2023,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "竞技",
+      "破坏环境",
+      "直播综艺",
+      "多人在线",
+      "近未来"
+    ],
+    "note": "竞技节目"
+  },
+  {
+    "id": "p-165",
+    "title": "Escape from Tarkov",
+    "year": 2017,
+    "type": "Extraction Shooter",
+    "tags": [
+      "撤离射击",
+      "现代军事",
+      "刷宝",
+      "高压力",
+      "多人在线",
+      "拟真"
+    ],
+    "note": "硬核撤离"
+  },
+  {
+    "id": "p-166",
+    "title": "Hunt Showdown 1896",
+    "year": 2024,
+    "type": "Extraction Shooter",
+    "tags": [
+      "撤离射击",
+      "西部",
+      "恐怖",
+      "多人在线",
+      "高压力",
+      "怪物狩猎"
+    ],
+    "note": "西部猎魔"
+  },
+  {
+    "id": "p-167",
+    "title": "Dark and Darker",
+    "year": 2024,
+    "type": "Extraction",
+    "tags": [
+      "撤离",
+      "奇幻",
+      "地牢",
+      "多人在线",
+      "刷宝",
+      "高压力"
+    ],
+    "note": "地牢撤离"
+  },
+  {
+    "id": "p-168",
+    "title": "Marauders",
+    "year": 2023,
+    "type": "Extraction Shooter",
+    "tags": [
+      "撤离射击",
+      "太空",
+      "柴油朋克",
+      "刷宝",
+      "多人在线",
+      "高压力"
+    ],
+    "note": "太空掠夺"
+  },
+  {
+    "id": "p-169",
+    "title": "Clair Obscur Expedition 33",
+    "year": 2025,
+    "type": "JRPG",
+    "tags": [
+      "JRPG",
+      "回合制",
+      "黑暗奇幻",
+      "成人叙事",
+      "队伍羁绊",
+      "艺术化"
+    ],
+    "note": "法式奇幻"
+  },
+  {
+    "id": "p-170",
+    "title": "Black Myth Wukong",
+    "year": 2024,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "西游神话",
+      "魂like",
+      "中国神话",
+      "线性叙事",
+      "高难度"
+    ],
+    "note": "神话改编"
+  },
+  {
+    "id": "p-171",
+    "title": "Nine Sols",
+    "year": 2024,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "道教科幻",
+      "动作",
+      "高难度",
+      "手绘",
+      "复仇"
+    ],
+    "note": "道朋克"
+  },
+  {
+    "id": "p-172",
+    "title": "Pacific Drive",
+    "year": 2024,
+    "type": "Survival",
+    "tags": [
+      "生存",
+      "汽车",
+      "异常区域",
+      "科幻",
+      "探索",
+      "资源管理"
+    ],
+    "note": "车库远征"
+  },
+  {
+    "id": "p-173",
+    "title": "Kenshi",
+    "year": 2018,
+    "type": "Sandbox RPG",
+    "tags": [
+      "RPG",
+      "开放世界",
+      "废土",
+      "涌现叙事",
+      "基地建造",
+      "高自由度"
+    ],
+    "note": "无主角世界"
+  },
+  {
+    "id": "p-174",
+    "title": "Mount and Blade II Bannerlord",
+    "year": 2022,
+    "type": "Sandbox RPG",
+    "tags": [
+      "RPG",
+      "中世纪",
+      "战争",
+      "开放世界",
+      "派系叙事",
+      "涌现叙事"
+    ],
+    "note": "战争沙盒"
+  },
+  {
+    "id": "p-175",
+    "title": "Kingdom Come Deliverance",
+    "year": 2018,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "中世纪",
+      "历史",
+      "沉浸模拟",
+      "现实题材",
+      "线性叙事"
+    ],
+    "note": "写实波希米亚"
+  },
+  {
+    "id": "p-176",
+    "title": "The Thaumaturge",
+    "year": 2024,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "历史",
+      "超自然",
+      "侦探",
+      "政治",
+      "成人叙事"
+    ],
+    "note": "华沙神秘"
+  },
+  {
+    "id": "p-177",
+    "title": "Norco",
+    "year": 2022,
+    "type": "Adventure",
+    "tags": [
+      "叙事冒险",
+      "南方哥特",
+      "赛博朋克",
+      "家庭",
+      "现实题材",
+      "像素"
+    ],
+    "note": "石化工城"
+  },
+  {
+    "id": "p-178",
+    "title": "1000xRESIST",
+    "year": 2024,
+    "type": "Narrative Adventure",
+    "tags": [
+      "叙事冒险",
+      "科幻",
+      "身份认同",
+      "疫情隐喻",
+      "多代叙事",
+      "政治"
+    ],
+    "note": "记忆与克隆"
+  },
+  {
+    "id": "p-179",
+    "title": "Citizen Sleeper",
+    "year": 2022,
+    "type": "Narrative RPG",
+    "tags": [
+      "RPG",
+      "赛博朋克",
+      "太空站",
+      "身份认同",
+      "骰子",
+      "成人叙事"
+    ],
+    "note": "边缘人生"
+  },
+  {
+    "id": "p-180",
+    "title": "Coffee Talk",
+    "year": 2020,
+    "type": "Visual Novel",
+    "tags": [
+      "视觉小说",
+      "咖啡馆",
+      "都市奇幻",
+      "治愈",
+      "对话",
+      "低压力"
+    ],
+    "note": "夜间倾听"
+  },
+  {
+    "id": "p-181",
+    "title": "VA-11 Hall-A",
+    "year": 2016,
+    "type": "Visual Novel",
+    "tags": [
+      "视觉小说",
+      "赛博朋克",
+      "酒吧",
+      "对话",
+      "成人叙事",
+      "低压力"
+    ],
+    "note": "调酒叙事"
+  },
+  {
+    "id": "p-182",
+    "title": "Phoenix Wright Ace Attorney Trilogy",
+    "year": 2019,
+    "type": "Visual Novel",
+    "tags": [
+      "视觉小说",
+      "法庭",
+      "侦探",
+      "喜剧",
+      "线性叙事",
+      "推理"
+    ],
+    "note": "法庭推理"
+  },
+  {
+    "id": "p-183",
+    "title": "Doki Doki Literature Club",
+    "year": 2017,
+    "type": "Visual Novel",
+    "tags": [
+      "视觉小说",
+      "校园",
+      "恐怖",
+      "元叙事",
+      "心理健康",
+      "低成本"
+    ],
+    "note": "类型反转"
+  },
+  {
+    "id": "p-184",
+    "title": "Suzerain",
+    "year": 2020,
+    "type": "Political Sim",
+    "tags": [
+      "政治",
+      "国家经营",
+      "文字",
+      "道德选择",
+      "现实题材",
+      "多分支叙事"
+    ],
+    "note": "总统模拟"
+  },
+  {
+    "id": "p-185",
+    "title": "Roadwarden",
+    "year": 2022,
+    "type": "Text RPG",
+    "tags": [
+      "文字冒险",
+      "RPG",
+      "奇幻",
+      "探索",
+      "道德选择",
+      "成人叙事"
+    ],
+    "note": "旅人职责"
+  },
+  {
+    "id": "p-186",
+    "title": "Pentiment",
+    "year": 2022,
+    "type": "Narrative Adventure",
+    "tags": [
+      "叙事冒险",
+      "中世纪",
+      "历史",
+      "侦探",
+      "宗教",
+      "手绘"
+    ],
+    "note": "手稿推理"
+  },
+  {
+    "id": "p-187",
+    "title": "Chants of Sennaar",
+    "year": 2023,
+    "type": "Puzzle Adventure",
+    "tags": [
+      "益智",
+      "语言破译",
+      "奇幻",
+      "探索",
+      "和平主义",
+      "低战斗"
+    ],
+    "note": "语言阶层"
+  },
+  {
+    "id": "p-188",
+    "title": "Cocoon",
+    "year": 2023,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "科幻",
+      "抽象",
+      "探索",
+      "低叙事",
+      "无文本"
+    ],
+    "note": "世界套娃"
+  },
+  {
+    "id": "p-189",
+    "title": "Viewfinder",
+    "year": 2023,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "摄影",
+      "空间错觉",
+      "科幻",
+      "第一人称",
+      "低叙事"
+    ],
+    "note": "照片成真"
+  },
+  {
+    "id": "p-190",
+    "title": "A Short Hike",
+    "year": 2019,
+    "type": "Adventure",
+    "tags": [
+      "探索",
+      "治愈",
+      "动物角色",
+      "低压力",
+      "短篇",
+      "开放区域"
+    ],
+    "note": "小岛散步"
+  },
+  {
+    "id": "p-191",
+    "title": "Toem",
+    "year": 2021,
+    "type": "Adventure",
+    "tags": [
+      "摄影",
+      "探索",
+      "黑白美术",
+      "治愈",
+      "短篇",
+      "低压力"
+    ],
+    "note": "拍照任务"
+  },
+  {
+    "id": "p-192",
+    "title": "Unpacking",
+    "year": 2021,
+    "type": "Puzzle",
+    "tags": [
+      "益智",
+      "生活物件",
+      "无文本叙事",
+      "治愈",
+      "家庭",
+      "低压力"
+    ],
+    "note": "物品讲故事"
+  },
+  {
+    "id": "p-193",
+    "title": "PowerWash Simulator",
+    "year": 2022,
+    "type": "Simulation",
+    "tags": [
+      "模拟",
+      "清洁",
+      "低压力",
+      "合作PvE",
+      "现代职场",
+      "低叙事"
+    ],
+    "note": "减压清洗"
+  },
+  {
+    "id": "p-194",
+    "title": "House Flipper 2",
+    "year": 2023,
+    "type": "Simulation",
+    "tags": [
+      "模拟",
+      "装修",
+      "低压力",
+      "建造",
+      "现代生活",
+      "经营"
+    ],
+    "note": "翻新房屋"
+  },
+  {
+    "id": "p-195",
+    "title": "Euro Truck Simulator 2",
+    "year": 2012,
+    "type": "Simulation",
+    "tags": [
+      "模拟",
+      "驾驶",
+      "低压力",
+      "开放道路",
+      "经济",
+      "低叙事"
+    ],
+    "note": "公路运输"
+  },
+  {
+    "id": "p-196",
+    "title": "Microsoft Flight Simulator",
+    "year": 2020,
+    "type": "Simulation",
+    "tags": [
+      "模拟",
+      "飞行",
+      "现实地理",
+      "低叙事",
+      "技术展示",
+      "探索"
+    ],
+    "note": "全球飞行"
+  },
+  {
+    "id": "p-197",
+    "title": "Clair Obscur Expedition 33",
+    "year": 2025,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "回合制",
+      "奇幻",
+      "成人叙事",
+      "队伍羁绊",
+      "艺术风格",
+      "线性叙事"
+    ],
+    "note": "美术化回合制"
+  },
+  {
+    "id": "p-198",
+    "title": "Split Fiction",
+    "year": 2025,
+    "type": "Co-op Adventure",
+    "tags": [
+      "多人合作",
+      "合作PvE",
+      "平台跳跃",
+      "科幻",
+      "奇幻",
+      "双人协作",
+      "线性叙事"
+    ],
+    "note": "双人类型拼贴"
+  },
+  {
+    "id": "p-199",
+    "title": "ARC Raiders",
+    "year": 2025,
+    "type": "Extraction Shooter",
+    "tags": [
+      "撤离射击",
+      "多人在线",
+      "科幻",
+      "第三人称",
+      "战术",
+      "服务型游戏",
+      "高压力"
+    ],
+    "note": "地表撤离"
+  },
+  {
+    "id": "p-200",
+    "title": "Battlefield 6 REDSEC",
+    "year": 2025,
+    "type": "Shooter",
+    "tags": [
+      "射击",
+      "现代军事",
+      "多人在线",
+      "大规模战场",
+      "破坏环境",
+      "服务型游戏",
+      "战术竞技"
+    ],
+    "note": "军事大场面"
+  },
+  {
+    "id": "p-201",
+    "title": "Assassin's Creed Shadows",
+    "year": 2025,
+    "type": "Action Adventure",
+    "tags": [
+      "开放世界",
+      "潜行",
+      "日本历史",
+      "忍者",
+      "武士",
+      "动作",
+      "线性叙事"
+    ],
+    "note": "双主角潜行"
+  },
+  {
+    "id": "p-202",
+    "title": "Oblivion Remastered",
+    "year": 2025,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "开放世界",
+      "奇幻",
+      "怀旧复刻",
+      "探索",
+      "角色扮演",
+      "买断制"
+    ],
+    "note": "经典重制"
+  },
+  {
+    "id": "p-203",
+    "title": "Pokemon Legends Z-A",
+    "year": 2025,
+    "type": "RPG",
+    "tags": [
+      "收集养成",
+      "角色收集",
+      "开放区域",
+      "奇幻",
+      "家庭友好",
+      "长期IP",
+      "买断制"
+    ],
+    "note": "精灵都市"
+  },
+  {
+    "id": "p-204",
+    "title": "Hollow Knight Silksong",
+    "year": 2025,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "动作",
+      "昆虫王国",
+      "黑暗奇幻",
+      "高难度",
+      "探索",
+      "线性叙事"
+    ],
+    "note": "续作期待"
+  },
+  {
+    "id": "p-205",
+    "title": "Fantasy Life i",
+    "year": 2025,
+    "type": "Life RPG",
+    "tags": [
+      "生活模拟",
+      "RPG",
+      "奇幻",
+      "职业生涯",
+      "收集养成",
+      "低压力",
+      "探索"
+    ],
+    "note": "职业生活冒险"
+  },
+  {
+    "id": "p-206",
+    "title": "Tiny Bookshop",
+    "year": 2025,
+    "type": "Management",
+    "tags": [
+      "经营",
+      "书店",
+      "海边小镇",
+      "治愈",
+      "生活模拟",
+      "低压力",
+      "买断制"
+    ],
+    "note": "移动书店"
+  },
+  {
+    "id": "p-207",
+    "title": "PEAK",
+    "year": 2025,
+    "type": "Co-op Climbing",
+    "tags": [
+      "多人合作",
+      "合作PvE",
+      "攀登",
+      "物理",
+      "高压力",
+      "直播友好",
+      "短局"
+    ],
+    "note": "合作登山"
+  },
+  {
+    "id": "p-208",
+    "title": "Schedule I",
+    "year": 2025,
+    "type": "Simulation",
+    "tags": [
+      "模拟经营",
+      "犯罪",
+      "黑色幽默",
+      "供应链",
+      "多人合作",
+      "沙盒建造",
+      "高重复"
+    ],
+    "note": "地下经营"
+  },
+  {
+    "id": "p-209",
+    "title": "Dispatch",
+    "year": 2025,
+    "type": "Narrative Strategy",
+    "tags": [
+      "叙事冒险",
+      "超级英雄",
+      "职场",
+      "喜剧",
+      "分支选择",
+      "角色关系",
+      "低战斗"
+    ],
+    "note": "调度英雄"
+  },
+  {
+    "id": "p-210",
+    "title": "DELTARUNE",
+    "year": 2025,
+    "type": "RPG",
+    "tags": [
+      "RPG",
+      "像素",
+      "元叙事",
+      "奇幻",
+      "黑色幽默",
+      "章节叙事",
+      "低成本"
+    ],
+    "note": "章节式反类型"
+  },
+  {
+    "id": "p-211",
+    "title": "Megabonk",
+    "year": 2025,
+    "type": "Roguelite",
+    "tags": [
+      "幸存者like",
+      "Roguelike",
+      "自动攻击",
+      "高重复",
+      "直播友好",
+      "低叙事",
+      "低成本"
+    ],
+    "note": "荒诞刷局"
+  },
+  {
+    "id": "p-212",
+    "title": "Supermarket Simulator",
+    "year": 2025,
+    "type": "Simulation",
+    "tags": [
+      "模拟经营",
+      "商店",
+      "现代生活",
+      "低叙事",
+      "高重复",
+      "低成本",
+      "直播友好"
+    ],
+    "note": "店铺循环"
+  },
+  {
+    "id": "p-213",
+    "title": "Escape From Duckov",
+    "year": 2025,
+    "type": "Extraction Shooter",
+    "tags": [
+      "撤离射击",
+      "俯视角",
+      "射击",
+      "黑色幽默",
+      "刷宝",
+      "高重复",
+      "低成本"
+    ],
+    "note": "轻量撤离"
+  },
+  {
+    "id": "p-214",
+    "title": "RV There Yet",
+    "year": 2025,
+    "type": "Co-op Physics",
+    "tags": [
+      "多人合作",
+      "物理",
+      "驾驶",
+      "喜剧",
+      "高压力",
+      "直播友好",
+      "短局"
+    ],
+    "note": "房车灾难协作"
+  },
+  {
+    "id": "p-215",
+    "title": "Slime Rancher 2",
+    "year": 2025,
+    "type": "Adventure",
+    "tags": [
+      "探索",
+      "可爱",
+      "收集养成",
+      "基地建造",
+      "低压力",
+      "奇幻",
+      "家庭友好"
+    ],
+    "note": "牧场收集"
+  },
+  {
+    "id": "p-216",
+    "title": "No Im Not a Human",
+    "year": 2025,
+    "type": "Horror",
+    "tags": [
+      "恐怖",
+      "心理压力",
+      "访客识别",
+      "短篇",
+      "低成本",
+      "道德选择",
+      "现实寓言"
+    ],
+    "note": "门口辨认"
+  },
+  {
+    "id": "p-217",
+    "title": "Rhythm Doctor",
+    "year": 2025,
+    "type": "Rhythm",
+    "tags": [
+      "音乐节奏",
+      "像素",
+      "医疗",
+      "喜剧",
+      "高难度",
+      "剧情关卡",
+      "低成本"
+    ],
+    "note": "一键节奏治疗"
+  },
+  {
+    "id": "p-218",
+    "title": "Soulstone Survivors",
+    "year": 2025,
+    "type": "Roguelite",
+    "tags": [
+      "幸存者like",
+      "Roguelike",
+      "自动攻击",
+      "技能构筑",
+      "高重复",
+      "奇幻",
+      "低叙事"
+    ],
+    "note": "技能海刷局"
+  },
+  {
+    "id": "p-219",
+    "title": "Sultan's Game",
+    "year": 2025,
+    "type": "Card Strategy",
+    "tags": [
+      "卡牌构筑",
+      "叙事冒险",
+      "政治",
+      "成人叙事",
+      "道德选择",
+      "高压力",
+      "黑色幽默"
+    ],
+    "note": "权力卡牌"
+  },
+  {
+    "id": "p-220",
+    "title": "Dinkum",
+    "year": 2025,
+    "type": "Life Sim",
+    "tags": [
+      "生活模拟",
+      "岛屿",
+      "收集养成",
+      "基地建造",
+      "多人合作",
+      "低压力",
+      "经营"
+    ],
+    "note": "澳洲岛建"
+  },
+  {
+    "id": "p-221",
+    "title": "BALL x PIT",
+    "year": 2025,
+    "type": "Roguelite",
+    "tags": [
+      "Roguelike",
+      "弹球",
+      "基地建造",
+      "低叙事",
+      "高重复",
+      "像素",
+      "低成本"
+    ],
+    "note": "弹球肉鸽"
+  },
+  {
+    "id": "p-222",
+    "title": "Necesse",
+    "year": 2025,
+    "type": "Sandbox",
+    "tags": [
+      "沙盒建造",
+      "生存",
+      "基地建造",
+      "多人合作",
+      "探索",
+      "像素",
+      "收集养成"
+    ],
+    "note": "俯视角生存"
+  },
+  {
+    "id": "p-223",
+    "title": "CloverPit",
+    "year": 2025,
+    "type": "Slot Roguelite",
+    "tags": [
+      "Roguelike",
+      "老虎机",
+      "高压力",
+      "黑色幽默",
+      "低成本",
+      "高重复",
+      "数字组合"
+    ],
+    "note": "赌博隐喻"
+  },
+  {
+    "id": "p-224",
+    "title": "Foundation",
+    "year": 2025,
+    "type": "City Builder",
+    "tags": [
+      "城市建造",
+      "中世纪",
+      "低压力",
+      "模拟经营",
+      "涌现叙事",
+      "资源管理",
+      "买断制"
+    ],
+    "note": "无网格城镇"
+  },
+  {
+    "id": "p-225",
+    "title": "AI LIMIT",
+    "year": 2025,
+    "type": "Action RPG",
+    "tags": [
+      "动作RPG",
+      "科幻",
+      "废土",
+      "高难度",
+      "女性主角",
+      "线性叙事",
+      "买断制"
+    ],
+    "note": "国产魂类"
+  },
+  {
+    "id": "p-226",
+    "title": "Backpack Battles",
+    "year": 2025,
+    "type": "Auto Battler",
+    "tags": [
+      "自动战斗",
+      "背包管理",
+      "策略",
+      "异步对战",
+      "低叙事",
+      "数字组合",
+      "高重复"
+    ],
+    "note": "背包构筑"
+  },
+  {
+    "id": "p-227",
+    "title": "A Game About Digging A Hole",
+    "year": 2025,
+    "type": "Incremental",
+    "tags": [
+      "挖掘",
+      "低成本",
+      "高重复",
+      "短篇",
+      "资源管理",
+      "低叙事",
+      "休闲"
+    ],
+    "note": "一件事循环"
+  },
+  {
+    "id": "p-228",
+    "title": "ENDER MAGNOLIA Bloom in the Mist",
+    "year": 2025,
+    "type": "Metroidvania",
+    "tags": [
+      "银河城",
+      "动作",
+      "黑暗奇幻",
+      "高难度",
+      "探索",
+      "线性叙事",
+      "手绘"
+    ],
+    "note": "雾中王国"
+  },
+  {
+    "id": "p-229",
+    "title": "Door Kickers 2 Task Force North",
+    "year": 2025,
+    "type": "Tactics",
+    "tags": [
+      "战术",
+      "现代军事",
+      "俯视角",
+      "实时暂停",
+      "高压力",
+      "低叙事",
+      "小队指挥"
+    ],
+    "note": "战术破门"
+  },
+  {
+    "id": "p-230",
+    "title": "Little Witch in the Woods",
+    "year": 2025,
+    "type": "Life Sim",
+    "tags": [
+      "生活模拟",
+      "魔法",
+      "可爱",
+      "收集养成",
+      "低压力",
+      "小镇",
+      "像素"
+    ],
+    "note": "小女巫生活"
+  },
+  {
+    "id": "p-231",
+    "title": "PowerWash Simulator 2",
+    "year": 2025,
+    "type": "Simulation",
+    "tags": [
+      "模拟",
+      "清洁",
+      "低压力",
+      "合作PvE",
+      "现代职场",
+      "低叙事",
+      "服务型游戏"
+    ],
+    "note": "减压续作"
+  }
+]

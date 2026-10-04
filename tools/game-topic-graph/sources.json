@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Steam Popular Tags",
+    "url": "https://store.steampowered.com/tag/browse/?l=english",
+    "usage": "用于建立基础题材和玩法标签体系"
+  },
+  {
+    "name": "SteamDB releases by tag",
+    "url": "https://steamdb.info/stats/releases/?tagid=492",
+    "usage": "用于参考 Steam 标签和发行趋势"
+  },
+  {
+    "name": "Newzoo PC & Console Gaming Report 2025",
+    "url": "https://newzoo.com/reports/pc-console-gaming-report-2025",
+    "usage": "用于参考 PC 与主机市场、付费结构、长线服务和新作表现趋势"
+  },
+  {
+    "name": "Newzoo 2025 full-year PC and console market analysis",
+    "url": "https://newzoo.com/articles/pc-console-market-2025-full-year",
+    "usage": "用于补充 2025 年代表项目、平台表现和长线服务趋势"
+  },
+  {
+    "name": "Newzoo PC & Console Gaming Report 2025 summary",
+    "url": "https://newzoo.com/resources/blog/into-the-data-pc-console-gaming-report-2025",
+    "usage": "用于参考射击、RPG、合作 PvE、长线服务和可发现性趋势"
+  },
+  {
+    "name": "Newzoo PC & Console Gaming Report 2026 public article",
+    "url": "https://newzoo.com/articles/post-pandemic-growth-pc-console",
+    "usage": "用于参考 2025 后 PC 与主机付费增长、买断制和中价位产品趋势"
+  },
+  {
+    "name": "Best of Steam 2025 indie list",
+    "url": "https://bestofsteam.com/the-best-indie-games-on-steam-in-2025",
+    "usage": "用于补充 2025 年 Steam 独立与 AA 代表项目样本"
+  },
+  {
+    "name": "JetBrains State of Game Development 2025",
+    "url": "https://lp.jetbrains.com/the-state-of-gamedev-2025/",
+    "usage": "用于参考团队规模、工具链和开发者生态"
+  },
+  {
+    "name": "Game World Observer / Steam niche trends",
+    "url": "https://gameworldobserver.com/2024/07/18/top-game-genres-on-steam-first-half-2024-key-trends",
+    "usage": "用于参考 Steam 小众题材和品类变化"
+  }
+]

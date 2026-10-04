@@ -1,0 +1,2577 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>游戏选题图谱</title>
+  <script src="d3.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111314;
+      --panel: #1b1f22;
+      --panel-2: #24292d;
+      --text: #e8ecef;
+      --muted: #9aa5ad;
+      --line: #343b40;
+      --blue: #4aa3ff;
+      --green: #4cc38a;
+      --yellow: #e0b84a;
+      --red: #ef6a63;
+      --purple: #b28cff;
+      --cyan: #45c6d4;
+      --orange: #f0964b;
+      --pink: #e675a7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 320px 1fr 340px;
+      height: 100vh;
+      min-height: 640px;
+    }
+
+    .sidebar, .detail {
+      background: var(--panel);
+      border-color: var(--line);
+      overflow: auto;
+    }
+
+    .sidebar {
+      border-right: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .detail {
+      border-left: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    h1 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      font-weight: 650;
+    }
+
+    h2 {
+      font-size: 14px;
+      margin: 22px 0 10px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 0 14px;
+      font-size: 13px;
+    }
+
+    .control {
+      display: grid;
+      gap: 7px;
+      margin: 14px 0;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #121618;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 9px 10px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--blue);
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+    }
+
+    .btn[aria-pressed="true"] {
+      background: #d7e8ff;
+      color: #111314;
+      border-color: #d7e8ff;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin: 12px 0 16px;
+    }
+
+    .tabs .btn {
+      justify-content: center;
+      min-height: 34px;
+      padding: 7px 6px;
+      font-size: 12px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .filters .control {
+      margin: 0;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .stat {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .score {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 74px 1fr 34px;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bar {
+      height: 7px;
+      border-radius: 999px;
+      background: #121618;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      background: var(--c, var(--blue));
+    }
+
+    .rank-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rank-block h3 {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .rank-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .rank-row button {
+      color: inherit;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .rank-row small {
+      color: var(--muted);
+    }
+
+    .workspace-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .project-form {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 16px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #15191b;
+    }
+
+    .project-form .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #121618;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 9px 10px;
+      outline: none;
+      font: inherit;
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .textarea {
+      min-height: 84px;
+      resize: vertical;
+    }
+
+    .legend {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .canvas-wrap {
+      position: relative;
+      min-width: 0;
+      overflow: auto;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+
+    .graph-tooltip {
+      position: absolute;
+      z-index: 5;
+      display: none;
+      max-width: 260px;
+      pointer-events: none;
+      background: rgba(18, 22, 24, .96);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .graph-tooltip b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .graph-tooltip span {
+      color: var(--muted);
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .toolbar {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: calc(100% - 28px);
+      pointer-events: none;
+    }
+
+    .toolbar > * {
+      pointer-events: auto;
+    }
+
+    .board-controls {
+      display: none;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(18, 22, 24, .86);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      backdrop-filter: blur(8px);
+    }
+
+    .board-controls.active {
+      display: flex;
+    }
+
+    .board-controls label {
+      padding-left: 8px;
+      font-size: 11px;
+    }
+
+    .mini-select {
+      width: auto;
+      min-height: 28px;
+      padding: 4px 24px 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .view-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: rgba(18, 22, 24, .86);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      backdrop-filter: blur(8px);
+    }
+
+    .view-switch .btn {
+      min-height: 28px;
+      padding: 5px 9px;
+      border: 0;
+      background: transparent;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .view-switch .btn[aria-pressed="true"] {
+      background: #d7e8ff;
+      color: #111314;
+    }
+
+    .pill {
+      background: rgba(18, 22, 24, .86);
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .node text {
+      paint-order: stroke;
+      stroke: rgba(17, 19, 20, .82);
+      stroke-width: 4px;
+      fill: var(--text);
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    .node circle {
+      stroke: rgba(255,255,255,.42);
+      stroke-width: 1px;
+      cursor: pointer;
+    }
+
+    .node.dim {
+      opacity: .24;
+    }
+
+    .link {
+      stroke: rgba(154, 165, 173, .18);
+      stroke-width: 1px;
+    }
+
+    .link.cross {
+      stroke: rgba(224, 184, 74, .36);
+      stroke-dasharray: 5 4;
+    }
+
+    .link.topic-topic {
+      stroke: rgba(224, 184, 74, .46);
+    }
+
+    .link.dim {
+      opacity: .08;
+    }
+
+    .heat-label,
+    .matrix-label,
+    .axis-label {
+      fill: var(--text);
+      font-size: 12px;
+      paint-order: stroke;
+      stroke: rgba(17, 19, 20, .75);
+      stroke-width: 3px;
+    }
+
+    .muted-label {
+      fill: var(--muted);
+      font-size: 11px;
+    }
+
+    .view-title {
+      fill: var(--text);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .view-subtitle {
+      fill: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-rule {
+      stroke: rgba(154,165,173,.18);
+      stroke-width: 1px;
+    }
+
+    .heat-cell circle,
+    .quadrant-point,
+    .matrix-cell {
+      cursor: pointer;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      border-color: var(--blue);
+    }
+
+    .item small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+
+    .tag {
+      border-radius: 999px;
+      background: #121618;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 5px 8px;
+    }
+
+    .sources a {
+      color: #9ed0ff;
+      display: block;
+      margin: 7px 0;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .sources a:hover { text-decoration: underline; }
+
+    .hint {
+      border-left: 3px solid var(--yellow);
+      padding-left: 10px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      body { overflow: auto; }
+      .app {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .sidebar, .detail {
+        border: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      svg { height: 70vh; min-height: 520px; }
+      .detail { border-top: 1px solid var(--line); }
+    }
+  </style>
+<link rel="stylesheet" href="integration.css"><script src="../../station-audio.js?v=4" defer></script></head>
+<body><header class="integration-bar"><a href="../../tools.html">← 游戏工具库</a><span>星游集 · 游戏选题图谱 / 样本分析</span><a href="../../index.html">返回接收站 ↗</a></header>
+  <main class="app">
+    <aside class="sidebar">
+      <h1>游戏选题图谱</h1>
+      <p>圆越大代表该题材在样本中出现越多。连线表示两个题材在同一作品中交叉出现，线越粗代表交叉作品越多。</p>
+
+      <div class="control">
+        <label for="search">搜索项目或题材</label>
+        <input id="search" type="search" placeholder="例如：侦探、烹饪、开放世界、恐怖" />
+      </div>
+
+      <div class="control">
+        <label for="cluster">题材分组</label>
+        <select id="cluster"></select>
+      </div>
+
+      <div class="filters">
+        <div class="control">
+          <label for="yearFilter">时间</label>
+          <select id="yearFilter">
+            <option value="all">全部</option>
+            <option value="3">近 3 年</option>
+            <option value="5">近 5 年</option>
+            <option value="10">近 10 年</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="platformFilter">平台</label>
+          <select id="platformFilter">
+            <option value="all">全部</option>
+            <option value="PC/主机">PC/主机</option>
+            <option value="移动端">移动端</option>
+            <option value="VR">VR</option>
+            <option value="UGC/平台">UGC/平台</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="modelFilter">商业模式</label>
+          <select id="modelFilter">
+            <option value="all">全部</option>
+            <option value="买断制">买断制</option>
+            <option value="服务型">服务型</option>
+            <option value="免费/内购">免费/内购</option>
+            <option value="UGC生态">UGC生态</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="teamFilter">团队规模</label>
+          <select id="teamFilter">
+            <option value="all">全部</option>
+            <option value="小团队">小团队</option>
+            <option value="中型团队">中型团队</option>
+            <option value="大型团队">大型团队</option>
+          </select>
+        </div>
+        <div class="control full">
+          <label for="sourceFilter">数据可信度</label>
+          <select id="sourceFilter">
+            <option value="all">全部</option>
+            <option value="商店/公开资料">商店/公开资料</option>
+            <option value="行业报告补强">行业报告补强</option>
+            <option value="人工标注">人工标注</option>
+            <option value="星游集自有项目">星游集自有项目</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn" id="toggleCross" type="button" aria-pressed="true">显示交叉线</button>
+        <button class="btn" id="reset" type="button">重置视图</button>
+      </div>
+
+      <section class="stats">
+        <div class="stat"><b id="projectCount">0</b><span>代表项目</span></div>
+        <div class="stat"><b id="topicCount">0</b><span>题材节点</span></div>
+        <div class="stat"><b id="edgeCount">0</b><span>题材关系线</span></div>
+        <div class="stat"><b id="gapCount">0</b><span>低覆盖题材</span></div>
+      </section>
+
+      <h2>图例</h2>
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background: var(--blue)"></span>玩法/类型</div>
+        <div class="legend-item"><span class="dot" style="background: var(--green)"></span>世界观/剧情内容</div>
+        <div class="legend-item"><span class="dot" style="background: var(--purple)"></span>题材情绪/体验</div>
+        <div class="legend-item"><span class="dot" style="background: var(--orange)"></span>平台/商业形态</div>
+        <div class="legend-item"><span class="dot" style="background: var(--muted)"></span>具体项目</div>
+      </div>
+
+      <h2>低覆盖组合</h2>
+      <div class="list" id="gapList"></div>
+    </aside>
+
+    <section class="canvas-wrap" aria-label="游戏选题关系图">
+      <div class="toolbar">
+        <div class="view-switch" id="visualTabs">
+          <button class="btn" type="button" data-visual="network" aria-pressed="true">图谱</button>
+          <button class="btn" type="button" data-visual="heat" aria-pressed="false">看板</button>
+          <button class="btn" type="button" data-visual="matrix" aria-pressed="false">交叉</button>
+          <button class="btn" type="button" data-visual="quadrant" aria-pressed="false">机会</button>
+        </div>
+        <div class="board-controls" id="boardControls">
+          <label for="boardSort">排序</label>
+          <select id="boardSort" class="mini-select">
+            <option value="opportunity">机会分</option>
+            <option value="count">样本量</option>
+            <option value="heat">热度</option>
+            <option value="growth">增长性</option>
+            <option value="crowd">拥挤度</option>
+          </select>
+          <label for="boardLimit">每类</label>
+          <select id="boardLimit" class="mini-select">
+            <option value="6">6 行</option>
+            <option value="8" selected>8 行</option>
+            <option value="12">12 行</option>
+            <option value="999">全部</option>
+          </select>
+        </div>
+        <span class="pill" id="status">拖动节点，滚轮缩放，点击查看详情</span>
+      </div>
+      <div class="graph-tooltip" id="graphTooltip" role="tooltip"></div>
+      <svg id="graph" role="img" aria-label="游戏项目与题材的力导向关系图"></svg>
+    </section>
+
+    <aside class="detail">
+      <div class="tabs" id="modeTabs">
+        <button class="btn" type="button" data-mode="detail" aria-pressed="true">详情</button>
+        <button class="btn" type="button" data-mode="rank" aria-pressed="false">榜单</button>
+        <button class="btn" type="button" data-mode="explorer" aria-pressed="false">组合</button>
+        <button class="btn" type="button" data-mode="workspace" aria-pressed="false">工作台</button>
+      </div>
+
+      <section class="panel active" id="panel-detail">
+      <h2>当前选择</h2>
+      <div id="detail"></div>
+
+      <h2>相关项目</h2>
+      <div class="list" id="related"></div>
+      </section>
+
+      <section class="panel" id="panel-rank">
+        <h2>选题榜单</h2>
+        <div class="rank-grid" id="rankPanel"></div>
+      </section>
+
+      <section class="panel" id="panel-explorer">
+        <h2>组合探索器</h2>
+        <div class="control">
+          <label for="topicA">题材 A</label>
+          <select id="topicA"></select>
+        </div>
+        <div class="control">
+          <label for="topicB">题材 B</label>
+          <select id="topicB"></select>
+        </div>
+        <div id="comboResult"></div>
+      </section>
+
+      <section class="panel" id="panel-workspace">
+        <h2>选题工作台</h2>
+        <div class="workspace-actions">
+          <button class="btn" id="exportBrief" type="button">导出会前简报</button>
+          <button class="btn" id="exportWorkspace" type="button">导出 JSON</button>
+          <button class="btn" id="clearWorkspace" type="button">清空</button>
+        </div>
+        <div class="list" id="workspaceList"></div>
+
+        <h2>星游集自有项目</h2>
+        <div class="project-form">
+          <input id="customTitle" type="text" placeholder="项目名 / Demo 名" />
+          <div class="split">
+            <input id="customYear" type="number" min="1980" max="2035" placeholder="年份" />
+            <input id="customType" type="text" placeholder="类型，例如 Narrative RPG" />
+          </div>
+          <textarea id="customTags" placeholder="题材标签，用逗号分隔。例如：侦探,杭州,低成本,叙事冒险"></textarea>
+          <input id="customNote" type="text" placeholder="一句话备注，例如：线下试玩项目 / 学生 Demo" />
+          <div class="row">
+            <button class="btn" id="addCustomProject" type="button">加入图谱</button>
+            <button class="btn" id="exportCustomProjects" type="button">导出项目库</button>
+            <button class="btn" id="clearCustomProjects" type="button">清空项目库</button>
+          </div>
+        </div>
+        <div class="list" id="customProjectList"></div>
+      </section>
+
+      <h2>资料依据</h2>
+      <p>首版样本参考公开行业资料和商店标签体系，后续可替换为爬虫、Steam API、VG Insights、Gamalytic 或自有选题库。</p>
+      <div class="sources">
+        <a href="https://store.steampowered.com/tag/browse/?l=english" target="_blank" rel="noreferrer">Steam Popular Tags</a>
+        <a href="https://steamdb.info/stats/releases/?tagid=492" target="_blank" rel="noreferrer">SteamDB releases by tag</a>
+        <a href="https://newzoo.com/resources/blog/global-games-market-q2-2026" target="_blank" rel="noreferrer">Newzoo global games market Q2 2026</a>
+        <a href="https://newzoo.com/resources/blog/into-the-data-pc-console-gaming-report-2025" target="_blank" rel="noreferrer">Newzoo PC & Console Gaming Report 2025 summary</a>
+        <a href="https://lp.jetbrains.com/the-state-of-gamedev-2025/" target="_blank" rel="noreferrer">JetBrains State of Game Development 2025</a>
+        <a href="https://gameworldobserver.com/2024/07/18/top-game-genres-on-steam-first-half-2024-key-trends" target="_blank" rel="noreferrer">Game World Observer / Steam niche trends</a>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const rawRows = `
+Minecraft|2011|Sandbox|沙盒建造,生存,开放世界,UGC,多人合作,低叙事|体素世界与玩家创造
+Tetris|1984|Puzzle|益智,抽象,休闲,低叙事,移动端|极简规则长青
+Grand Theft Auto V|2013|Action Adventure|开放世界,犯罪,现代都市,多人在线,讽刺剧情|都市犯罪沙盒
+Fortnite|2017|Battle Royale|射击,大逃杀,UGC,跨界联动,多人在线,赛季叙事|平台化内容生态
+Roblox|2006|UGC Platform|UGC,社交,多人在线,青少年,平台化,低叙事|创作者经济
+League of Legends|2009|MOBA|MOBA,竞技,英雄收集,奇幻,电竞,多人在线|长期运营竞技
+Dota 2|2013|MOBA|MOBA,竞技,奇幻,电竞,多人在线,高复杂度|硬核竞技
+Counter-Strike 2|2023|Shooter|射击,战术竞技,现代军事,电竞,多人在线,低叙事|团队对抗
+Valorant|2020|Shooter|射击,战术竞技,英雄技能,近未来,电竞,多人在线|英雄战术射击
+PUBG Battlegrounds|2017|Battle Royale|射击,大逃杀,军事,生存,多人在线,低叙事|写实大逃杀
+Apex Legends|2019|Battle Royale|射击,大逃杀,英雄技能,科幻,多人在线,赛季叙事|快节奏小队
+Call of Duty Warzone|2020|Battle Royale|射击,大逃杀,现代军事,多人在线,服务型游戏|军事品牌化
+Call of Duty Modern Warfare III|2023|Shooter|射击,现代军事,线性战役,多人在线,服务型游戏|军事年货
+Battlefield 6|2025|Shooter|射击,现代军事,大战场,多人在线,破坏环境|大规模战争
+Helldivers 2|2024|Shooter|射击,合作PvE,科幻,讽刺剧情,服务型游戏|社区驱动战役
+Destiny 2|2017|Shooter RPG|射击,刷宝,科幻,多人合作,服务型游戏,宏大叙事|在线刷宝
+Warframe|2013|Action RPG|动作,刷宝,科幻,忍者,多人合作,服务型游戏|高速动作刷宝
+Overwatch 2|2022|Hero Shooter|射击,英雄技能,近未来,电竞,多人在线,角色叙事|英雄团队战
+Rainbow Six Siege|2015|Shooter|射击,战术竞技,现代军事,破坏环境,多人在线|室内攻防
+Baldur's Gate 3|2023|CRPG|RPG,回合制,奇幻,队伍羁绊,多分支叙事,高自由度|桌游式叙事
+Elden Ring|2022|Action RPG|动作RPG,开放世界,黑暗奇幻,魂like,碎片叙事,高难度|开放世界魂系
+Dark Souls III|2016|Action RPG|动作RPG,黑暗奇幻,魂like,高难度,碎片叙事|关卡迷宫
+Bloodborne|2015|Action RPG|动作RPG,哥特恐怖,洛夫克拉夫特,魂like,高难度|维多利亚恐怖
+Sekiro Shadows Die Twice|2019|Action Adventure|动作,武士,日本历史,高难度,线性叙事|架势战斗
+The Witcher 3|2015|RPG|RPG,开放世界,黑暗奇幻,道德选择,怪物狩猎,成人叙事|任务叙事标杆
+Cyberpunk 2077|2020|RPG|RPG,开放世界,赛博朋克,身份认同,成人叙事,沉浸模拟|未来都市
+Starfield|2023|RPG|RPG,太空探索,科幻,开放世界,派系叙事|群星冒险
+The Elder Scrolls V Skyrim|2011|RPG|RPG,开放世界,奇幻,模组,高自由度,探索|长期模组生态
+Fallout 4|2015|RPG|RPG,废土,开放世界,基地建造,黑色幽默,探索|核后废土
+Mass Effect Legendary Edition|2021|RPG|RPG,科幻,队伍羁绊,道德选择,太空歌剧,恋爱|史诗三部曲
+Dragon Age Inquisition|2014|RPG|RPG,奇幻,政治阴谋,队伍羁绊,恋爱,开放区域|同伴叙事
+Persona 5 Royal|2019|JRPG|JRPG,校园,都市奇幻,回合制,社交模拟,青春|怪盗青春
+Final Fantasy XIV|2013|MMORPG|MMORPG,奇幻,长线剧情,多人合作,服务型游戏,团队副本|剧情型网游
+Final Fantasy VII Rebirth|2024|JRPG|JRPG,科幻奇幻,队伍羁绊,开放区域,重制经典|经典再叙事
+Genshin Impact|2020|Action RPG|动作RPG,开放世界,二次元,抽卡,奇幻,服务型游戏|角色驱动探索
+Honkai Star Rail|2023|JRPG|JRPG,回合制,二次元,太空歌剧,抽卡,服务型游戏|银河列车
+Zenless Zone Zero|2024|Action RPG|动作RPG,二次元,都市奇幻,抽卡,服务型游戏,潮流文化|街区动作
+Wuthering Waves|2024|Action RPG|动作RPG,开放世界,二次元,末世,抽卡,高机动|声骸收集
+Monster Hunter Wilds|2025|Action RPG|动作RPG,怪物狩猎,生态模拟,多人合作,开放区域|狩猎生态
+Monster Hunter World|2018|Action RPG|动作RPG,怪物狩猎,生态模拟,多人合作,装备制作|全球化狩猎
+Pokémon Scarlet and Violet|2022|RPG|RPG,收集养成,开放世界,可爱,多人交换,低龄友好|开放宝可梦
+Palworld|2024|Survival Craft|生存,收集养成,基地建造,开放世界,多人合作,黑色幽默|伙伴工业化
+ARK Survival Evolved|2017|Survival Craft|生存,恐龙,基地建造,开放世界,多人在线,驯养|史前生存
+Rust|2018|Survival|生存,基地建造,多人在线,掠夺,开放世界,低叙事|社交压力
+Valheim|2021|Survival Craft|生存,基地建造,北欧神话,多人合作,开放世界,低多边形|合作远征
+Enshrouded|2024|Survival Craft|生存,基地建造,奇幻,多人合作,开放世界,探索|雾中建造
+Sons of the Forest|2024|Survival Horror|生存,恐怖,荒岛,基地建造,多人合作,AI伙伴|森林威胁
+Subnautica|2018|Survival|生存,海洋,科幻,探索,基地建造,孤独感|深海未知
+No Man's Sky|2016|Space Sandbox|太空探索,开放世界,生存,基地建造,多人在线,服务型游戏|程序化宇宙
+Terraria|2011|Sandbox|沙盒建造,生存,2D,探索,多人合作,低叙事|横版沙盒
+Stardew Valley|2016|Life Sim|农场经营,生活模拟,像素,社交,治愈,小镇|农场人生
+Animal Crossing New Horizons|2020|Life Sim|生活模拟,岛屿建设,社交,治愈,收集,低压力|岛屿日常
+The Sims 4|2014|Life Sim|生活模拟,人生,建造,UGC,社交叙事,服务型游戏|人生沙盒
+Cities Skylines II|2023|Simulation|城市建造,模拟经营,交通,沙盒,现代都市,系统设计|城市规划
+Planet Zoo|2019|Simulation|模拟经营,动物园,建造,生态,教育,家庭友好|园区经营
+Two Point Hospital|2018|Management|模拟经营,医疗,黑色幽默,建造,休闲,现代职场|荒诞医院
+Factorio|2020|Automation|自动化,基地建造,科幻,资源管理,高复杂度,低叙事|工厂优化
+Satisfactory|2024|Automation|自动化,基地建造,科幻,开放世界,合作PvE,探索|第一人称工厂
+Dyson Sphere Program|2021|Automation|自动化,太空探索,科幻,资源管理,宏大工程,低叙事|星际工厂
+RimWorld|2018|Colony Sim|殖民地模拟,生存,科幻,涌现叙事,基地建造,黑色幽默|故事生成器
+Dwarf Fortress|2022|Colony Sim|殖民地模拟,奇幻,高复杂度,涌现叙事,基地建造,模拟|深度模拟
+Crusader Kings III|2020|Grand Strategy|大战略,中世纪,家族叙事,政治阴谋,涌现叙事,高复杂度|王朝剧
+Europa Universalis IV|2013|Grand Strategy|大战略,历史,国家经营,高复杂度,低叙事,地图推演|历史沙盘
+Civilization VI|2016|4X Strategy|4X,历史,回合制,国家经营,科技树,多人在线|文明发展
+Total War Warhammer III|2022|Strategy|大战略,奇幻,即时战术,战争,派系叙事,高复杂度|奇幻会战
+XCOM 2|2016|Tactics|战术,回合制,科幻,队伍养成,基地管理,高压力|抗争地球
+Fire Emblem Engage|2023|Tactics RPG|战棋,RPG,奇幻,队伍羁绊,回合制,角色收集|角色战棋
+Into the Breach|2018|Tactics|战术,回合制,机甲,时间循环,益智,低叙事|小棋盘解谜
+Slay the Spire|2019|Deckbuilder|卡牌构筑,Roguelike,奇幻,回合制,高重复,低叙事|爬塔卡牌
+Balatro|2024|Deckbuilder|卡牌构筑,Roguelike,扑克,高重复,低叙事,休闲|数字组合
+Hades|2020|Roguelite|Roguelike,动作,希腊神话,家族叙事,高重复,恋爱|叙事肉鸽
+Hades II|2024|Roguelite|Roguelike,动作,希腊神话,魔法,高重复,家族叙事|女巫肉鸽
+Dead Cells|2018|Roguelite|Roguelike,动作,像素,高重复,银河城,低叙事|动作循环
+The Binding of Isaac Rebirth|2014|Roguelike|Roguelike,弹幕,黑色幽默,宗教隐喻,高重复,低叙事|地下室隐喻
+Vampire Survivors|2022|Roguelite|Roguelike,幸存者like,自动攻击,像素,高重复,低叙事|轻量刷局
+Deep Rock Galactic Survivor|2024|Roguelite|幸存者like,科幻,矮人,自动攻击,高重复,挖矿|幸存者变体
+Risk of Rain 2|2020|Roguelite|Roguelike,射击,科幻,多人合作,高重复,刷宝|三维肉鸽
+Spelunky 2|2020|Platformer|平台跳跃,Roguelike,探险,高难度,涌现叙事,低叙事|洞穴事故
+Celeste|2018|Platformer|平台跳跃,心理健康,高难度,像素,线性叙事,成长|攀登隐喻
+Hollow Knight|2017|Metroidvania|银河城,动作,昆虫王国,黑暗奇幻,探索,碎片叙事|地下王国
+Ori and the Will of the Wisps|2020|Metroidvania|银河城,奇幻,治愈,平台跳跃,线性叙事,自然|精灵冒险
+Metroid Dread|2021|Metroidvania|银河城,科幻,孤独感,探索,追逐,动作|外星基地
+Prince of Persia The Lost Crown|2024|Metroidvania|银河城,波斯神话,动作,时间能力,平台跳跃,线性叙事|神话宫殿
+Super Mario Bros Wonder|2023|Platformer|平台跳跃,可爱,家庭友好,多人合作,奇幻,低叙事|惊奇关卡
+Astro Bot|2024|Platformer|平台跳跃,可爱,科幻,家庭友好,收集,低压力|手柄玩具箱
+The Legend of Zelda Breath of the Wild|2017|Adventure|开放世界,奇幻,物理交互,探索,低叙事,解谜|开放探索
+The Legend of Zelda Tears of the Kingdom|2023|Adventure|开放世界,奇幻,物理建造,探索,天空,解谜|组装创造
+Horizon Forbidden West|2022|Action Adventure|开放世界,科幻,末世,机器生态,动作,线性叙事|机械自然
+Ghost of Tsushima|2020|Action Adventure|开放世界,武士,日本历史,动作,复仇,线性叙事|武士电影感
+Red Dead Redemption 2|2018|Action Adventure|开放世界,西部,犯罪,沉浸模拟,成人叙事,探索|西部挽歌
+Assassin's Creed Mirage|2023|Action Adventure|潜行,历史,开放区域,刺客,中东,线性叙事|回归潜行
+Hitman World of Assassination|2021|Stealth|潜行,沙盒关卡,现代都市,黑色幽默,重复挑战,低叙事|刺杀谜题
+Metal Gear Solid V|2015|Stealth|潜行,开放世界,现代军事,基地管理,政治阴谋,涌现叙事|战术沙盒
+Dishonored 2|2016|Immersive Sim|沉浸模拟,潜行,蒸汽朋克,复仇,多路线,超能力|关卡选择
+Deus Ex Mankind Divided|2016|Immersive Sim|沉浸模拟,赛博朋克,潜行,政治阴谋,多路线,身份认同|增强人议题
+Prey|2017|Immersive Sim|沉浸模拟,科幻,空间站,恐怖,多路线,身份认同|太空站危机
+Portal 2|2011|Puzzle|益智,科幻,黑色幽默,合作PvE,物理,线性叙事|传送门谜题
+The Witness|2016|Puzzle|益智,岛屿,抽象,探索,低叙事,哲学|符号解谜
+Baba Is You|2019|Puzzle|益智,规则改写,抽象,高难度,低叙事,像素|语法玩法
+Return of the Obra Dinn|2018|Detective|侦探,推理,海事,超自然,黑白美术,碎片叙事|死亡推理
+Disco Elysium|2019|Narrative RPG|侦探,RPG,政治,失忆,成人叙事,多分支叙事|内心对话
+The Case of the Golden Idol|2022|Detective|侦探,推理,历史,超自然,益智,黑色幽默|场景推理
+Outer Wilds|2019|Adventure|太空探索,时间循环,考古,探索,哲学,低战斗|知识驱动
+Her Story|2015|FMV|侦探,FMV,非线性叙事,犯罪,搜索,低操作|视频检索
+Immortality|2022|FMV|FMV,电影工业,神秘,非线性叙事,成人叙事,搜索|影像拼图
+Life is Strange|2015|Narrative Adventure|叙事冒险,青春,时间能力,多分支叙事,校园,情感|选择叙事
+Detroit Become Human|2018|Narrative Adventure|叙事冒险,机器人,身份认同,多分支叙事,近未来,政治|分支电影
+The Walking Dead|2012|Narrative Adventure|叙事冒险,丧尸,亲情,多分支叙事,末世,情感|章节选择
+What Remains of Edith Finch|2017|Walking Sim|步行模拟,家族叙事,魔幻现实,短篇集,情感,低战斗|家族记忆
+Firewatch|2016|Walking Sim|步行模拟,荒野,孤独感,成人叙事,悬疑,低战斗|对讲机关系
+Gone Home|2013|Walking Sim|步行模拟,家庭,青春,探索,低战斗,现实题材|空间叙事
+Stray|2022|Adventure|猫,赛博朋克,探索,可爱,机器人,线性叙事|猫视角城市
+Spiritfarer|2020|Management|经营,死亡,治愈,船,情感,手绘|告别主题
+Dave the Diver|2023|Hybrid Sim|经营,潜水,海洋,烹饪,像素,轻喜剧|白天夜晚循环
+Dredge|2023|Fishing Horror|钓鱼,海洋,洛夫克拉夫特,经营,恐怖,探索|克苏鲁渔业
+Cult of the Lamb|2022|Hybrid|Roguelike,经营,邪教,可爱恐怖,基地建造,黑色幽默|教团运营
+Inscryption|2021|Deckbuilder Horror|卡牌构筑,恐怖,元叙事,逃脱房,黑色幽默,多阶段|规则反转
+Papers Please|2013|Simulation|边检,政治,道德选择,现实题材,高压力,低美术|制度压力
+This War of Mine|2014|Survival|生存,战争平民,道德选择,基地管理,现实题材,高压力|平民战争
+Frostpunk|2018|City Builder|城市建造,末世,道德选择,生存,政治,高压力|寒冬伦理
+Frostpunk 2|2024|City Builder|城市建造,末世,政治,派系叙事,生存,高压力|社会抉择
+Against the Storm|2023|City Builder|城市建造,Roguelike,奇幻,资源管理,高重复,生存|肉鸽城建
+Manor Lords|2024|City Builder|城市建造,中世纪,战争,模拟经营,现实题材,低叙事|庄园经济
+Anno 1800|2019|City Builder|城市建造,工业革命,贸易,资源管理,历史,高复杂度|生产链经营
+Football Manager 2024|2023|Management|体育,模拟经营,数据分析,足球,长期运营,低叙事|经理模拟
+EA Sports FC 25|2024|Sports|体育,足球,多人在线,卡牌收集,服务型游戏,竞技|足球服务
+NBA 2K25|2024|Sports|体育,篮球,职业生涯,多人在线,服务型游戏,竞技|篮球年货
+Forza Horizon 5|2021|Racing|竞速,开放世界,汽车文化,收集,多人在线,低叙事|节庆赛车
+Gran Turismo 7|2022|Racing|竞速,汽车文化,模拟,收集,多人在线,低叙事|驾驶收藏
+Rocket League|2015|Sports Action|体育,汽车,竞技,多人在线,低叙事,服务型游戏|车球对抗
+Street Fighter 6|2023|Fighting|格斗,竞技,街头文化,多人在线,电竞,角色叙事|现代格斗
+Tekken 8|2024|Fighting|格斗,家族恩怨,竞技,多人在线,电竞,动作|3D格斗
+Mortal Kombat 1|2023|Fighting|格斗,血腥,奇幻,多元宇宙,竞技,线性叙事|重启宇宙
+Madden NFL 25|2024|Sports|体育,橄榄球,多人在线,职业生涯,服务型游戏,竞技|美式体育
+Just Dance 2025|2024|Rhythm|音乐节奏,舞蹈,家庭友好,派对,服务型游戏,低叙事|体感跳舞
+Beat Saber|2019|Rhythm VR|音乐节奏,VR,科幻,健身,低叙事,技能挑战|VR节奏
+Gorilla Tag|2021|VR Social|VR,社交,运动,多人在线,低叙事,低美术|身体移动
+Half-Life Alyx|2020|VR Shooter|VR,射击,科幻,恐怖,沉浸模拟,线性叙事|VR沉浸
+Among Us|2018|Social Deduction|社交推理,太空,多人在线,低叙事,派对,欺骗|低成本传播
+Goose Goose Duck|2021|Social Deduction|社交推理,多人在线,角色技能,派对,低叙事,可爱|变体推理
+Fall Guys|2020|Party|派对,多人在线,平台跳跃,可爱,大逃杀,低叙事|闯关综艺
+Party Animals|2023|Party|派对,物理,多人在线,可爱,低叙事,竞技|布偶对抗
+Chained Together|2024|Co-op Platformer|多人合作,平台跳跃,物理,高难度,直播友好,低叙事|协作受苦
+It Takes Two|2021|Co-op Adventure|多人合作,平台跳跃,婚姻,奇幻,解谜,线性叙事|双人机制
+Overcooked 2|2018|Co-op|多人合作,烹饪,派对,高压力,可爱,低叙事|协作混乱
+Moving Out 2|2023|Co-op|多人合作,物理,搬家,派对,可爱,低叙事|搬家闯关
+Phasmophobia|2020|Horror Co-op|恐怖,多人合作,鬼怪,调查,语音互动,直播友好|合作捉鬼
+Lethal Company|2023|Horror Co-op|恐怖,多人合作,太空,公司讽刺,直播友好,高压力|拾荒合作
+Content Warning|2024|Horror Co-op|恐怖,多人合作,短视频,直播友好,怪物,黑色幽默|拍摄恐怖
+Dead by Daylight|2016|Asymmetric Horror|恐怖,非对称竞技,多人在线,IP联动,服务型游戏,追逐|杀手逃生
+Resident Evil 4 Remake|2023|Survival Horror|恐怖,生存,丧尸,动作,线性叙事,资源管理|经典重制
+Alan Wake 2|2023|Survival Horror|恐怖,超自然,作家,侦探,元叙事,成人叙事|叙事恐怖
+Silent Hill 2 Remake|2024|Survival Horror|恐怖,心理健康,小镇,罪疚,线性叙事,成人叙事|心理恐怖
+Amnesia The Bunker|2023|Survival Horror|恐怖,一战,沉浸模拟,生存,高压力,随机系统|地堡逃生
+Outlast Trials|2024|Horror Co-op|恐怖,多人合作,实验,冷战,高压力,服务型游戏|合作惊吓
+Little Nightmares II|2021|Horror Platformer|恐怖,平台跳跃,童年噩梦,解谜,线性叙事,暗黑童话|微型恐惧
+Inside|2016|Puzzle Platformer|平台跳跃,反乌托邦,解谜,低叙事,暗黑,线性叙事|无声寓言
+Limbo|2010|Puzzle Platformer|平台跳跃,黑白美术,解谜,暗黑,低叙事,高死亡|剪影冒险
+Cuphead|2017|Action Platformer|动作,平台跳跃,复古动画,高难度,合作PvE,低叙事|手绘Boss战
+Sea of Thieves|2018|Adventure|海盗,多人在线,开放世界,合作PvE,涌现叙事,服务型游戏|海上社交
+Skull and Bones|2024|Action Adventure|海盗,多人在线,开放世界,海战,服务型游戏,低叙事|船只战斗
+EVE Online|2003|MMO|太空探索,经济模拟,多人在线,政治,涌现叙事,高复杂度|玩家政治
+World of Warcraft|2004|MMORPG|MMORPG,奇幻,团队副本,多人在线,服务型游戏,长线剧情|经典网游
+Guild Wars 2|2012|MMORPG|MMORPG,奇幻,探索,多人在线,服务型游戏,动态事件|开放网游
+The Finals|2023|Shooter|射击,竞技,破坏环境,直播综艺,多人在线,近未来|竞技节目
+Escape from Tarkov|2017|Extraction Shooter|撤离射击,现代军事,刷宝,高压力,多人在线,拟真|硬核撤离
+Hunt Showdown 1896|2024|Extraction Shooter|撤离射击,西部,恐怖,多人在线,高压力,怪物狩猎|西部猎魔
+Dark and Darker|2024|Extraction|撤离,奇幻,地牢,多人在线,刷宝,高压力|地牢撤离
+Marauders|2023|Extraction Shooter|撤离射击,太空,柴油朋克,刷宝,多人在线,高压力|太空掠夺
+Clair Obscur Expedition 33|2025|JRPG|JRPG,回合制,黑暗奇幻,成人叙事,队伍羁绊,艺术化|法式奇幻
+Black Myth Wukong|2024|Action RPG|动作RPG,西游神话,魂like,中国神话,线性叙事,高难度|神话改编
+Nine Sols|2024|Metroidvania|银河城,道教科幻,动作,高难度,手绘,复仇|道朋克
+Pacific Drive|2024|Survival|生存,汽车,异常区域,科幻,探索,资源管理|车库远征
+Kenshi|2018|Sandbox RPG|RPG,开放世界,废土,涌现叙事,基地建造,高自由度|无主角世界
+Mount and Blade II Bannerlord|2022|Sandbox RPG|RPG,中世纪,战争,开放世界,派系叙事,涌现叙事|战争沙盒
+Kingdom Come Deliverance|2018|RPG|RPG,中世纪,历史,沉浸模拟,现实题材,线性叙事|写实波希米亚
+The Thaumaturge|2024|RPG|RPG,历史,超自然,侦探,政治,成人叙事|华沙神秘
+Norco|2022|Adventure|叙事冒险,南方哥特,赛博朋克,家庭,现实题材,像素|石化工城
+1000xRESIST|2024|Narrative Adventure|叙事冒险,科幻,身份认同,疫情隐喻,多代叙事,政治|记忆与克隆
+Citizen Sleeper|2022|Narrative RPG|RPG,赛博朋克,太空站,身份认同,骰子,成人叙事|边缘人生
+Coffee Talk|2020|Visual Novel|视觉小说,咖啡馆,都市奇幻,治愈,对话,低压力|夜间倾听
+VA-11 Hall-A|2016|Visual Novel|视觉小说,赛博朋克,酒吧,对话,成人叙事,低压力|调酒叙事
+Phoenix Wright Ace Attorney Trilogy|2019|Visual Novel|视觉小说,法庭,侦探,喜剧,线性叙事,推理|法庭推理
+Doki Doki Literature Club|2017|Visual Novel|视觉小说,校园,恐怖,元叙事,心理健康,低成本|类型反转
+Suzerain|2020|Political Sim|政治,国家经营,文字,道德选择,现实题材,多分支叙事|总统模拟
+Roadwarden|2022|Text RPG|文字冒险,RPG,奇幻,探索,道德选择,成人叙事|旅人职责
+Pentiment|2022|Narrative Adventure|叙事冒险,中世纪,历史,侦探,宗教,手绘|手稿推理
+Chants of Sennaar|2023|Puzzle Adventure|益智,语言破译,奇幻,探索,和平主义,低战斗|语言阶层
+Cocoon|2023|Puzzle|益智,科幻,抽象,探索,低叙事,无文本|世界套娃
+Viewfinder|2023|Puzzle|益智,摄影,空间错觉,科幻,第一人称,低叙事|照片成真
+A Short Hike|2019|Adventure|探索,治愈,动物角色,低压力,短篇,开放区域|小岛散步
+Toem|2021|Adventure|摄影,探索,黑白美术,治愈,短篇,低压力|拍照任务
+Unpacking|2021|Puzzle|益智,生活物件,无文本叙事,治愈,家庭,低压力|物品讲故事
+PowerWash Simulator|2022|Simulation|模拟,清洁,低压力,合作PvE,现代职场,低叙事|减压清洗
+House Flipper 2|2023|Simulation|模拟,装修,低压力,建造,现代生活,经营|翻新房屋
+Euro Truck Simulator 2|2012|Simulation|模拟,驾驶,低压力,开放道路,经济,低叙事|公路运输
+Microsoft Flight Simulator|2020|Simulation|模拟,飞行,现实地理,低叙事,技术展示,探索|全球飞行
+Clair Obscur Expedition 33|2025|RPG|RPG,回合制,奇幻,成人叙事,队伍羁绊,艺术风格,线性叙事|美术化回合制
+Split Fiction|2025|Co-op Adventure|多人合作,合作PvE,平台跳跃,科幻,奇幻,双人协作,线性叙事|双人类型拼贴
+ARC Raiders|2025|Extraction Shooter|撤离射击,多人在线,科幻,第三人称,战术,服务型游戏,高压力|地表撤离
+Battlefield 6 REDSEC|2025|Shooter|射击,现代军事,多人在线,大规模战场,破坏环境,服务型游戏,战术竞技|军事大场面
+Assassin's Creed Shadows|2025|Action Adventure|开放世界,潜行,日本历史,忍者,武士,动作,线性叙事|双主角潜行
+Oblivion Remastered|2025|RPG|RPG,开放世界,奇幻,怀旧复刻,探索,角色扮演,买断制|经典重制
+Pokemon Legends Z-A|2025|RPG|收集养成,角色收集,开放区域,奇幻,家庭友好,长期IP,买断制|精灵都市
+Hollow Knight Silksong|2025|Metroidvania|银河城,动作,昆虫王国,黑暗奇幻,高难度,探索,线性叙事|续作期待
+Fantasy Life i|2025|Life RPG|生活模拟,RPG,奇幻,职业生涯,收集养成,低压力,探索|职业生活冒险
+Tiny Bookshop|2025|Management|经营,书店,海边小镇,治愈,生活模拟,低压力,买断制|移动书店
+PEAK|2025|Co-op Climbing|多人合作,合作PvE,攀登,物理,高压力,直播友好,短局|合作登山
+Schedule I|2025|Simulation|模拟经营,犯罪,黑色幽默,供应链,多人合作,沙盒建造,高重复|地下经营
+Dispatch|2025|Narrative Strategy|叙事冒险,超级英雄,职场,喜剧,分支选择,角色关系,低战斗|调度英雄
+DELTARUNE|2025|RPG|RPG,像素,元叙事,奇幻,黑色幽默,章节叙事,低成本|章节式反类型
+Megabonk|2025|Roguelite|幸存者like,Roguelike,自动攻击,高重复,直播友好,低叙事,低成本|荒诞刷局
+Supermarket Simulator|2025|Simulation|模拟经营,商店,现代生活,低叙事,高重复,低成本,直播友好|店铺循环
+Escape From Duckov|2025|Extraction Shooter|撤离射击,俯视角,射击,黑色幽默,刷宝,高重复,低成本|轻量撤离
+RV There Yet|2025|Co-op Physics|多人合作,物理,驾驶,喜剧,高压力,直播友好,短局|房车灾难协作
+Slime Rancher 2|2025|Adventure|探索,可爱,收集养成,基地建造,低压力,奇幻,家庭友好|牧场收集
+No Im Not a Human|2025|Horror|恐怖,心理压力,访客识别,短篇,低成本,道德选择,现实寓言|门口辨认
+Rhythm Doctor|2025|Rhythm|音乐节奏,像素,医疗,喜剧,高难度,剧情关卡,低成本|一键节奏治疗
+Soulstone Survivors|2025|Roguelite|幸存者like,Roguelike,自动攻击,技能构筑,高重复,奇幻,低叙事|技能海刷局
+Sultan's Game|2025|Card Strategy|卡牌构筑,叙事冒险,政治,成人叙事,道德选择,高压力,黑色幽默|权力卡牌
+Dinkum|2025|Life Sim|生活模拟,岛屿,收集养成,基地建造,多人合作,低压力,经营|澳洲岛建
+BALL x PIT|2025|Roguelite|Roguelike,弹球,基地建造,低叙事,高重复,像素,低成本|弹球肉鸽
+Necesse|2025|Sandbox|沙盒建造,生存,基地建造,多人合作,探索,像素,收集养成|俯视角生存
+CloverPit|2025|Slot Roguelite|Roguelike,老虎机,高压力,黑色幽默,低成本,高重复,数字组合|赌博隐喻
+Foundation|2025|City Builder|城市建造,中世纪,低压力,模拟经营,涌现叙事,资源管理,买断制|无网格城镇
+AI LIMIT|2025|Action RPG|动作RPG,科幻,废土,高难度,女性主角,线性叙事,买断制|国产魂类
+Backpack Battles|2025|Auto Battler|自动战斗,背包管理,策略,异步对战,低叙事,数字组合,高重复|背包构筑
+A Game About Digging A Hole|2025|Incremental|挖掘,低成本,高重复,短篇,资源管理,低叙事,休闲|一件事循环
+ENDER MAGNOLIA Bloom in the Mist|2025|Metroidvania|银河城,动作,黑暗奇幻,高难度,探索,线性叙事,手绘|雾中王国
+Door Kickers 2 Task Force North|2025|Tactics|战术,现代军事,俯视角,实时暂停,高压力,低叙事,小队指挥|战术破门
+Little Witch in the Woods|2025|Life Sim|生活模拟,魔法,可爱,收集养成,低压力,小镇,像素|小女巫生活
+PowerWash Simulator 2|2025|Simulation|模拟,清洁,低压力,合作PvE,现代职场,低叙事,服务型游戏|减压续作
+`;
+
+    const groupMap = {
+      "玩法/类型": ["动作","动作RPG","RPG","JRPG","MMORPG","MOBA","射击","第三人称","俯视角","战术竞技","大逃杀","撤离射击","撤离","格斗","竞速","体育","平台跳跃","银河城","益智","解谜","视觉小说","叙事冒险","步行模拟","卡牌构筑","Roguelike","幸存者like","生存","沙盒建造","模拟","模拟经营","经营","城市建造","殖民地模拟","大战略","4X","战术","战棋","沉浸模拟","潜行","音乐节奏","VR","社交推理","派对","合作PvE","多人合作","生活模拟","自动战斗","策略","Incremental","挖掘","攀登","老虎机","弹球"],
+      "世界观/剧情内容": ["奇幻","黑暗奇幻","科幻","赛博朋克","太空探索","太空歌剧","现代都市","现代军事","中世纪","历史","日本历史","中国神话","西游神话","希腊神话","北欧神话","波斯神话","道教科幻","西部","海盗","海洋","恐龙","废土","末世","丧尸","哥特恐怖","洛夫克拉夫特","超自然","鬼怪","校园","青春","家庭","政治","犯罪","侦探","推理","法庭","宗教","战争","战争平民","工业革命","咖啡馆","酒吧","烹饪","钓鱼","摄影","小镇","海边小镇","荒野","岛屿","动物园","医疗","机器人","猫","汽车","足球","篮球","橄榄球","书店","超级英雄","职场","商店","供应链","魔法","忍者","武士","昆虫王国"],
+      "情绪/体验": ["恐怖","可爱","治愈","低压力","高压力","高难度","孤独感","黑色幽默","成人叙事","情感","哲学","复仇","身份认同","心理健康","道德选择","讽刺剧情","暗黑童话","和平主义","直播友好","家庭友好","低龄友好","低战斗","喜剧","现实寓言","艺术风格"],
+      "结构/系统": ["开放世界","开放区域","线性叙事","低叙事","碎片叙事","多分支叙事","非线性叙事","长线剧情","赛季叙事","涌现叙事","元叙事","章节叙事","剧情关卡","分支选择","队伍羁绊","恋爱","社交模拟","角色关系","收集养成","角色收集","英雄收集","英雄技能","抽卡","刷宝","基地建造","资源管理","装备制作","自动化","交通","科技树","贸易","经济模拟","物理","物理建造","破坏环境","时间循环","时间能力","规则改写","语言破译","无文本叙事","搜索","FMV","手绘","像素","黑白美术","复古动画","低多边形","高复杂度","高自由度","重复挑战","高重复","短局","短篇","双人协作","技能构筑","背包管理","实时暂停","小队指挥","访客识别","大规模战场"],
+      "平台/商业": ["多人在线","服务型游戏","UGC","平台化","跨界联动","电竞","移动端","模组","VR","派对","青少年","职业生涯","长期运营","长期IP","买断制","低成本","免费/内购","异步对战","杭州","良渚","本地开发者","学生项目","线下试玩","星游集"]
+    };
+
+    const topicGroup = new Map();
+    Object.entries(groupMap).forEach(([group, tags]) => tags.forEach(tag => topicGroup.set(tag, group)));
+
+    const groupColor = {
+      "玩法/类型": "var(--blue)",
+      "世界观/剧情内容": "var(--green)",
+      "情绪/体验": "var(--purple)",
+      "结构/系统": "var(--cyan)",
+      "平台/商业": "var(--orange)",
+      "项目": "var(--muted)"
+    };
+
+    function hasAny(tags, values) {
+      return values.some(value => tags.includes(value));
+    }
+
+    function derivePlatform(tags, name) {
+      if (tags.includes("VR")) return "VR";
+      if (hasAny(tags, ["UGC","平台化","青少年"])) return "UGC/平台";
+      if (tags.includes("移动端") || hasAny(tags, ["抽卡","二次元"])) return "移动端";
+      return "PC/主机";
+    }
+
+    function deriveBusiness(tags, name) {
+      if (hasAny(tags, ["UGC","平台化"])) return "UGC生态";
+      if (hasAny(tags, ["抽卡","移动端"])) return "免费/内购";
+      if (hasAny(tags, ["服务型游戏","多人在线","电竞","长期运营"])) return "服务型";
+      return "买断制";
+    }
+
+    function deriveTeam(tags, name) {
+      if (smallTeamSignals && smallTeamSignals.has(name)) return "小团队";
+      if (bigTeamSignals && bigTeamSignals.has(name)) return "大型团队";
+      if (hasAny(tags, ["服务型游戏","开放世界","MMORPG","大逃杀","现代军事","抽卡"])) return "大型团队";
+      if (hasAny(tags, ["像素","文字冒险","视觉小说","益智","低叙事","短篇","低压力"])) return "小团队";
+      return "中型团队";
+    }
+
+    function deriveSource(tags, name) {
+      if (topSignals && topSignals.has(name)) return "行业报告补强";
+      if (hasAny(tags, ["服务型游戏","多人在线","电竞","移动端","UGC"])) return "商店/公开资料";
+      return "人工标注";
+    }
+
+    function deriveConfidence(tags, name) {
+      if (topSignals && topSignals.has(name)) return 92;
+      if (hasAny(tags, ["服务型游戏","多人在线","电竞","抽卡","UGC"])) return 84;
+      return 72;
+    }
+
+    function deriveHeat(tags, name, year) {
+      let score = topSignals && topSignals.has(name) ? 86 : 48;
+      if (year >= 2024) score += 12;
+      if (hasAny(tags, ["服务型游戏","多人在线","开放世界","Roguelike","生存","恐怖","抽卡"])) score += 8;
+      if (hasAny(tags, ["低叙事","低压力","短篇","文字冒险"])) score -= 4;
+      return clamp(score, 18, 98);
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    const currentYear = 2026;
+    const topSignals = new Set(["Minecraft","Tetris","Grand Theft Auto V","Fortnite","Roblox","League of Legends","Dota 2","Counter-Strike 2","PUBG Battlegrounds","Apex Legends","Elden Ring","Baldur's Gate 3","Genshin Impact","Honkai Star Rail","Stardew Valley","Animal Crossing New Horizons","The Sims 4","Palworld","Monster Hunter World","Hades","Slay the Spire","Balatro","Vampire Survivors","Red Dead Redemption 2","The Legend of Zelda Breath of the Wild","The Legend of Zelda Tears of the Kingdom","Among Us","Lethal Company","Helldivers 2","Black Myth Wukong"]);
+    const smallTeamSignals = new Set(["Stardew Valley","Balatro","Vampire Survivors","Return of the Obra Dinn","Dredge","Dave the Diver","Celeste","Hollow Knight","Inscryption","Papers Please","A Short Hike","Toem","Unpacking","Baba Is You","Chants of Sennaar","Cocoon","Viewfinder","Roadwarden","Norco","Citizen Sleeper","Coffee Talk","VA-11 Hall-A","1000xRESIST"]);
+    const bigTeamSignals = new Set(["Grand Theft Auto V","Call of Duty Warzone","Call of Duty Modern Warfare III","Battlefield 6","Cyberpunk 2077","Starfield","Final Fantasy XIV","Final Fantasy VII Rebirth","Genshin Impact","Honkai Star Rail","Zenless Zone Zero","EA Sports FC 25","NBA 2K25","Madden NFL 25","The Legend of Zelda Breath of the Wild","The Legend of Zelda Tears of the Kingdom","Red Dead Redemption 2","Horizon Forbidden West","Assassin's Creed Mirage"]);
+
+    const baseProjects = rawRows.trim().split("\n").map((line, index) => {
+      const [name, year, type, tagText, note] = line.split("|");
+      const tags = tagText.split(",");
+      return {
+        id: `p-${index}`,
+        name,
+        year: +year,
+        type,
+        tags,
+        note,
+        platform: derivePlatform(tags, name),
+        business: deriveBusiness(tags, name),
+        team: deriveTeam(tags, name),
+        source: deriveSource(tags, name),
+        confidence: deriveConfidence(tags, name),
+        heat: deriveHeat(tags, name, +year)
+      };
+    });
+
+    let customProjects = loadCustomProjects();
+    let projects = [];
+    let topicCounts = new Map();
+    let topics = [];
+    let crossCounts = new Map();
+    let projectNodes = [];
+    let crossLinks = [];
+
+    function rebuildDataset() {
+      const normalizedCustom = customProjects.map((project, index) => normalizeCustomProject(project, index));
+      projects = [...baseProjects, ...normalizedCustom];
+      topicCounts = new Map();
+      projects.forEach(project => project.tags.forEach(tag => topicCounts.set(tag, (topicCounts.get(tag) || 0) + 1)));
+      topics = Array.from(topicCounts, ([name, count]) => ({
+        id: `t-${name}`,
+        name,
+        count,
+        kind: "topic",
+        group: topicGroup.get(name) || "结构/系统"
+      }));
+      crossCounts = new Map();
+      projects.forEach(project => {
+        const tags = project.tags;
+        for (let i = 0; i < tags.length; i++) {
+          for (let j = i + 1; j < tags.length; j++) {
+            const pair = [tags[i], tags[j]].sort().join("||");
+            crossCounts.set(pair, (crossCounts.get(pair) || 0) + 1);
+          }
+        }
+      });
+      projectNodes = projects.map(project => ({
+        ...project,
+        kind: "project",
+        group: "项目",
+        count: 1
+      }));
+      crossLinks = Array.from(crossCounts, ([pair, count]) => {
+        const [a, b] = pair.split("||");
+        return { source: `t-${a}`, target: `t-${b}`, type: "cross", count };
+      }).filter(link => link.count >= 4);
+      updateDatasetStats();
+    }
+
+    function normalizeCustomProject(project, index) {
+      const name = project.name.trim();
+      const tags = cleanTags(project.tags);
+      return {
+        id: `c-${index}`,
+        name,
+        year: Number(project.year) || currentYear,
+        type: project.type.trim() || "星游集项目",
+        tags,
+        note: project.note.trim() || "星游集自有项目",
+        platform: project.platform || derivePlatform(tags, name),
+        business: project.business || deriveBusiness(tags, name),
+        team: project.team || "小团队",
+        source: "星游集自有项目",
+        confidence: 96,
+        heat: deriveHeat(tags, name, Number(project.year) || currentYear),
+        custom: true
+      };
+    }
+
+    function cleanTags(tags) {
+      const source = Array.isArray(tags) ? tags : String(tags || "").split(",");
+      return Array.from(new Set(source.map(tag => tag.trim()).filter(Boolean)));
+    }
+
+    function updateDatasetStats() {
+      document.getElementById("projectCount").textContent = projects.length;
+      document.getElementById("topicCount").textContent = topics.length;
+      document.getElementById("gapCount").textContent = Array.from(topicCounts.values()).filter(v => v <= 2).length;
+    }
+
+    let state = {
+      showCross: true,
+      query: "",
+      group: "全部",
+      year: "all",
+      platform: "all",
+      model: "all",
+      team: "all",
+      source: "all",
+      mode: "detail",
+      visual: "network",
+      boardSort: "opportunity",
+      boardLimit: 8,
+      selected: null
+    };
+
+    let workspace = loadWorkspace();
+
+    const svg = d3.select("#graph");
+    const root = svg.node();
+    const tooltip = document.getElementById("graphTooltip");
+    const positionCache = new Map();
+    let hoverTimer = null;
+    let settleTimer = null;
+    const g = svg.append("g");
+    const linkLayer = g.append("g");
+    const nodeLayer = g.append("g");
+    const zoom = d3.zoom().scaleExtent([0.25, 4]).on("zoom", event => g.attr("transform", event.transform));
+    svg.call(zoom);
+
+    const cluster = document.getElementById("cluster");
+    ["全部", ...Object.keys(groupMap), "项目"].forEach(value => {
+      const opt = document.createElement("option");
+      opt.value = value;
+      opt.textContent = value;
+      cluster.appendChild(opt);
+    });
+
+    rebuildDataset();
+    document.getElementById("projectCount").textContent = projects.length;
+    document.getElementById("topicCount").textContent = topics.length;
+    document.getElementById("gapCount").textContent = Array.from(topicCounts.values()).filter(v => v <= 2).length;
+
+    document.getElementById("search").addEventListener("input", event => {
+      state.query = event.target.value.trim().toLowerCase();
+      updateAll();
+    });
+    cluster.addEventListener("change", event => {
+      state.group = event.target.value;
+      updateAll();
+    });
+    document.getElementById("yearFilter").addEventListener("change", event => {
+      state.year = event.target.value;
+      updateAll();
+    });
+    document.getElementById("platformFilter").addEventListener("change", event => {
+      state.platform = event.target.value;
+      updateAll();
+    });
+    document.getElementById("modelFilter").addEventListener("change", event => {
+      state.model = event.target.value;
+      updateAll();
+    });
+    document.getElementById("teamFilter").addEventListener("change", event => {
+      state.team = event.target.value;
+      updateAll();
+    });
+    document.getElementById("sourceFilter").addEventListener("change", event => {
+      state.source = event.target.value;
+      updateAll();
+    });
+    document.querySelectorAll("#modeTabs [data-mode]").forEach(button => {
+      button.addEventListener("click", () => setMode(button.dataset.mode));
+    });
+    document.querySelectorAll("#visualTabs [data-visual]").forEach(button => {
+      button.addEventListener("click", () => setVisual(button.dataset.visual));
+    });
+    document.getElementById("boardSort").addEventListener("change", event => {
+      state.boardSort = event.target.value;
+      updateAll();
+    });
+    document.getElementById("boardLimit").addEventListener("change", event => {
+      state.boardLimit = Number(event.target.value);
+      updateAll();
+    });
+    document.getElementById("topicA").addEventListener("change", renderCombo);
+    document.getElementById("topicB").addEventListener("change", renderCombo);
+    document.getElementById("exportBrief").addEventListener("click", exportBrief);
+    document.getElementById("exportWorkspace").addEventListener("click", exportWorkspace);
+    document.getElementById("clearWorkspace").addEventListener("click", () => {
+      workspace = [];
+      saveWorkspace();
+      renderWorkspace();
+    });
+    document.getElementById("addCustomProject").addEventListener("click", addCustomProject);
+    document.getElementById("exportCustomProjects").addEventListener("click", exportCustomProjects);
+    document.getElementById("clearCustomProjects").addEventListener("click", () => {
+      customProjects = [];
+      saveCustomProjects();
+      refreshAfterDatasetChange();
+    });
+    document.getElementById("toggleCross").addEventListener("click", event => {
+      state.showCross = !state.showCross;
+      event.currentTarget.setAttribute("aria-pressed", String(state.showCross));
+      updateAll();
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      state = { showCross: true, query: "", group: "全部", year: "all", platform: "all", model: "all", team: "all", source: "all", mode: state.mode, visual: state.visual, boardSort: "opportunity", boardLimit: 8, selected: null };
+      document.getElementById("search").value = "";
+      cluster.value = "全部";
+      document.getElementById("yearFilter").value = "all";
+      document.getElementById("platformFilter").value = "all";
+      document.getElementById("modelFilter").value = "all";
+      document.getElementById("teamFilter").value = "all";
+      document.getElementById("sourceFilter").value = "all";
+      document.getElementById("boardSort").value = "opportunity";
+      document.getElementById("boardLimit").value = "8";
+      document.getElementById("toggleCross").setAttribute("aria-pressed", "true");
+      svg.transition().duration(350).call(zoom.transform, d3.zoomIdentity);
+      updateAll();
+    });
+
+    const radius = d => Math.min(38, 8 + Math.sqrt(d.count) * 4.2);
+
+    function getFilteredProjects() {
+      const q = state.query;
+      return projects.filter(project => {
+        const groupOk = state.group === "全部" || project.tags.some(tag => topicGroup.get(tag) === state.group);
+        const queryOk = !q || project.name.toLowerCase().includes(q) || project.tags.some(tag => tag.toLowerCase().includes(q)) || project.note.toLowerCase().includes(q);
+        const yearOk = state.year === "all" || project.year >= currentYear - Number(state.year);
+        const platformOk = state.platform === "all" || project.platform === state.platform;
+        const modelOk = state.model === "all" || project.business === state.model;
+        const teamOk = state.team === "all" || project.team === state.team;
+        const sourceOk = state.source === "all" || project.source === state.source;
+        return groupOk && queryOk && yearOk && platformOk && modelOk && teamOk && sourceOk;
+      });
+    }
+
+    function buildTopicCounts(pool) {
+      const counts = new Map();
+      pool.forEach(project => project.tags.forEach(tag => counts.set(tag, (counts.get(tag) || 0) + 1)));
+      return counts;
+    }
+
+    function filteredData() {
+      const q = state.query;
+      const pool = getFilteredProjects();
+      const activeCounts = buildTopicCounts(pool);
+      const overviewMode = !state.query && state.group === "全部" && !state.selected;
+      const networkCoreMode = state.visual === "network" && !state.query && state.group === "全部";
+      const networkOverview = networkCoreMode && !state.selected;
+      const minTopicCount = networkCoreMode ? 5 : overviewMode ? 4 : 1;
+      const selectedTopic = state.selected && state.selected.kind === "topic" ? state.selected.name : null;
+      const visibleTopics = new Set(topics.filter(topic => {
+        const activeCount = activeCounts.get(topic.name) || 0;
+        const groupOk = state.group === "全部" || state.group === topic.group;
+        const densityOk = activeCount >= minTopicCount || topic.name === selectedTopic;
+        const queryOk = !q || topic.name.toLowerCase().includes(q);
+        const linkedProjectOk = q && pool.some(project => project.name.toLowerCase().includes(q) && project.tags.includes(topic.name));
+        return activeCount > 0 && groupOk && densityOk && (queryOk || !q || linkedProjectOk);
+      }).map(topic => topic.id));
+
+      if (!q) {
+        topics.forEach(topic => {
+          const activeCount = activeCounts.get(topic.name) || 0;
+          if ((state.group === "全部" || state.group === topic.group) && activeCount >= minTopicCount) visibleTopics.add(topic.id);
+        });
+      }
+
+      if (q) {
+        pool.forEach(project => {
+          const projectMatch = project.name.toLowerCase().includes(q) || project.note.toLowerCase().includes(q) || project.tags.some(tag => tag.toLowerCase().includes(q));
+          if (projectMatch) project.tags.forEach(tag => visibleTopics.add(`t-${tag}`));
+        });
+      }
+
+      if (networkCoreMode) {
+        const topTopicIds = Array.from(visibleTopics)
+          .map(id => {
+            const name = id.slice(2);
+            const metrics = topicMetrics(name, pool);
+            const count = activeCounts.get(name) || 0;
+            return { id, count, score: metrics.opportunity };
+          })
+          .sort((a, b) => b.count - a.count || b.score - a.score)
+          .slice(0, 68)
+          .map(item => item.id);
+        visibleTopics.clear();
+        topTopicIds.forEach(id => visibleTopics.add(id));
+        if (selectedTopic) {
+          getStrongNeighborIds(selectedTopic, pool, 18).forEach(id => visibleTopics.add(id));
+        }
+      }
+
+      const nodeIds = new Set([...visibleTopics]);
+      const nodes = topics.filter(node => nodeIds.has(node.id)).map(node => {
+        const next = { ...node, count: activeCounts.get(node.name) || node.count };
+        return withStablePosition(next, nodeIds.size);
+      });
+      const crosses = state.showCross ? buildTopicLinks(pool, nodeIds) : [];
+      return { nodes, links: crosses };
+    }
+
+    function getStrongNeighborIds(topicName, pool, limit = 18) {
+      const counts = new Map();
+      pool.forEach(project => {
+        if (!project.tags.includes(topicName)) return;
+        project.tags.forEach(tag => {
+          if (tag !== topicName) counts.set(tag, (counts.get(tag) || 0) + 1);
+        });
+      });
+      const neighbors = Array.from(counts, ([name, count]) => ({ name, count }))
+        .sort((a, b) => b.count - a.count || (topicCounts.get(b.name) || 0) - (topicCounts.get(a.name) || 0))
+        .slice(0, limit)
+        .map(item => `t-${item.name}`);
+      return new Set([`t-${topicName}`, ...neighbors]);
+    }
+
+    function buildTopicLinks(pool, nodeIds) {
+      const counts = new Map();
+      pool.forEach(project => {
+        const tags = project.tags.filter(tag => nodeIds.has(`t-${tag}`));
+        for (let i = 0; i < tags.length; i++) {
+          for (let j = i + 1; j < tags.length; j++) {
+            const pair = [tags[i], tags[j]].sort().join("||");
+            counts.set(pair, (counts.get(pair) || 0) + 1);
+          }
+        }
+      });
+      const candidates = Array.from(counts, ([pair, count]) => {
+        const [a, b] = pair.split("||");
+        return { source: `t-${a}`, target: `t-${b}`, type: "topic-topic", count };
+      }).filter(link => link.count >= (state.selected ? 1 : 3)).sort((a, b) => b.count - a.count);
+      const degree = new Map();
+      const selectedId = state.selected && state.selected.id;
+      if (selectedId) {
+        const directIds = getStrongNeighborIds(state.selected.name, pool, 18);
+        return candidates
+          .filter(link => (link.source === selectedId || link.target === selectedId) && directIds.has(link.source) && directIds.has(link.target))
+          .slice(0, 18);
+      }
+      const selectedLinks = [];
+      const regularLinks = [];
+      candidates.forEach(link => {
+        if (selectedId && (link.source === selectedId || link.target === selectedId)) selectedLinks.push(link);
+        else regularLinks.push(link);
+      });
+      const limited = [];
+      [...selectedLinks.slice(0, 18), ...regularLinks].forEach(link => {
+        const a = endpointId(link.source);
+        const b = endpointId(link.target);
+        const maxPerNode = selectedId && (a === selectedId || b === selectedId) ? 9 : 3;
+        if ((degree.get(a) || 0) >= maxPerNode || (degree.get(b) || 0) >= maxPerNode) return;
+        degree.set(a, (degree.get(a) || 0) + 1);
+        degree.set(b, (degree.get(b) || 0) + 1);
+        limited.push(link);
+      });
+      return limited.slice(0, state.selected ? 64 : 82);
+    }
+
+    function withStablePosition(node, total) {
+      const cached = positionCache.get(node.id);
+      if (cached) return { ...node, x: cached.x, y: cached.y };
+      const { width, height } = root.getBoundingClientRect();
+      const centerX = width / 2 || 600;
+      const centerY = height / 2 || 400;
+      const groups = Object.keys(groupMap);
+      const groupIndex = Math.max(0, groups.indexOf(node.group));
+      const groupAngle = Math.PI * 2 * groupIndex / Math.max(1, groups.length);
+      const spread = Math.min(width, height) * .34;
+      const jitter = 34 + (hashCode(node.id) % 130);
+      const x = centerX + Math.cos(groupAngle) * spread + Math.cos(seededAngle(node.id) * 3) * jitter;
+      const y = centerY + Math.sin(groupAngle) * spread + Math.sin(seededAngle(node.id) * 2) * jitter;
+      positionCache.set(node.id, { x, y });
+      return { ...node, x, y };
+    }
+
+    function seededAngle(value) {
+      return (hashCode(value) % 6283) / 1000;
+    }
+
+    function hashCode(value) {
+      let hash = 0;
+      for (let i = 0; i < value.length; i++) hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
+      return Math.abs(hash);
+    }
+
+    function graphAnchor(d, width, height) {
+      const selectedId = state.selected && state.selected.kind === "topic" ? state.selected.id : null;
+      if (selectedId) {
+        if (d.id === selectedId) return { x: width * .5, y: height * .5 };
+      }
+      const groups = Object.keys(groupMap);
+      const index = Math.max(0, groups.indexOf(d.group));
+      const anchors = [
+        [0.28, 0.28],
+        [0.72, 0.28],
+        [0.26, 0.72],
+        [0.72, 0.72],
+        [0.50, 0.50]
+      ];
+      const anchor = anchors[index % anchors.length];
+      return { x: width * anchor[0], y: height * anchor[1] };
+    }
+
+    let simulation = d3.forceSimulation()
+      .velocityDecay(.76)
+      .alphaDecay(.07)
+      .force("charge", d3.forceManyBody().strength(d => d.kind === "topic" ? -460 : -70))
+      .force("link", d3.forceLink().id(d => d.id).distance(d => d.type === "topic-topic" ? 185 : 110).strength(d => d.type === "topic-topic" ? .055 : .18))
+      .force("center", d3.forceCenter())
+      .force("x", d3.forceX().strength(.075))
+      .force("y", d3.forceY().strength(.075))
+      .force("collision", d3.forceCollide().radius(d => radius(d) + 34).strength(1));
+
+    function update() {
+      const { width, height } = root.getBoundingClientRect();
+      const data = filteredData();
+      if (state.visual !== "network") {
+        simulation.stop();
+        renderStaticVisual(state.visual, data, width, height);
+        return;
+      }
+      const graphWidth = Math.max(width, 1180);
+      const graphHeight = Math.max(height, 860);
+      svg.attr("height", graphHeight);
+      simulation.force("center", d3.forceCenter(graphWidth / 2, graphHeight / 2));
+      simulation.force("x").x(d => graphAnchor(d, graphWidth, graphHeight).x);
+      simulation.force("y").y(d => graphAnchor(d, graphWidth, graphHeight).y);
+
+      const selectedId = state.selected && state.selected.id;
+      const neighbors = new Set();
+      if (selectedId) {
+        data.links.forEach(link => {
+          const s = typeof link.source === "string" ? link.source : link.source.id;
+          const t = typeof link.target === "string" ? link.target : link.target.id;
+          if (s === selectedId) neighbors.add(t);
+          if (t === selectedId) neighbors.add(s);
+        });
+      }
+
+      const links = linkLayer.selectAll("line")
+        .data(data.links, d => `${typeof d.source === "string" ? d.source : d.source.id}-${typeof d.target === "string" ? d.target : d.target.id}-${d.type}`);
+
+      links.exit().remove();
+      const linksEnter = links.enter().append("line").attr("class", d => `link ${d.type === "topic-topic" ? "topic-topic" : ""}`);
+      const allLinks = linksEnter.merge(links)
+        .classed("dim", d => selectedId && !touches(d, selectedId))
+        .on("mouseenter", (event, d) => scheduleLinkTooltip(event, d))
+        .on("mousemove", event => moveTooltip(event))
+        .on("mouseleave", hideTooltip);
+
+      const nodes = nodeLayer.selectAll("g")
+        .data(data.nodes, d => d.id);
+
+      nodes.exit().remove();
+      const nodeEnter = nodes.enter().append("g")
+        .attr("class", "node")
+        .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+      nodeEnter.append("circle")
+        .attr("r", radius)
+        .attr("fill", d => groupColor[d.group]);
+
+      nodeEnter.append("text")
+        .attr("x", d => radius(d) + 5)
+        .attr("y", 4)
+        .text(d => d.name);
+
+      nodeEnter.on("click", (_, d) => {
+        state.selected = d;
+        renderDetail(d);
+        updateAll();
+      });
+      nodeEnter
+        .on("mouseenter", (event, d) => scheduleTooltip(event, d))
+        .on("mousemove", event => moveTooltip(event))
+        .on("mouseleave", hideTooltip);
+
+      const allNodes = nodeEnter.merge(nodes)
+        .classed("dim", d => selectedId && d.id !== selectedId && !neighbors.has(d.id));
+
+      allNodes.select("circle")
+        .attr("r", radius)
+        .attr("fill", d => groupColor[d.group]);
+
+      allNodes.select("text")
+        .attr("x", d => radius(d) + 5)
+        .style("display", d => shouldShowLabel(d, neighbors) ? null : "none")
+        .style("font-weight", d => d.kind === "topic" && d.count >= 8 ? 500 : 400);
+
+      simulation.nodes(data.nodes).on("tick", () => {
+        allLinks
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y)
+          .attr("stroke-width", d => lineWidth(d));
+        allNodes.attr("transform", d => {
+          positionCache.set(d.id, { x: d.x, y: d.y });
+          return `translate(${d.x},${d.y})`;
+        });
+      });
+      simulation.force("link").links(data.links);
+      simulation.alpha(0.55).restart();
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => simulation.alphaTarget(0).stop(), 1200);
+      document.getElementById("status").textContent = selectedId
+        ? `交互图谱 · 全图保留，当前显示 ${data.links.length} 条直接交叉线 · 线越粗交叉作品越多`
+        : `交互图谱 · ${data.nodes.length} 个核心题材 · ${data.links.length} 条强相关线 · 悬停看名称，点击看详情`;
+      if (!state.selected) renderDetail(null);
+    }
+
+    function touches(link, id) {
+      const s = endpointId(link.source);
+      const t = endpointId(link.target);
+      return s === id || t === id;
+    }
+
+    function endpointId(value) {
+      return typeof value === "string" ? value : value.id;
+    }
+
+    function lineWidth(d) {
+      return d.type === "topic-topic" ? Math.min(7, 1 + Math.sqrt(d.count) * 1.25) : .7;
+    }
+
+    function scheduleLinkTooltip(event, d) {
+      clearTimeout(hoverTimer);
+      moveTooltip(event);
+      hoverTimer = setTimeout(() => {
+        const source = typeof d.source === "string" ? d.source.replace(/^t-/, "") : d.source.name;
+        const target = typeof d.target === "string" ? d.target.replace(/^t-/, "") : d.target.name;
+        tooltip.innerHTML = `<b>${source} × ${target}</b><span>共同出现 ${d.count} 个作品；线越粗代表交叉作品越多。</span>`;
+        tooltip.style.display = "block";
+      }, 400);
+    }
+
+    function setVisual(visual) {
+      state.visual = visual;
+      hideTooltip();
+      clearGraph();
+      document.querySelectorAll("#visualTabs [data-visual]").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.visual === visual));
+      });
+      document.getElementById("boardControls").classList.toggle("active", visual === "heat");
+      svg.transition().duration(250).call(zoom.transform, d3.zoomIdentity);
+      updateAll();
+    }
+
+    function clearGraph() {
+      clearTimeout(settleTimer);
+      simulation.stop();
+      linkLayer.selectAll("*").remove();
+      nodeLayer.selectAll("*").remove();
+    }
+
+    function renderStaticVisual(visual, data, width, height) {
+      clearGraph();
+      if (visual === "matrix") renderMatrix(width, height);
+      else if (visual === "quadrant") renderQuadrant(width, height);
+      else renderHeatmap(width, height);
+    }
+
+    function visibleTopicMetrics() {
+      const pool = getFilteredProjects();
+      const counts = buildTopicCounts(pool);
+      return Array.from(counts, ([name, count]) => {
+        const base = topics.find(topic => topic.name === name);
+        return { ...(base || { id: `t-${name}`, name, group: topicGroup.get(name) || "结构/系统", kind: "topic" }), count, metrics: topicMetrics(name, pool) };
+      }).sort((a, b) => b.count - a.count || b.metrics.opportunity - a.metrics.opportunity);
+    }
+
+    function renderHeatmap(width, height) {
+      const allRows = visibleTopicMetrics().filter(topic => topic.count > 0);
+      const groups = Object.keys(groupMap);
+      const metric = boardMetric();
+      const maxPerGroup = state.boardLimit || 8;
+      const buckets = new Map(groups.map(group => [group, []]));
+      allRows.forEach(topic => {
+        if (!buckets.has(topic.group)) buckets.set(topic.group, []);
+        buckets.get(topic.group).push(topic);
+      });
+      groups.forEach((group, groupIndex) => {
+        buckets.set(group, (buckets.get(group) || [])
+          .sort((a, b) => metric.value(b) - metric.value(a) || b.metrics.opportunity - a.metrics.opportunity || b.count - a.count)
+          .slice(0, maxPerGroup));
+      });
+
+      const visibleRows = groups.flatMap(group => buckets.get(group) || []);
+      const margin = { top: 98, right: 48, bottom: 52, left: 70 };
+      const boardWidth = Math.max(520, width - margin.left - margin.right);
+      const rowH = 44;
+      const groupHeaderH = 42;
+      const groupGap = 16;
+      const maxCount = Math.max(1, d3.max(visibleRows, d => d.count) || 1);
+      const barX = margin.left + Math.max(280, boardWidth * .52);
+      const barW = Math.max(160, margin.left + boardWidth - barX - 64);
+      const metricMax = metric.key === "count" ? maxCount : 100;
+      let cursorY = margin.top;
+
+      const canvasHeight = Math.max(height, margin.top + groups.reduce((sum, group) => {
+        const items = buckets.get(group) || [];
+        return sum + groupHeaderH + items.length * rowH + groupGap;
+      }, 0) + margin.bottom);
+      svg.attr("height", canvasHeight);
+      nodeLayer.append("text")
+        .attr("class", "view-title")
+        .attr("x", margin.left)
+        .attr("y", 38)
+        .text("题材机会看板");
+      nodeLayer.append("text")
+        .attr("class", "view-subtitle")
+        .attr("x", margin.left)
+        .attr("y", 62)
+        .text(`按题材大类分组；当前按${metric.label}排序。圆大小=样本量，横条=${metric.label}，右侧数字便于比较。`);
+      nodeLayer.append("text")
+        .attr("class", "muted-label")
+        .attr("x", margin.left + 42)
+        .attr("y", 86)
+        .text("题材 / 样本");
+      nodeLayer.append("text")
+        .attr("class", "muted-label")
+        .attr("x", barX)
+        .attr("y", 86)
+        .text(metric.label);
+      groups.forEach((group, groupIndex) => {
+        const items = buckets.get(group) || [];
+        if (!items.length) return;
+        const y = cursorY;
+        nodeLayer.append("text")
+          .attr("class", "axis-label")
+          .attr("x", margin.left)
+          .attr("y", y)
+          .text(`${group} · ${items.length} 个方向`);
+        nodeLayer.append("line")
+          .attr("class", "section-rule")
+          .attr("x1", margin.left)
+          .attr("x2", margin.left + boardWidth)
+          .attr("y1", y + 10)
+          .attr("y2", y + 10);
+        const groupNodes = nodeLayer.selectAll(`g.board-${groupIndex}`)
+          .data(items, d => d.id)
+          .enter()
+          .append("g")
+          .attr("class", "heat-cell")
+          .attr("transform", (_, i) => `translate(${margin.left},${y + groupHeaderH + i * rowH})`)
+          .on("mouseenter", (event, d) => scheduleTooltip(event, d))
+          .on("mousemove", event => moveTooltip(event))
+          .on("mouseleave", hideTooltip)
+          .on("click", (_, d) => selectTopic(d.name));
+        groupNodes.append("rect")
+          .attr("x", 0)
+          .attr("y", 2)
+          .attr("width", boardWidth)
+          .attr("height", rowH - 8)
+          .attr("rx", 7)
+          .attr("fill", "rgba(27,31,34,.72)")
+          .attr("stroke", "rgba(154,165,173,.16)");
+        groupNodes.append("circle")
+          .attr("cx", 18)
+          .attr("cy", 20)
+          .attr("r", d => 6 + Math.sqrt(d.count / maxCount) * 12)
+          .attr("fill", d => groupColor[d.group] || "var(--cyan)")
+          .attr("opacity", .92)
+          .attr("stroke", "rgba(255,255,255,.42)");
+        groupNodes.append("text")
+          .attr("class", "heat-label")
+          .attr("x", 42)
+          .attr("y", 18)
+          .text(d => shortLabel(d.name, width < 1100 ? 10 : 16));
+        groupNodes.append("text")
+          .attr("class", "muted-label")
+          .attr("x", 42)
+          .attr("y", 33)
+          .text(d => `${d.count} 项样本 · 机会分 ${d.metrics.opportunity}`);
+        groupNodes.append("rect")
+          .attr("x", barX - margin.left)
+          .attr("y", 15)
+          .attr("width", barW)
+          .attr("height", 8)
+          .attr("rx", 999)
+          .attr("fill", "#121618")
+          .attr("stroke", "rgba(154,165,173,.24)");
+        groupNodes.append("rect")
+          .attr("x", barX - margin.left)
+          .attr("y", 15)
+          .attr("width", d => Math.max(6, barW * metric.value(d) / metricMax))
+          .attr("height", 8)
+          .attr("rx", 999)
+          .attr("fill", d => groupColor[d.group] || "var(--cyan)")
+          .attr("opacity", .88);
+        groupNodes.append("text")
+          .attr("class", "axis-label")
+          .attr("text-anchor", "end")
+          .attr("x", boardWidth - 12)
+          .attr("y", 25)
+          .text(d => metric.format(metric.value(d)));
+        cursorY += groupHeaderH + items.length * rowH + groupGap;
+      });
+      document.getElementById("status").textContent = `题材机会看板 · 显示 ${visibleRows.length}/${allRows.length} 个题材 · 当前排序=${metric.label}`;
+    }
+
+    function boardMetric() {
+      const metrics = {
+        opportunity: { key: "opportunity", label: "机会分", value: d => d.metrics.opportunity, format: v => v },
+        count: { key: "count", label: "样本量", value: d => d.count, format: v => `${v}项` },
+        heat: { key: "heat", label: "热度", value: d => d.metrics.heat, format: v => v },
+        growth: { key: "growth", label: "增长性", value: d => d.metrics.growth, format: v => `${v}%` },
+        crowd: { key: "crowd", label: "拥挤度", value: d => d.metrics.crowd, format: v => v }
+      };
+      return metrics[state.boardSort] || metrics.opportunity;
+    }
+
+    function renderMatrix(width, height) {
+      const pool = getFilteredProjects();
+      const top = visibleTopicMetrics().slice(0, width < 900 ? 18 : 28);
+      const names = top.map(topic => topic.name);
+      const index = new Map(names.map((name, i) => [name, i]));
+      const counts = new Map();
+      pool.forEach(project => {
+        const tags = project.tags.filter(tag => index.has(tag));
+        for (let i = 0; i < tags.length; i++) {
+          for (let j = i + 1; j < tags.length; j++) {
+            const pair = [tags[i], tags[j]].sort().join("||");
+            counts.set(pair, (counts.get(pair) || 0) + 1);
+          }
+        }
+      });
+      const max = Math.max(1, d3.max(Array.from(counts.values())) || 1);
+      const margin = { top: 132, right: 28, bottom: 32, left: 132 };
+      const cell = Math.max(16, Math.min(24, (Math.min(width, height) - 170) / Math.max(1, top.length)));
+      const matrixWidth = cell * top.length;
+      const x0 = margin.left;
+      const y0 = margin.top;
+      svg.attr("height", Math.max(height, y0 + matrixWidth + 60));
+      nodeLayer.append("text").attr("class", "axis-label").attr("x", x0).attr("y", 42).text("题材交叉矩阵");
+      nodeLayer.append("text").attr("class", "muted-label").attr("x", x0).attr("y", 63).text("颜色越亮，两个题材在同一项目中共同出现越多。点击格子进入组合探索。");
+      nodeLayer.selectAll("text.row-label").data(top).enter().append("text")
+        .attr("class", "matrix-label")
+        .attr("text-anchor", "end")
+        .attr("x", x0 - 8)
+        .attr("y", (_, i) => y0 + i * cell + cell * .68)
+        .text(d => shortLabel(d.name, 9));
+      nodeLayer.selectAll("text.col-label").data(top).enter().append("text")
+        .attr("class", "matrix-label")
+        .attr("text-anchor", "start")
+        .attr("transform", (_, i) => `translate(${x0 + i * cell + cell * .68},${y0 - 8}) rotate(-55)`)
+        .text(d => shortLabel(d.name, 9));
+      const cells = [];
+      for (let r = 0; r < top.length; r++) {
+        for (let c = 0; c < top.length; c++) {
+          const a = top[r].name;
+          const b = top[c].name;
+          const pair = [a, b].sort().join("||");
+          cells.push({ a, b, count: a === b ? top[r].count : counts.get(pair) || 0, row: r, col: c });
+        }
+      }
+      nodeLayer.selectAll("rect.matrix-cell").data(cells).enter().append("rect")
+        .attr("class", "matrix-cell")
+        .attr("x", d => x0 + d.col * cell)
+        .attr("y", d => y0 + d.row * cell)
+        .attr("width", cell - 1)
+        .attr("height", cell - 1)
+        .attr("fill", d => d.a === d.b ? "rgba(154,165,173,.28)" : `rgba(224,184,74,${.08 + d.count / max * .82})`)
+        .on("mouseenter", (event, d) => schedulePairTooltip(event, d))
+        .on("mousemove", event => moveTooltip(event))
+        .on("mouseleave", hideTooltip)
+        .on("click", (_, d) => focusCombo(d.a, d.b));
+      document.getElementById("status").textContent = `交叉矩阵 · Top ${top.length} 题材 · 点击格子看组合评分`;
+    }
+
+    function renderQuadrant(width, height) {
+      const rows = visibleTopicMetrics().slice(0, 120);
+      const margin = { top: 72, right: 42, bottom: 64, left: 72 };
+      const innerWidth = Math.max(320, width - margin.left - margin.right);
+      const innerHeight = Math.max(420, height - margin.top - margin.bottom);
+      svg.attr("height", Math.max(height, margin.top + innerHeight + margin.bottom));
+      const x = d3.scaleLinear().domain([0, 100]).range([margin.left, margin.left + innerWidth]);
+      const y = d3.scaleLinear().domain([0, 100]).range([margin.top + innerHeight, margin.top]);
+      nodeLayer.append("line").attr("x1", x(50)).attr("x2", x(50)).attr("y1", margin.top).attr("y2", margin.top + innerHeight).attr("stroke", "rgba(154,165,173,.22)");
+      nodeLayer.append("line").attr("x1", margin.left).attr("x2", margin.left + innerWidth).attr("y1", y(50)).attr("y2", y(50)).attr("stroke", "rgba(154,165,173,.22)");
+      nodeLayer.append("text").attr("class", "axis-label").attr("x", margin.left).attr("y", 42).text("机会象限");
+      nodeLayer.append("text").attr("class", "muted-label").attr("x", margin.left).attr("y", 63).text("越靠右越拥挤，越靠上机会分越高。左上角优先验证。");
+      nodeLayer.append("text").attr("class", "muted-label").attr("x", margin.left + innerWidth / 2).attr("y", margin.top + innerHeight + 42).attr("text-anchor", "middle").text("市场拥挤度");
+      nodeLayer.append("text").attr("class", "muted-label").attr("transform", `translate(24,${margin.top + innerHeight / 2}) rotate(-90)`).attr("text-anchor", "middle").text("机会分");
+      const points = nodeLayer.selectAll("circle.quadrant-point").data(rows, d => d.id).enter().append("circle")
+        .attr("class", "quadrant-point")
+        .attr("cx", d => x(d.metrics.crowd))
+        .attr("cy", d => y(d.metrics.opportunity))
+        .attr("r", d => 5 + Math.sqrt(d.metrics.heat) * .9)
+        .attr("fill", d => groupColor[d.group] || "var(--cyan)")
+        .attr("opacity", .76)
+        .attr("stroke", "rgba(255,255,255,.38)")
+        .on("mouseenter", (event, d) => scheduleTooltip(event, d))
+        .on("mousemove", event => moveTooltip(event))
+        .on("mouseleave", hideTooltip)
+        .on("click", (_, d) => selectTopic(d.name));
+      nodeLayer.selectAll("text.quadrant-label").data(rows.filter(d => d.metrics.opportunity >= 68 || d.count >= 10).slice(0, 32)).enter().append("text")
+        .attr("class", "heat-label")
+        .attr("x", d => x(d.metrics.crowd) + 9)
+        .attr("y", d => y(d.metrics.opportunity) + 4)
+        .text(d => shortLabel(d.name, 8));
+      document.getElementById("status").textContent = `机会象限 · ${rows.length} 个题材 · 左上角是低拥挤高机会`;
+    }
+
+    function shortLabel(value, max) {
+      return value.length > max ? `${value.slice(0, max)}…` : value;
+    }
+
+    function schedulePairTooltip(event, d) {
+      clearTimeout(hoverTimer);
+      moveTooltip(event);
+      hoverTimer = setTimeout(() => {
+        tooltip.innerHTML = `<b>${d.a} × ${d.b}</b><span>共同出现 ${d.count} 次 · 点击进入组合探索</span>`;
+        tooltip.style.display = "block";
+      }, 500);
+    }
+
+    function focusCombo(a, b) {
+      document.getElementById("topicA").value = a;
+      document.getElementById("topicB").value = b;
+      setMode("explorer");
+      renderCombo();
+    }
+
+    function scheduleTooltip(event, d) {
+      clearTimeout(hoverTimer);
+      moveTooltip(event);
+      hoverTimer = setTimeout(() => {
+        tooltip.innerHTML = d.kind === "topic"
+          ? `<b>${d.name}</b><span>${d.group} · 当前样本 ${d.count} 个 · 悬停后显示，点击查看详情</span>`
+          : `<b>${d.name}</b><span>${d.year} · ${d.type} · ${d.note}</span>`;
+        tooltip.style.display = "block";
+      }, 1000);
+    }
+
+    function moveTooltip(event) {
+      const box = root.getBoundingClientRect();
+      const x = event.clientX - box.left + 14;
+      const y = event.clientY - box.top + 14;
+      tooltip.style.left = `${Math.min(x, box.width - 280)}px`;
+      tooltip.style.top = `${Math.min(y, box.height - 90)}px`;
+    }
+
+    function hideTooltip() {
+      clearTimeout(hoverTimer);
+      tooltip.style.display = "none";
+    }
+
+    function updateAll() {
+      updateStats();
+      update();
+      renderGapList();
+      renderRanks();
+      renderCombo();
+      renderWorkspace();
+    }
+
+    function updateStats() {
+      const pool = getFilteredProjects();
+      const counts = buildTopicCounts(pool);
+      const topicIds = new Set(Array.from(counts.keys()).map(tag => `t-${tag}`));
+      document.getElementById("projectCount").textContent = pool.length;
+      document.getElementById("topicCount").textContent = counts.size;
+      document.getElementById("edgeCount").textContent = buildTopicLinks(pool, topicIds).length;
+      document.getElementById("gapCount").textContent = Array.from(counts.values()).filter(v => v <= 2).length;
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      document.querySelectorAll("#modeTabs [data-mode]").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.mode === mode));
+      });
+      document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
+      document.getElementById(`panel-${mode}`).classList.add("active");
+      if (mode === "rank") renderRanks();
+      if (mode === "explorer") renderCombo();
+      if (mode === "workspace") renderWorkspace();
+    }
+
+    function shouldShowLabel(d, neighbors) {
+      if (state.selected && d.id === state.selected.id) return true;
+      if (state.selected && neighbors.has(d.id)) return d.kind === "topic" || state.query;
+      if (state.query) return d.kind === "topic" || d.name.toLowerCase().includes(state.query);
+      if (d.kind === "project") return false;
+      if (state.group !== "全部") return d.count >= 4;
+      return d.count >= 12;
+    }
+
+    function topicMetrics(topicName, pool = getFilteredProjects()) {
+      const matched = pool.filter(project => project.tags.includes(topicName));
+      const count = matched.length;
+      const recent = matched.filter(project => project.year >= currentYear - 3).length;
+      const heat = count ? Math.round(d3.mean(matched, project => project.heat)) : 35;
+      const difficulty = estimateDifficulty(topicName, matched);
+      const crowd = clamp(Math.round(count / 24 * 100), 4, 100);
+      const growth = count ? clamp(Math.round(recent / count * 100), 0, 100) : 0;
+      const opportunity = clamp(Math.round((100 - crowd) * .38 + heat * .25 + growth * .22 + (100 - difficulty) * .15), 1, 99);
+      return { count, recent, heat, difficulty, crowd, growth, opportunity, matched };
+    }
+
+    function estimateDifficulty(topicName, matched) {
+      let score = 36;
+      const tags = new Set([topicName, ...matched.flatMap(project => project.tags)]);
+      ["开放世界","多人在线","服务型游戏","MMORPG","大逃杀","抽卡","高复杂度","自动化","沉浸模拟"].forEach(tag => {
+        if (tags.has(tag)) score += 8;
+      });
+      ["视觉小说","文字冒险","益智","像素","低叙事","短篇","低压力"].forEach(tag => {
+        if (tags.has(tag)) score -= 5;
+      });
+      return clamp(score, 18, 96);
+    }
+
+    function scoreBars(metrics) {
+      return `
+        <div class="score">
+          ${scoreRow("拥挤度", metrics.crowd, "var(--red)")}
+          ${scoreRow("热度", metrics.heat, "var(--yellow)")}
+          ${scoreRow("增长性", metrics.growth, "var(--green)")}
+          ${scoreRow("制作难度", metrics.difficulty, "var(--purple)")}
+          ${scoreRow("机会分", metrics.opportunity, "var(--blue)")}
+        </div>
+      `;
+    }
+
+    function scoreRow(label, value, color) {
+      return `<div class="score-row"><span>${label}</span><div class="bar"><span style="--w:${value}%;--c:${color}"></span></div><b>${value}</b></div>`;
+    }
+
+    function renderRanks() {
+      const pool = getFilteredProjects();
+      const counts = buildTopicCounts(pool);
+      const topicList = Array.from(counts, ([name, count]) => ({ name, count, metrics: topicMetrics(name, pool), group: topicGroup.get(name) || "结构/系统" }));
+      const crowded = [...topicList].sort((a, b) => b.count - a.count).slice(0, 8);
+      const gaps = [...topicList].filter(item => item.count <= 2).sort((a, b) => b.metrics.opportunity - a.metrics.opportunity).slice(0, 8);
+      const rising = [...topicList].filter(item => item.metrics.recent > 0).sort((a, b) => b.metrics.growth - a.metrics.growth || b.metrics.heat - a.metrics.heat).slice(0, 8);
+      const chances = [...topicList].sort((a, b) => b.metrics.opportunity - a.metrics.opportunity).slice(0, 8);
+      document.getElementById("rankPanel").innerHTML = `
+        ${rankBlock("红海高频", crowded, item => `${item.count} 项`)}
+        ${rankBlock("低覆盖方向", gaps, item => `${item.metrics.opportunity} 分`)}
+        ${rankBlock("近年增长", rising, item => `${item.metrics.growth}%`)}
+        ${rankBlock("机会优先", chances, item => `${item.metrics.opportunity} 分`)}
+      `;
+      document.querySelectorAll("#rankPanel [data-topic]").forEach(button => {
+        button.addEventListener("click", () => {
+          selectTopic(button.dataset.topic);
+          setMode("detail");
+        });
+      });
+    }
+
+    function rankBlock(title, rows, valueFn) {
+      return `<div class="rank-block"><h3>${title}</h3><div class="rank-list">${rows.map(item => `
+        <div class="rank-row"><button type="button" data-topic="${item.name}">${item.name}<small> · ${item.group}</small></button><small>${valueFn(item)}</small></div>
+      `).join("")}</div></div>`;
+    }
+
+    function populateTopicSelectors() {
+      const sorted = [...topics].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "zh-Hans-CN"));
+      ["topicA","topicB"].forEach((id, index) => {
+        const select = document.getElementById(id);
+        select.innerHTML = sorted.map((topic, i) => `<option value="${topic.name}" ${i === index ? "selected" : ""}>${topic.name}</option>`).join("");
+      });
+    }
+
+    function comboMetrics(a, b) {
+      const pool = getFilteredProjects();
+      const overlap = pool.filter(project => project.tags.includes(a) && project.tags.includes(b));
+      const aOnly = pool.filter(project => project.tags.includes(a)).length;
+      const bOnly = pool.filter(project => project.tags.includes(b)).length;
+      const heat = overlap.length ? Math.round(d3.mean(overlap, project => project.heat)) : Math.round((topicMetrics(a, pool).heat + topicMetrics(b, pool).heat) / 2);
+      const crowd = clamp(overlap.length * 18, 0, 100);
+      const growth = overlap.length ? Math.round(overlap.filter(project => project.year >= currentYear - 3).length / overlap.length * 100) : 18;
+      const difficulty = clamp(Math.round((estimateDifficulty(a, overlap) + estimateDifficulty(b, overlap)) / 2), 18, 98);
+      const novelty = clamp(100 - overlap.length * 20 + Math.min(aOnly + bOnly, 24), 1, 100);
+      const opportunity = clamp(Math.round(novelty * .34 + heat * .22 + growth * .18 + (100 - difficulty) * .16 + (100 - crowd) * .10), 1, 99);
+      return { a, b, overlap, aOnly, bOnly, heat, crowd, growth, difficulty, novelty, opportunity };
+    }
+
+    function renderCombo() {
+      const a = document.getElementById("topicA").value;
+      const b = document.getElementById("topicB").value;
+      if (!a || !b) return;
+      const metrics = comboMetrics(a, b);
+      const same = a === b;
+      document.getElementById("comboResult").innerHTML = `
+        <div class="stat full"><b>${same ? "请选择两个不同题材" : metrics.opportunity}</b><span>${same ? "组合评分不可用" : "组合机会分"}</span></div>
+        ${same ? "" : scoreBars({ crowd: metrics.crowd, heat: metrics.heat, growth: metrics.growth, difficulty: metrics.difficulty, opportunity: metrics.opportunity })}
+        <p>${same ? "A 和 B 相同时无法判断交叉空白。" : comboAdvice(metrics)}</p>
+        <div class="tags"><span class="tag">${a} 样本 ${metrics.aOnly}</span><span class="tag">${b} 样本 ${metrics.bOnly}</span><span class="tag">交叉项目 ${metrics.overlap.length}</span><span class="tag">新鲜度 ${metrics.novelty}</span></div>
+        <div class="row"><button class="btn" type="button" id="saveCombo">保存组合</button><button class="btn" type="button" id="exportComboReport">导出报告</button><button class="btn" type="button" id="focusCombo">在图中查看</button></div>
+        <h2>交叉案例</h2>
+        <div class="list">${metrics.overlap.slice(0, 8).map(project => `<button class="item" type="button" data-project="${project.id}">${project.name}<small>${project.year} · ${project.note}</small></button>`).join("") || `<p class="hint">当前筛选条件下没有直接案例，适合做小范围调研验证。</p>`}</div>
+      `;
+      const save = document.getElementById("saveCombo");
+      if (save) save.addEventListener("click", () => addWorkspace({ type: "combo", title: `${a} × ${b}`, score: metrics.opportunity, note: comboAdvice(metrics) }));
+      const exportCombo = document.getElementById("exportComboReport");
+      if (exportCombo) exportCombo.addEventListener("click", () => exportComboReport(metrics));
+      const focus = document.getElementById("focusCombo");
+      if (focus) focus.addEventListener("click", () => {
+        state.query = `${a}`;
+        document.getElementById("search").value = a;
+        setMode("detail");
+        updateAll();
+      });
+      document.querySelectorAll("#comboResult [data-project]").forEach(button => {
+        button.addEventListener("click", () => {
+          selectProject(button.dataset.project);
+          setMode("detail");
+        });
+      });
+    }
+
+    function comboAdvice(metrics) {
+      if (metrics.overlap.length === 0 && metrics.opportunity >= 70) return "样本里没有直接交叉案例，但两个单题材都有基础需求，适合作为原型验证方向。";
+      if (metrics.crowd >= 65) return "已有案例较多，除非有强美术、强系统或强发行优势，否则需要明显差异化。";
+      if (metrics.difficulty >= 70) return "机会存在，但制作复杂度偏高，建议先收缩到单场景、短流程或小队体验。";
+      return "覆盖不算拥挤，可以继续拆玩家动机、核心循环和内容量，形成 1-2 个低成本原型。";
+    }
+
+    function exportComboReport(metrics) {
+      const lines = [
+        `# ${metrics.a} × ${metrics.b} 组合报告`,
+        "",
+        `组合机会分：${metrics.opportunity}`,
+        `交叉项目：${metrics.overlap.length}`,
+        `新鲜度：${metrics.novelty}`,
+        "",
+        "## 判断",
+        comboAdvice(metrics),
+        "",
+        "## 单题材基础",
+        `- ${metrics.a}：${metrics.aOnly} 个样本项目`,
+        `- ${metrics.b}：${metrics.bOnly} 个样本项目`,
+        "",
+        "## 交叉案例",
+        ...(metrics.overlap.length ? metrics.overlap.slice(0, 12).map(project => `- ${project.name}（${project.year}）：${project.note}`) : ["- 当前筛选下暂无直接案例"]),
+        "",
+        "## 下一步验证",
+        "- 写一句话卖点，必须同时解释两个题材为什么必须结合。",
+        "- 做一个 3-5 分钟原型，只验证组合是否带来新的玩家选择。",
+        "- 找 5 名目标玩家试玩，记录他们是否能复述这个组合的差异点。"
+      ];
+      downloadText(`${metrics.a}-${metrics.b}-组合报告.md`, lines.join("\n"), "text/markdown");
+    }
+
+    function loadWorkspace() {
+      try {
+        return JSON.parse(localStorage.getItem("game-topic-workspace") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWorkspace() {
+      localStorage.setItem("game-topic-workspace", JSON.stringify(workspace));
+    }
+
+    function addWorkspace(item) {
+      const record = { id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, createdAt: new Date().toISOString(), ...item };
+      workspace = [record, ...workspace.filter(existing => existing.title !== item.title)].slice(0, 40);
+      saveWorkspace();
+      renderWorkspace();
+      setMode("workspace");
+    }
+
+    function renderWorkspace() {
+      document.getElementById("workspaceList").innerHTML = workspace.length ? workspace.map(item => `
+        <div class="item">
+          <strong>${item.title}</strong>
+          <small>${item.type === "topic" ? "题材" : "组合"} · 机会分 ${item.score || "-"} · ${item.note || ""}</small>
+          <div class="row" style="margin-top:8px"><button class="btn" type="button" data-remove="${item.id}">移除</button></div>
+        </div>
+      `).join("") : `<p class="hint">在详情页或组合探索器里保存候选方向后，会出现在这里。</p>`;
+      document.querySelectorAll("#workspaceList [data-remove]").forEach(button => {
+        button.addEventListener("click", () => {
+          workspace = workspace.filter(item => item.id !== button.dataset.remove);
+          saveWorkspace();
+          renderWorkspace();
+        });
+      });
+      renderCustomProjectList();
+    }
+
+    function exportWorkspace() {
+      const payload = {
+        exportedAt: new Date().toISOString(),
+        filters: { year: state.year, platform: state.platform, model: state.model, team: state.team, source: state.source, group: state.group },
+        items: workspace,
+        xingyoujiProjects: customProjects
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "game-topic-workspace.json";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportBrief() {
+      const pool = getFilteredProjects();
+      const rows = visibleTopicMetrics();
+      const opportunities = [...rows].sort((a, b) => b.metrics.opportunity - a.metrics.opportunity || b.count - a.count).slice(0, 10);
+      const crowded = [...rows].sort((a, b) => b.count - a.count || b.metrics.heat - a.metrics.heat).slice(0, 8);
+      const gaps = [...rows].filter(item => item.count <= 2).sort((a, b) => b.metrics.opportunity - a.metrics.opportunity).slice(0, 10);
+      const lines = [
+        "# 星游集游戏选题会前简报",
+        "",
+        `生成时间：${new Date().toLocaleString("zh-CN")}`,
+        `当前筛选：${filterSummary()}`,
+        `样本项目：${pool.length} 个；题材节点：${rows.length} 个；收藏方向：${workspace.length} 个；自有项目：${customProjects.length} 个。`,
+        "",
+        "## 已收藏候选",
+        ...(workspace.length ? workspace.map(item => `- ${item.title}：机会分 ${item.score || "-"}；${item.note || "待补充判断"}`) : ["- 暂无收藏方向"]),
+        "",
+        "## 机会优先 Top 10",
+        ...opportunities.map(item => `- ${item.name}（${item.group}）：机会分 ${item.metrics.opportunity}，样本 ${item.count}，建议：${topicAdvice(item.name, item.metrics)}`),
+        "",
+        "## 高频红海",
+        ...crowded.map(item => `- ${item.name}（${item.group}）：样本 ${item.count}，拥挤度 ${item.metrics.crowd}，热度 ${item.metrics.heat}`),
+        "",
+        "## 低覆盖可验证方向",
+        ...(gaps.length ? gaps.map(item => `- ${item.name}（${item.group}）：样本 ${item.count}，机会分 ${item.metrics.opportunity}`) : ["- 当前筛选下暂无低覆盖方向"]),
+        "",
+        "## 星游集自有项目",
+        ...(customProjects.length ? customProjects.map(project => `- ${project.name}（${project.year || currentYear}）：${cleanTags(project.tags).join("、")}；${project.note || ""}`) : ["- 暂无录入"]),
+        "",
+        "## 会议建议",
+        "- 先从机会优先和低覆盖方向里挑 3 个，分别写一句话卖点。",
+        "- 每个方向只讨论一个最小验证原型，避免直接进入完整立项。",
+        "- 对自有项目补齐题材标签后，再观察它和公开样本里的交叉位置。"
+      ];
+      downloadText("xingyouji-topic-brief.md", lines.join("\n"), "text/markdown");
+    }
+
+    function filterSummary() {
+      const pairs = [
+        ["题材分组", state.group],
+        ["时间", state.year === "all" ? "全部" : `近 ${state.year} 年`],
+        ["平台", state.platform === "all" ? "全部" : state.platform],
+        ["商业模式", state.model === "all" ? "全部" : state.model],
+        ["团队规模", state.team === "all" ? "全部" : state.team],
+        ["数据来源", state.source === "all" ? "全部" : state.source]
+      ];
+      return pairs.map(([label, value]) => `${label}=${value}`).join("；");
+    }
+
+    function loadCustomProjects() {
+      try {
+        return JSON.parse(localStorage.getItem("xingyouji-topic-projects") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function saveCustomProjects() {
+      localStorage.setItem("xingyouji-topic-projects", JSON.stringify(customProjects));
+    }
+
+    function addCustomProject() {
+      const name = document.getElementById("customTitle").value.trim();
+      const year = Number(document.getElementById("customYear").value) || currentYear;
+      const type = document.getElementById("customType").value.trim() || "星游集项目";
+      const tags = cleanTags(document.getElementById("customTags").value);
+      const note = document.getElementById("customNote").value.trim() || "星游集自有项目";
+      if (!name || tags.length < 2) {
+        document.getElementById("customProjectList").innerHTML = `<p class="hint">至少填写项目名，并输入 2 个以上题材标签。</p>`;
+        return;
+      }
+      const record = { name, year, type, tags, note, createdAt: new Date().toISOString() };
+      customProjects = [record, ...customProjects.filter(project => project.name !== name)].slice(0, 120);
+      saveCustomProjects();
+      ["customTitle","customType","customTags","customNote"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("customYear").value = "";
+      refreshAfterDatasetChange();
+      setMode("workspace");
+    }
+
+    function renderCustomProjectList() {
+      const list = document.getElementById("customProjectList");
+      list.innerHTML = customProjects.length ? customProjects.map((project, index) => `
+        <div class="item">
+          <strong>${project.name}</strong>
+          <small>${project.year || currentYear} · ${project.type || "星游集项目"} · ${project.note || ""}</small>
+          <div class="tags">${cleanTags(project.tags).map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+          <div class="row"><button class="btn" type="button" data-remove-custom="${index}">移除</button></div>
+        </div>
+      `).join("") : `<p class="hint">这里用于录入星游集线下收集的 Demo、学生项目或合作项目。录入后会立刻进入图谱计算。</p>`;
+      list.querySelectorAll("[data-remove-custom]").forEach(button => {
+        button.addEventListener("click", () => {
+          customProjects.splice(Number(button.dataset.removeCustom), 1);
+          saveCustomProjects();
+          refreshAfterDatasetChange();
+        });
+      });
+    }
+
+    function exportCustomProjects() {
+      downloadText("xingyouji-topic-projects.json", JSON.stringify({
+        exportedAt: new Date().toISOString(),
+        projects: customProjects
+      }, null, 2), "application/json");
+    }
+
+    function refreshAfterDatasetChange() {
+      rebuildDataset();
+      populateTopicSelectors();
+      state.selected = null;
+      renderDetail(null);
+      renderWorkspace();
+      updateAll();
+    }
+
+    function renderDetail(node) {
+      const detail = document.getElementById("detail");
+      const related = document.getElementById("related");
+      if (!node) {
+        detail.innerHTML = `<p class="hint">默认是交互图谱：圆是题材，线是强相关题材。悬停 1 秒看名称，点击题材看详情；想看结构化分组再切到“看板”。</p>`;
+        related.innerHTML = "";
+        return;
+      }
+
+      if (node.kind === "project") {
+        detail.innerHTML = `
+          <h1>${node.name}</h1>
+          <p>${node.year} · ${node.type} · ${node.note}</p>
+          <div class="tags">
+            <span class="tag">${node.platform}</span>
+            <span class="tag">${node.business}</span>
+            <span class="tag">${node.team}</span>
+            <span class="tag">${node.source}</span>
+            <span class="tag">可信度 ${node.confidence}</span>
+            ${node.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+          </div>
+          <div class="score">
+            ${scoreRow("热度", node.heat, "var(--yellow)")}
+            ${scoreRow("可信度", node.confidence, "var(--green)")}
+          </div>
+        `;
+        related.innerHTML = node.tags
+          .map(tag => `<button class="item" type="button" data-topic="${tag}">${tag}<small>${topicCounts.get(tag)} 个样本项目使用</small></button>`)
+          .join("");
+        related.querySelectorAll("[data-topic]").forEach(button => {
+          button.addEventListener("click", () => selectTopic(button.dataset.topic));
+        });
+        return;
+      }
+
+      const matched = projects
+        .filter(project => project.tags.includes(node.name))
+        .sort((a, b) => b.year - a.year);
+      const filteredMatched = getFilteredProjects()
+        .filter(project => project.tags.includes(node.name))
+        .sort((a, b) => b.year - a.year);
+      const metrics = topicMetrics(node.name);
+      const coTopics = Array.from(crossCounts)
+        .filter(([pair]) => pair.includes(`${node.name}||`) || pair.includes(`||${node.name}`))
+        .map(([pair, count]) => ({ name: pair.split("||").find(v => v !== node.name), count }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 10);
+      const rareCombos = topics
+        .filter(topic => topic.name !== node.name)
+        .map(topic => comboMetrics(node.name, topic.name))
+        .filter(combo => combo.overlap.length <= 1 && combo.opportunity >= 55)
+        .sort((a, b) => b.opportunity - a.opportunity)
+        .slice(0, 6);
+
+      detail.innerHTML = `
+        <h1>${node.name}</h1>
+        <p>${node.group} · 当前筛选覆盖 ${metrics.count} 个项目。${metrics.count <= 2 ? "这是当前样本里的低覆盖方向，适合继续细分验证。" : "这是当前样本里的高频方向，需要更强差异化。"}</p>
+        <p>${topicIntro(node, metrics, coTopics)}</p>
+        ${scoreBars(metrics)}
+        <p>${topicAdvice(node.name, metrics)}</p>
+        <h2>设计抓手</h2>
+        <div class="tags">${topicPlaybook(node, metrics).hooks.map(item => `<span class="tag">${item}</span>`).join("")}</div>
+        <h2>主要风险</h2>
+        <p>${topicPlaybook(node, metrics).risk}</p>
+        <h2>验证方式</h2>
+        <p>${topicPlaybook(node, metrics).test}</p>
+        <h2>已有交叉</h2>
+        <div class="tags">${coTopics.map(t => `<span class="tag">${t.name} × ${t.count}</span>`).join("") || `<span class="tag">当前样本暂无明确交叉</span>`}</div>
+        <div class="row">
+          <button class="btn" type="button" id="saveTopic">保存题材</button>
+          <button class="btn" type="button" id="exportTopicReport">导出报告</button>
+        </div>
+        <h2>可探索组合</h2>
+        <div class="tags">${rareCombos.map(combo => `<span class="tag">${combo.a} × ${combo.b} · ${combo.opportunity}</span>`).join("") || `<span class="tag">暂无明显低覆盖组合</span>`}</div>
+      `;
+      related.innerHTML = filteredMatched
+        .map(project => `<button class="item" type="button" data-project="${project.id}">${project.name}<small>${project.year} · ${project.note}</small></button>`)
+        .join("");
+      document.getElementById("saveTopic").addEventListener("click", () => addWorkspace({ type: "topic", title: node.name, score: metrics.opportunity, note: topicAdvice(node.name, metrics) }));
+      document.getElementById("exportTopicReport").addEventListener("click", () => exportTopicReport(node, metrics, coTopics, filteredMatched, rareCombos));
+      related.querySelectorAll("[data-project]").forEach(button => {
+        button.addEventListener("click", () => selectProject(button.dataset.project));
+      });
+    }
+
+    function topicIntro(node, metrics, coTopics) {
+      const related = coTopics.slice(0, 3).map(item => item.name).join("、") || "相邻题材";
+      const group = node.group;
+      if (group === "玩法/类型") {
+        return `${node.name}主要描述游戏的核心操作和规则结构，决定玩家在每分钟里反复做什么。它常和${related}组合形成具体卖点；当前样本覆盖 ${metrics.count} 个项目，说明这个方向${metrics.crowd >= 70 ? "已经比较拥挤，需要靠题材包装、节奏或系统细节做差异化" : "还有继续细分的空间，适合先做小原型验证手感和循环"}。`;
+      }
+      if (group === "世界观/剧情内容") {
+        return `${node.name}是内容题材或世界观入口，负责给玩家一个容易理解的故事场景、角色身份和想象空间。它通常需要和${related}这类玩法或情绪标签结合，才能从“设定”变成可玩的项目方向；当前样本覆盖 ${metrics.count} 个项目。`;
+      }
+      if (group === "情绪/体验") {
+        return `${node.name}描述玩家希望获得的情绪体验，比如紧张、治愈、压迫、爽感或陪伴感。它本身不是完整玩法，但会强烈影响美术、节奏、叙事和商业包装；和${related}结合时，通常能形成更清晰的受众定位。`;
+      }
+      if (group === "结构/系统") {
+        return `${node.name}更偏系统结构或内容组织方式，决定游戏如何产生长期目标、重复游玩或叙事变化。它常和${related}一起决定制作复杂度；当前制作难度估计为 ${metrics.difficulty}，立项时要重点评估内容量和系统成本。`;
+      }
+      if (group === "平台/商业") {
+        return `${node.name}偏平台、运营或商业形态，影响获客方式、留存目标、内容更新频率和团队配置。它经常和${related}绑定出现；如果选择这个方向，需要比单机题材更早验证社区、付费和长期运营能力。`;
+      }
+      return `${node.name}是当前题材库中的一个选题标签，样本覆盖 ${metrics.count} 个项目，常和${related}一起出现。可以把它作为一个切入点，再继续拆解玩法、世界观、情绪体验和商业模式。`;
+    }
+
+    function topicAdvice(name, metrics) {
+      if (metrics.count <= 2 && metrics.heat >= 55) return "低覆盖但有基础热度，适合做小团队差异化原型。先验证核心循环和首屏卖点。";
+      if (metrics.crowd >= 70 && metrics.difficulty >= 65) return "拥挤且难度高，不适合作为轻量切入，除非能绑定强 IP、强技术或强社区。";
+      if (metrics.growth >= 50) return "近年样本占比较高，说明仍有新增供给，可以继续寻找叙事或美术角度差异。";
+      if (metrics.difficulty <= 40) return "制作难度相对可控，适合快速做 pitch、demo 或垂直题材实验。";
+      return "可以继续拆成更细的玩家动机、场景限制和商业模式，再判断是否值得立项。";
+    }
+
+    function topicPlaybook(node, metrics) {
+      const group = node.group;
+      if (group === "玩法/类型") {
+        return {
+          hooks: ["30 秒核心循环", "可录像的高光瞬间", "失败后立即重开", "一条清晰成长线"],
+          risk: metrics.crowd >= 65 ? "同类玩法供给较多，单靠规则很难被记住，需要绑定独特题材、美术识别或强节奏差异。" : "玩法方向还可以细分，但最容易低估手感、关卡和反馈打磨成本。",
+          test: "先做一个 5-10 分钟可重复试玩的核心循环，用 5 名目标玩家观察是否愿意主动再开一局。"
+        };
+      }
+      if (group === "世界观/剧情内容") {
+        return {
+          hooks: ["一句话世界观", "强身份代入", "可传播角色关系", "场景奇观"],
+          risk: "题材设定本身不是玩法，容易停留在概念层。需要尽快证明这个世界观会改变玩家选择、关卡目标或系统规则。",
+          test: "做一张核心场景图、三段玩家任务和一个交互原型，验证玩家是否能快速说出“我在这里要做什么”。"
+        };
+      }
+      if (group === "情绪/体验") {
+        return {
+          hooks: ["首屏情绪", "声音与节奏", "压力曲线", "可复述的体验词"],
+          risk: "情绪标签容易泛化，必须落到镜头、操作频率、失败惩罚和奖励反馈，否则难以稳定复现。",
+          test: "做 3 分钟体验切片，只测一个情绪目标。试玩后让玩家用三个词描述感受，看是否和目标一致。"
+        };
+      }
+      if (group === "平台/商业") {
+        return {
+          hooks: ["留存理由", "社交关系", "内容更新节奏", "付费不破坏体验"],
+          risk: "商业形态会显著放大内容、运营和技术成本。早期不宜只看题材热度，要先看团队是否能持续供给内容。",
+          test: "先做留存假设表和 2 周内容节奏，用小群或社区测试玩家是否愿意回来、分享或共创。"
+        };
+      }
+      return {
+        hooks: ["内容生产方式", "系统边界", "复玩来源", "成本上限"],
+        risk: metrics.difficulty >= 65 ? "系统复杂度偏高，容易在内容量、数值和工具链上失控。" : "结构本身可控，但需要避免变成没有记忆点的通用框架。",
+        test: "先明确最小系统闭环，并用纸面流程或灰盒原型验证内容生产速度和玩家理解成本。"
+      };
+    }
+
+    function exportTopicReport(node, metrics, coTopics, matchedProjects, rareCombos) {
+      const playbook = topicPlaybook(node, metrics);
+      const lines = [
+        `# ${node.name} 选题报告`,
+        "",
+        `分组：${node.group}`,
+        `样本覆盖：${metrics.count} 个项目`,
+        `机会分：${metrics.opportunity}`,
+        "",
+        "## 简述",
+        topicIntro(node, metrics, coTopics),
+        "",
+        "## 判断",
+        topicAdvice(node.name, metrics),
+        "",
+        "## 设计抓手",
+        ...playbook.hooks.map(item => `- ${item}`),
+        "",
+        "## 主要风险",
+        playbook.risk,
+        "",
+        "## 验证方式",
+        playbook.test,
+        "",
+        "## 已有交叉",
+        ...(coTopics.length ? coTopics.slice(0, 12).map(item => `- ${node.name} × ${item.name}：${item.count} 个样本`) : ["- 当前样本暂无明确交叉"]),
+        "",
+        "## 可探索组合",
+        ...(rareCombos.length ? rareCombos.map(item => `- ${item.a} × ${item.b}：机会分 ${item.opportunity}`) : ["- 暂无明显低覆盖组合"]),
+        "",
+        "## 代表项目",
+        ...(matchedProjects.length ? matchedProjects.slice(0, 12).map(project => `- ${project.name}（${project.year}）：${project.note}`) : ["- 当前筛选下暂无项目"])
+      ];
+      downloadText(`${node.name}-选题报告.md`, lines.join("\n"), "text/markdown");
+    }
+
+    function downloadText(filename, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function selectTopic(name) {
+      const topic = topics.find(t => t.name === name);
+      if (topic) {
+        state.selected = topic;
+        renderDetail(topic);
+        updateAll();
+      }
+    }
+
+    function selectProject(id) {
+      const project = projectNodes.find(p => p.id === id);
+      if (project) {
+        state.selected = project;
+        renderDetail(project);
+        updateAll();
+      }
+    }
+
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.25).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+
+    function renderGapList() {
+      const counts = buildTopicCounts(getFilteredProjects());
+      const combos = Array.from(counts, ([name, count]) => ({ name, count, group: topicGroup.get(name) || "结构/系统", score: topicMetrics(name).opportunity }))
+        .filter(item => item.count <= 2)
+        .sort((a, b) => b.score - a.score || a.count - b.count || a.name.localeCompare(b.name, "zh-Hans-CN"))
+        .slice(0, 12);
+      document.getElementById("gapList").innerHTML = combos.map(item => `
+        <button class="item" type="button" data-topic="${item.name}">
+          ${item.name}
+          <small>${item.group} · 当前样本 ${item.count} 个 · 机会分 ${item.score}</small>
+        </button>
+      `).join("");
+      document.querySelectorAll("#gapList [data-topic]").forEach(button => {
+        button.addEventListener("click", () => selectTopic(button.dataset.topic));
+      });
+    }
+
+    window.addEventListener("resize", () => update());
+    populateTopicSelectors();
+    updateAll();
+  </script>
+</body>
+</html>

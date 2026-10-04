@@ -58,3 +58,6 @@ body[data-site-page=map] .atlas-settings-tools button[aria-pressed=true]{backgro
 body[data-site-page=map] .atlas-settings-tools .map-actions{width:100%;min-width:0}.atlas-settings-tools .map-actions .zoom-btn{width:44px;flex:0 0 44px}
 @media(max-width:640px){body[data-site-page=map] .app-shell>.topbar{grid-template-columns:minmax(0,1fr) minmax(130px,1fr);gap:10px}body[data-site-page=map] .topbar h1{font-size:13px;letter-spacing:0}.topbar .brand-block img{width:29px;height:32px}body[data-site-page=map] .topbar .brand-block{gap:5px}body[data-site-page=map] .search-box{padding:8px;gap:5px}body[data-site-page=map] .search-box input{font-size:12px}}
 body[data-site-page=map] #atlasSettings :is(#resetFilters,#resetMap,#mapType){background:#29232f!important;color:#e0dce6!important;border:1px solid #78658866!important;box-shadow:none!important}
+
+body[data-site-page=map] .topbar .search-panel{grid-column:2}
+@media(max-width:640px){body[data-site-page=map] .app-shell>.topbar{grid-template-columns:1fr}body[data-site-page=map] .topbar .search-panel{grid-column:1}}

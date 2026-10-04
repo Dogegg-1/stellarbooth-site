@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN" data-station-entry="true"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>星游集 · 深空接收站</title><link rel="stylesheet" href="station.css?v=28"><script src="site-routes.js"></script><script src="assets/vendor/three/three.min.js" defer></script><script src="station-state.js?v=10" defer></script><script src="data/resources.js" defer></script><script src="station-display.js" defer></script><script src="station-audio.js?v=4" defer></script><script src="station-outline.js?v=11" defer></script><script src="station.js?v=29" defer></script><link rel="stylesheet" href="home-project.css"><script src="home-project.js" defer></script><link rel="stylesheet" href="site-nav.css"><link rel="stylesheet" href="site-motion.css?v=station3"><script src="station-pixel.js?v=2" defer></script></head>
+<body data-site-page="home" class="station-page pixel-mode" data-mode="scene">
+<script src="site-nav.js?v=14"></script>
+<main id="station" aria-label="复古月面接收站"><canvas id="stationCanvas" aria-hidden="true"></canvas><div class="scene-vignette" aria-hidden="true"></div><div class="scene-grain" aria-hidden="true"></div><div class="station-caption"><h1><strong>星游集</strong><span>深空接收站</span></h1></div>
+<div class="hotspots"><button class="hotspot primary" data-hotspot="tv" aria-label="靠近电视"><span>打开电视</span></button><button class="hotspot" data-hotspot="tools" aria-label="查看游戏工具库"><span>工具台</span></button><a class="hotspot" data-hotspot="map" href="map.html"><span>游戏星图</span></a><a class="hotspot" data-hotspot="about" href="about.html"><span>小屋</span></a></div>
+<p class="scene-status" id="sceneStatus" role="status"></p><div class="fallback" hidden><strong>当前设备暂时无法显示 3D 场景</strong><p>你仍然可以直接浏览完整网站。</p><a href="map.html?view=gallery">浏览作品 →</a><a href="map.html">打开游戏星图 →</a></div></main>
+
+<iframe id="tvFrame" title="星游集原版电视内容" data-src="home-classic.html?station=1&screen=13" hidden></iframe><section class="television-focus" id="tvFocus" role="region" aria-label="电视近景" hidden inert>
+<button class="return-scene" id="returnScene">← 返回接收站</button>
+<button id="tvPower3d" class="tv-power-3d" aria-label="打开电视"></button>
+<div class="tv-controls" id="tvControls" hidden><label for="tvProjects">项目信号</label><select id="tvProjects" aria-label="选择电视中的项目"><option value="">探索一个项目</option></select><a id="tvProjectLink" href="map.html">全部作品 ↗</a><button id="tvPause" aria-pressed="false">暂停旋转</button></div>
+</section>
+
+<div class="station-audio"><button id="audioToggle" aria-pressed="false">♫ 深空静噪</button><input id="audioVolume" type="range" min="0" max="100" value="35" aria-label="背景音乐音量"></div><noscript><a href="map.html?view=gallery">浏览作品</a> · <a href="map.html">游戏星图</a></noscript>
+</body></html>

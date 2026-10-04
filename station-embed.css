@@ -1,0 +1,15 @@
+html:has(body.station-embedded),body.station-embedded{margin:0!important;padding:0!important;height:100%;overflow:hidden;background:transparent!important}
+body.station-embedded>.global-site-nav,body.station-embedded>.home-masthead,body.station-embedded>.skip-link,body.station-embedded>footer,body.station-embedded #main>:not(.television-shell){display:none!important}
+body.station-embedded #main{margin:0!important;padding:0!important;height:100%}
+body.station-embedded .television-shell{margin:0!important;width:100%!important;height:100%!important;max-width:none!important;padding:16px 16px 42px!important;box-sizing:border-box}
+body.station-embedded .television-shell .galaxy-hero{width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important}
+@media(max-width:640px){body.station-embedded .television-shell{padding:9px 9px 30px!important}body.station-embedded .galaxy-brand{bottom:115px!important}}
+/* Original page content, fitted onto the physical CRT; no duplicate housing. */
+body.station-embedded .television-shell{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+body.station-embedded .television-shell:before,body.station-embedded .television-shell:after,body.station-embedded .tv-speaker{display:none!important}
+body.station-embedded .television-shell .galaxy-hero{border:0!important;box-shadow:none!important;border-radius:0!important}
+
+/* The outer scene owns power input; never show a second HTML power glyph. */
+body.station-embedded .tv-power-gate{display:none!important}
+body.station-embedded .television-shell{filter:none!important}
+body.station-embedded.station-screen-far .television-shell{filter:url(#embedded-pixels)!important}

@@ -26,12 +26,7 @@
  new MutationObserver(syncDock).observe(document.querySelector('#filtersTab'),{attributes:true,attributeFilter:['aria-pressed']});
  const stats=document.querySelector('#statsGrid');const summary=document.createElement('details');summary.className='atlas-data-summary';const title=document.createElement('summary');title.textContent='数据概况';summary.append(title,stats,document.querySelector('#dataNotice'),document.querySelector('.map-participation'));document.querySelector('.explore-bar').append(summary);
  // Keep the canvas as the page surface; secondary information lives in the side sheet.
- const brand=document.querySelector('.brand-block');
  const views=document.querySelector('.view-switch');
-  document.querySelector('.topbar').prepend(brand);
- brand.replaceChildren();
- const logo=document.createElement('img');logo.src='./assets/home/stellarbooth-rabbit.png';logo.alt='星游集兔子 Logo';logo.width=48;logo.height=44;
- const heading=document.createElement('h1');heading.textContent='星游集游戏星图';brand.append(logo,heading);
  tools.prepend(views);
  tools.append(document.querySelector('.map-toolbar'),document.querySelector('#regionNav'),summary,document.querySelector('#activeFilters'));
  const viewButton=document.createElement('button');viewButton.type='button';viewButton.title='切换地图与作品展柜';viewButton.setAttribute('aria-label','切换到作品展柜');

@@ -1,0 +1,2258 @@
+[
+  {
+    "name": "低叙事",
+    "group": "结构/系统",
+    "sample_count": 54,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多人在线",
+    "group": "平台/商业",
+    "sample_count": 44,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "奇幻",
+    "group": "世界观/剧情内容",
+    "sample_count": 32,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "开放世界",
+    "group": "结构/系统",
+    "sample_count": 31,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "探索",
+    "group": "结构/系统",
+    "sample_count": 30,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "科幻",
+    "group": "世界观/剧情内容",
+    "sample_count": 28,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多人合作",
+    "group": "玩法/类型",
+    "sample_count": 27,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "服务型游戏",
+    "group": "平台/商业",
+    "sample_count": 25,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "线性叙事",
+    "group": "结构/系统",
+    "sample_count": 25,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "RPG",
+    "group": "玩法/类型",
+    "sample_count": 21,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "生存",
+    "group": "玩法/类型",
+    "sample_count": 20,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高压力",
+    "group": "情绪/体验",
+    "sample_count": 19,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高重复",
+    "group": "结构/系统",
+    "sample_count": 19,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "基地建造",
+    "group": "结构/系统",
+    "sample_count": 19,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "恐怖",
+    "group": "情绪/体验",
+    "sample_count": 18,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低压力",
+    "group": "情绪/体验",
+    "sample_count": 17,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "动作",
+    "group": "玩法/类型",
+    "sample_count": 17,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "射击",
+    "group": "玩法/类型",
+    "sample_count": 17,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "黑色幽默",
+    "group": "情绪/体验",
+    "sample_count": 16,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "成人叙事",
+    "group": "情绪/体验",
+    "sample_count": 15,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高难度",
+    "group": "情绪/体验",
+    "sample_count": 15,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "Roguelike",
+    "group": "玩法/类型",
+    "sample_count": 15,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "平台跳跃",
+    "group": "玩法/类型",
+    "sample_count": 14,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "像素",
+    "group": "结构/系统",
+    "sample_count": 12,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "竞技",
+    "group": "结构/系统",
+    "sample_count": 11,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "可爱",
+    "group": "情绪/体验",
+    "sample_count": 11,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低成本",
+    "group": "平台/商业",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "动作RPG",
+    "group": "玩法/类型",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "回合制",
+    "group": "结构/系统",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "益智",
+    "group": "玩法/类型",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "涌现叙事",
+    "group": "结构/系统",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "政治",
+    "group": "世界观/剧情内容",
+    "sample_count": 10,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "道德选择",
+    "group": "情绪/体验",
+    "sample_count": 9,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "合作PvE",
+    "group": "玩法/类型",
+    "sample_count": 9,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现代军事",
+    "group": "世界观/剧情内容",
+    "sample_count": 9,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "治愈",
+    "group": "情绪/体验",
+    "sample_count": 9,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "沉浸模拟",
+    "group": "玩法/类型",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高复杂度",
+    "group": "结构/系统",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "历史",
+    "group": "世界观/剧情内容",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "模拟经营",
+    "group": "玩法/类型",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "收集养成",
+    "group": "结构/系统",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "叙事冒险",
+    "group": "玩法/类型",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "银河城",
+    "group": "玩法/类型",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "侦探",
+    "group": "世界观/剧情内容",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "直播友好",
+    "group": "情绪/体验",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "资源管理",
+    "group": "结构/系统",
+    "sample_count": 8,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "城市建造",
+    "group": "玩法/类型",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "电竞",
+    "group": "平台/商业",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "队伍羁绊",
+    "group": "结构/系统",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "黑暗奇幻",
+    "group": "世界观/剧情内容",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "经营",
+    "group": "玩法/类型",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "模拟",
+    "group": "玩法/类型",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "派对",
+    "group": "平台/商业",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "生活模拟",
+    "group": "玩法/类型",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "刷宝",
+    "group": "结构/系统",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现实题材",
+    "group": "结构/系统",
+    "sample_count": 7,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低战斗",
+    "group": "情绪/体验",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多分支叙事",
+    "group": "结构/系统",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "家庭友好",
+    "group": "情绪/体验",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "解谜",
+    "group": "玩法/类型",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "开放区域",
+    "group": "结构/系统",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "潜行",
+    "group": "玩法/类型",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "赛博朋克",
+    "group": "世界观/剧情内容",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "身份认同",
+    "group": "情绪/体验",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "物理",
+    "group": "结构/系统",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "中世纪",
+    "group": "世界观/剧情内容",
+    "sample_count": 6,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "撤离射击",
+    "group": "玩法/类型",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "大逃杀",
+    "group": "玩法/类型",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "买断制",
+    "group": "平台/商业",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "末世",
+    "group": "世界观/剧情内容",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "太空探索",
+    "group": "世界观/剧情内容",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "体育",
+    "group": "玩法/类型",
+    "sample_count": 5,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "超自然",
+    "group": "世界观/剧情内容",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "抽卡",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "抽象",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "短篇",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "二次元",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "犯罪",
+    "group": "世界观/剧情内容",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "怪物狩猎",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "魂like",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "家族叙事",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "建造",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "近未来",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "卡牌构筑",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "派系叙事",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "破坏环境",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "情感",
+    "group": "情绪/体验",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "沙盒建造",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "社交",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "视觉小说",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "收集",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "手绘",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "碎片叙事",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "喜剧",
+    "group": "情绪/体验",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "幸存者like",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "休闲",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "元叙事",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "战术",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "战术竞技",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "政治阴谋",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "自动攻击",
+    "group": "结构/系统",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "JRPG",
+    "group": "玩法/类型",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "UGC",
+    "group": "平台/商业",
+    "sample_count": 4,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "步行模拟",
+    "group": "玩法/类型",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "大战略",
+    "group": "玩法/类型",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "都市奇幻",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多路线",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "废土",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "复仇",
+    "group": "情绪/体验",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高自由度",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "格斗",
+    "group": "玩法/类型",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "孤独感",
+    "group": "情绪/体验",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "国家经营",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "海洋",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "黑白美术",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "基地管理",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "家庭",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "恋爱",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "青春",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "日本历史",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "太空",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "推理",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "武士",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现代都市",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现代职场",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "小镇",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "校园",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "心理健康",
+    "group": "情绪/体验",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "音乐节奏",
+    "group": "玩法/类型",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "英雄技能",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "战争",
+    "group": "世界观/剧情内容",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "职业生涯",
+    "group": "平台/商业",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "自动化",
+    "group": "结构/系统",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "MMORPG",
+    "group": "玩法/类型",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "VR",
+    "group": "平台/商业",
+    "sample_count": 3,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "暗黑",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "岛屿",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低美术",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "短局",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "对话",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "非线性叙事",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "讽刺剧情",
+    "group": "情绪/体验",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "俯视角",
+    "group": "玩法/类型",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "海盗",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "机器人",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "驾驶",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "角色收集",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "角色叙事",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "竞速",
+    "group": "玩法/类型",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "昆虫王国",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "洛夫克拉夫特",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "魔法",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "烹饪",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "汽车",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "汽车文化",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "清洁",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "忍者",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "赛季叙事",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "丧尸",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "社交推理",
+    "group": "玩法/类型",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "摄影",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "生态模拟",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "时间能力",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "时间循环",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "数字组合",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "搜索",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "太空歌剧",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "团队副本",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "西部",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "希腊神话",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现代生活",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "医疗",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "长线剧情",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "哲学",
+    "group": "情绪/体验",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "殖民地模拟",
+    "group": "玩法/类型",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "追逐",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "足球",
+    "group": "世界观/剧情内容",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "FMV",
+    "group": "结构/系统",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "MOBA",
+    "group": "玩法/类型",
+    "sample_count": 2,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "2D",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "4X",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "矮人",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "暗黑童话",
+    "group": "情绪/体验",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "搬家",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "北欧神话",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "背包管理",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "边检",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "波斯神话",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "策略",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "柴油朋克",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "超级英雄",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "超能力",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "潮流文化",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "撤离",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "成长",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "船",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "刺客",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "大规模战场",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "大战场",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "弹幕",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "弹球",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "岛屿建设",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "道教科幻",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "地牢",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "地图推演",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低操作",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低多边形",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "低龄友好",
+    "group": "情绪/体验",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "第三人称",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "第一人称",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "电影工业",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "钓鱼",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "调查",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "动态事件",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "动物角色",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "动物园",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "短篇集",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "短视频",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "队伍养成",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多代叙事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多阶段",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多人交换",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "多元宇宙",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "法庭",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "反乌托邦",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "访客识别",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "飞行",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "非对称竞技",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "分支选择",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "复古动画",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "橄榄球",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高机动",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "高死亡",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "哥特恐怖",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "工业革命",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "公司讽刺",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "供应链",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "怪物",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "规则改写",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "鬼怪",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "海边小镇",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "海事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "海战",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "和平主义",
+    "group": "情绪/体验",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "宏大工程",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "宏大叙事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "怀旧复刻",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "荒岛",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "荒野",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "婚姻",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "机甲",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "机器生态",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "即时战术",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "技能构筑",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "技能挑战",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "技术展示",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "家族恩怨",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "健身",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "交通",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "角色扮演",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "角色关系",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "角色技能",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "教育",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "街头文化",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "经济",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "经济模拟",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "酒吧",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "剧情关卡",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "军事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "咖啡馆",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "卡牌收集",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "开放道路",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "考古",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "科幻奇幻",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "科技树",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "可爱恐怖",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "空间错觉",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "空间站",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "恐龙",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "跨界联动",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "篮球",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "老虎机",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "冷战",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "掠夺",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "猫",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "贸易",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "模组",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "魔幻现实",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "南方哥特",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "拟真",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "农场经营",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "女性主角",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "攀登",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "平台化",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "扑克",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "欺骗",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "潜水",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "亲情",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "青少年",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "轻喜剧",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "人生",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "沙盒",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "沙盒关卡",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "商店",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "社交模拟",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "社交叙事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "神秘",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "生活物件",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "生态",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "失忆",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "实时暂停",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "实验",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "书店",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "数据分析",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "双人协作",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "死亡",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "随机系统",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "太空站",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "探险",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "逃脱房",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "天空",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "童年噩梦",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "骰子",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "挖掘",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "挖矿",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "文字",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "文字冒险",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "无文本",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "无文本叙事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "舞蹈",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "物理建造",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "物理交互",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "西游神话",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "系统设计",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现实地理",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "现实寓言",
+    "group": "情绪/体验",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "线性战役",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "小队指挥",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "邪教",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "心理压力",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "悬疑",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "血腥",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "驯养",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "一战",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "移动端",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "艺术风格",
+    "group": "情绪/体验",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "艺术化",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "异步对战",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "异常区域",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "疫情隐喻",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "英雄收集",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "语言破译",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "语音互动",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "运动",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "战棋",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "战争平民",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "章节叙事",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "长期运营",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "长期IP",
+    "group": "平台/商业",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "蒸汽朋克",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "直播综艺",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "职场",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "中东",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "中国神话",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "重复挑战",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "重制经典",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "装备制作",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "装修",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "自动战斗",
+    "group": "玩法/类型",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "自然",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "宗教",
+    "group": "世界观/剧情内容",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "宗教隐喻",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "罪疚",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "作家",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "AI伙伴",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  },
+  {
+    "name": "IP联动",
+    "group": "结构/系统",
+    "sample_count": 1,
+    "data_status": "mvp_sample"
+  }
+]

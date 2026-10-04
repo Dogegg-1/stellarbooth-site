@@ -1,0 +1,31 @@
+{
+  "id": "game-topic-graph",
+  "name": "游戏选题图谱",
+  "short_name": "选题图谱",
+  "category": "项目孵化",
+  "audience": ["独立游戏开发者", "星游集项目评审", "策划", "发行与内容运营"],
+  "entry": "index.html",
+  "recommended_route": "/tools/game-topic-graph",
+  "description": "用题材节点和交叉关系线展示游戏项目样本，帮助判断红海方向、低覆盖题材和可验证组合。",
+  "status": "mvp-ready",
+  "data_files": ["games.json", "topics.json", "sources.json"],
+  "features": [
+    "题材交互图谱",
+    "题材机会看板",
+    "题材交叉矩阵",
+    "机会象限",
+    "题材科普与验证建议",
+    "单题材报告导出",
+    "题材组合报告导出",
+    "收藏工作台导出",
+    "会前简报导出",
+    "星游集自有项目录入",
+    "自有项目库导出"
+  ],
+  "integration_notes": [
+    "可以作为静态 HTML 工具直接挂入工具库 iframe 或新窗口。",
+    "如工具库是 React/Vue 项目，建议先保留当前页面为独立静态页，后续再拆分数据层和视图层。",
+    "后续星游集自有项目库可以按 games.json 的字段结构追加项目。",
+    "当前版本已支持浏览器本地录入星游集自有项目，数据保存在 localStorage，可从工作台导出。"
+  ]
+}
