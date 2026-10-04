@@ -1,0 +1,2 @@
+// Move existing controls without recreating nodes or losing their handlers.
+(()=>{const sidebar=document.querySelector('.sidebar');if(!sidebar)return;const group=document.createElement('details');group.className='mobile-tool-filters';const label=document.createElement('summary');label.textContent='筛选与图例';group.append(label);for(const node of [...sidebar.children])if(node.tagName!=='H1')group.append(node);sidebar.append(group);const query=matchMedia('(max-width:640px)');const layout=()=>{group.open=!query.matches;};query.addEventListener('change',layout);layout();})();

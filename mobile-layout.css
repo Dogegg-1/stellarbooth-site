@@ -1,0 +1,48 @@
+/* Portrait adjustments only; desktop compositions remain unchanged. */
+@media(max-width:640px){
+ body[data-site-shell]{--site-nav-height:108px}
+ body[data-site-shell]>.global-site-nav{height:108px;min-height:108px;padding:58px 10px 6px!important;gap:4px;grid-template-columns:repeat(4,minmax(0,1fr));align-content:end}
+ body[data-site-shell]>.global-site-nav>.site-brand{display:flex;left:16px;top:0;height:52px;width:auto;min-height:0;font-size:15px;flex-direction:row}
+ body[data-site-shell]>.global-site-nav>.site-brand img{width:28px;height:28px}
+ body[data-site-shell]>.global-site-nav>a[data-nav-key]{height:44px;min-height:44px;font-size:12px;padding:4px 2px}
+ body[data-site-shell] .station-audio{top:6px;right:14px;left:auto;width:44px;height:44px}
+ body[data-site-shell] .station-audio button{width:44px;height:44px}
+ .station-page{height:100dvh;min-height:0}.station-caption{bottom:24px!important;left:18px!important}.station-caption h1 strong{font-size:38px!important}.station-caption h1 span{font-size:14px!important}
+ .return-scene{top:12px;left:12px;min-height:44px;padding:10px 14px}.tv-power-3d{width:52px;height:52px}
+ .hotspot{min-height:44px;max-width:120px}.hotspot span{font-size:11px;letter-spacing:0}
+ body[data-site-page=map] .atlas-dock{top:auto;bottom:calc(10px + env(safe-area-inset-bottom));left:50%;right:auto;transform:translateX(-50%);flex-direction:row;max-width:calc(100% - 16px);gap:2px;padding:4px;border-radius:16px}
+ body[data-site-page=map] .atlas-dock button{width:44px;min-width:0;min-height:48px;padding:5px 2px;font-size:10px}
+ body[data-site-page=map] .workspace.gallery-mode .project-gallery{padding:20px 14px 88px;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 14px}
+ body[data-site-page=map] .atlas-settings{inset:10px 8px 76px;width:calc(100% - 16px);max-height:none;padding:16px}
+ body[data-site-page=map] .search-box input{font-size:16px;min-width:0}
+ .tool-destinations{margin-top:28px}.tools-content .content-tag{margin-top:28px}.tools-content h1{font-size:32px}.tool-card-art{height:160px}
+ .content-path{gap:10px}.content-path span{white-space:normal;text-align:right}
+ button,a,input,select{touch-action:manipulation}input,select,textarea{max-width:100%}
+}
+@media(max-width:359px){body[data-site-page=map] .workspace.gallery-mode .project-gallery,.tool-destinations{grid-template-columns:1fr}}
+@media(max-width:640px){
+ body[data-site-page=map] .workspace .map-panel{min-height:0}
+ body[data-site-page=map] .workspace.gallery-mode .map-panel{padding-right:0}
+ body[data-site-shell] .station-audio{top:6px!important;right:14px!important}
+ body[data-site-shell] .station-audio button{width:44px!important;height:44px!important}
+}
+
+/* Keep important controls clear of notches, home indicators and short viewports. */
+@media(max-width:640px){
+ body[data-site-shell]{--site-nav-height:calc(108px + env(safe-area-inset-top))}
+ body[data-site-shell]>.global-site-nav{height:var(--site-nav-height);min-height:var(--site-nav-height);padding-top:calc(58px + env(safe-area-inset-top))!important}
+ body[data-site-shell]>.global-site-nav>.site-brand{top:env(safe-area-inset-top)}
+ body[data-site-shell] .station-audio{top:calc(6px + env(safe-area-inset-top))!important}
+ .station-caption{bottom:calc(18px + env(safe-area-inset-bottom))!important}
+ body[data-site-page=map] #filtersPanel,body[data-site-page=map] #detailPanel{max-width:100%;max-height:100dvh;overflow-x:hidden;overscroll-behavior:contain;padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+ #closeSidebar,#closeDetail,.atlas-settings header button{min-width:44px;min-height:44px}
+ body[data-site-page=map] .leaflet-control-attribution{font-size:9px;max-width:100%;white-space:normal}
+ body[data-site-page=map] .project-gallery{scroll-padding-bottom:90px}
+ .contact-layout,.contact-channels,.tool-card-copy{min-width:0;overflow-wrap:anywhere}
+}
+@media(max-width:700px) and (hover:none){
+ .station-page[data-mode=scene] .hotspots{inset:auto 12px calc(108px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;pointer-events:none}
+ .station-page .hotspots .hotspot{position:static;left:auto!important;top:auto!important;transform:none;min-width:0;max-width:none;min-height:44px;justify-content:center;padding:7px 3px;opacity:1;pointer-events:auto}
+ .station-page .hotspots .hotspot span{font-size:11px;white-space:normal;text-align:center}
+}
+@media(max-height:460px) and (hover:none){.station-page[data-mode=scene] .hotspots{bottom:12px;left:auto;width:56%}.station-caption{bottom:12px!important}.station-caption h1 strong{font-size:29px!important}.station-caption h1 span{font-size:11px!important}}
